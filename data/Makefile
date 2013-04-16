@@ -11,6 +11,8 @@ europe-latest.osm.pbf:
 copenhagen.osm.pbf:
 	curl -sLO http://osm-extracted-metros.s3.amazonaws.com/copenhagen.osm.pbf
 
+# shp2pgsql -d -s 4326:900913 -I coastline-copenhagen.shp copenhagen_coastline | pv | psql -h geo.local -d cphbikes -U cphbikes
+
 # clip the coastline around Copenhagen
 coastline-copenhagen.shp: coastline.zip
 	unzip -n coastline.zip
