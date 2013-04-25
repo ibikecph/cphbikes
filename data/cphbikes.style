@@ -99,6 +99,7 @@ way        way_area     real                # This is calculated during import
 
 # If you're interested in bicycle routes, you may want the following fields
 # To make these work you need slim mode or the necessary data won't be remembered.
+way       mtb          text     linear
 way       lcn_ref      text     linear
 way       rcn_ref      text     linear
 way       ncn_ref      text     linear
