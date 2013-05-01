@@ -1,0 +1,273 @@
+/* CSS Document */
+
+@water: #2e8ab9;
+@land: #a9a89d;
+@park: #a5d038;
+@road_outline: #a9a89d;
+@road_inline: #e6e4e4;
+@bike_outline: #fbd42c;
+@bike_inline: #e6e4e4;
+
+Map {
+  background-color: @water;
+}
+
+#countries {
+  ::outline {
+    line-color:@land;
+    line-width: 2;
+    line-join: round;
+  }
+  polygon-fill:@land;
+}
+
+#polygon[leisure='park'] { polygon-fill:@park; }
+#polygon[leisure='track'] { polygon-fill:@park; }
+#polygon[leisure='common'] { polygon-fill:#a5d038; }
+#polygon[leisure='recreation_ground'] { polygon-fill:#79c918; }
+#polygon[leisure='pitch'] { polygon-fill:#94b82a; }
+#polygon[natural='wood'] { polygon-fill:#82bc17; }
+#polygon[natural='wetland'] { polygon-fill:#50ba48; }
+#polygon[natural='scrub'] { polygon-fill:#6fbe1d; }
+#polygon[landuse='forest'] { polygon-fill:#82bc17; }
+#polygon[landuse='greenfield'] { polygon-fill:#a4b438; }
+
+
+#polygon[natural='water'],
+#polygon[waterway!='undefined'] {
+  polygon-fill: @water;
+}
+
+
+.land {
+  line-color:@land;
+  line-width:0.5;
+  polygon-opacity:1;
+  polygon-fill:@land;
+}
+
+
+/*
+#lines[bicycle='allowed'],
+#lines[oneway='bicycle'],
+#lines[bicycle='designated'],
+#lines[bicycle='permissive'],
+#lines[bicycle='track'],
+#lines[bicycle='ok'],
+#lines[bicycle='yes'] {
+  ::outline{
+    	line-width:4;
+  		line-color:#ff32cc;
+  		line-opacity: 1.0;
+    }
+  ::inline{
+		line-width:1;
+  		line-color:#fff;
+  		line-opacity: 1.0;
+    }
+  
+}
+*/
+
+/*
+#lines['cycleway:left'='lane'],
+#lines['cycleway:right'='lane'],
+*/
+
+
+
+/* Z14 ROAD AND BIKE */
+
+#copenhagen_line[zoom=14][route='bicycle'][ncn='yes'] {
+  line-width:14; line-opacity:0.1; line-color:#ef9e2b;
+}
+
+#copenhagen_line[zoom=14][route='bicycle'][rcn='yes'] {
+  line-width:14; line-opacity:0.7; line-color:#ef9f2b;
+}
+
+#copenhagen_line[zoom=14][route='bicycle'][lcn='yes'] {
+  line-width:14; line-opacity:0.7; line-color:#66950e;
+}
+
+#lines[zoom=14][highway='path'] {
+  line-width:.7; line-dasharray: 4, 2; line-color:#fff;
+}
+
+#lines[zoom=14][railway='rail'] {
+  ::outline{ line-width:1; line-color:#b59476; line-opacity: 1.0; }
+  ::inline{ line-width:1; line-color:#734e2c; line-dasharray: 4, 2; }
+}
+
+#lines[zoom=14][railway='light_rail'] {
+  ::outline{ line-width:1; line-color:#b59476; line-opacity: 1.0; }
+  ::inline{ line-width:1; line-color:#734e2c; line-dasharray: 4, 2; }
+}
+
+#lines[zoom=14][highway='primary'] {
+  ::outline{ line-width:8; line-color:#fff; line-opacity: 1.0; }
+  ::inline{ line-width:5; line-color:#534f35; line-opacity: 1.0; }
+}
+
+#z_14[zoom=14][kind='major_road'] {
+  ::outline{ line-width:4.5; line-color:#fff; line-opacity: 1.0; }
+  ::inline{ line-width:2.5; line-color:#828163; line-opacity: 1.0; }
+}
+
+#z_14[zoom=14][kind='minor_road'] {
+  ::outline{ line-width:2; line-color:@road_outline; line-opacity: 1.0; }
+  ::inline{ line-width:2; line-color:@road_inline; line-opacity: 1.0; }
+}
+
+#lines[zoom=14][highway='cycleway'] {
+  ::outline{ line-width:2; line-color:@bike_outline; line-opacity: 0.8; }
+  ::inline{ line-width:1; line-color:@bike_inline; line-opacity: 1.0; }
+}
+
+#lines[zoom=14][bicycle='yes'] {
+  ::outline{ line-width:2; line-color:@bike_outline; line-opacity: 0.8; }
+  ::inline{ line-width:1; line-color:@bike_inline; line-opacity: 1.0; }
+}
+
+#lines[zoom=14][bicycle='designated'] {
+  ::outline{ line-width:2; line-color:@bike_outline; line-opacity: 0.8; }
+  ::inline{ line-width:1; line-color:@bike_inline; line-opacity: 1.0; }
+}
+
+#lines[zoom=14][bicycle='ok'] {
+  ::outline{ line-width:2; line-color:@bike_outline; line-opacity: 0.8; }
+  ::inline{ line-width:1; line-color:@bike_inline; line-opacity: 1.0; }
+}
+
+#lines[zoom=14][route='bicycle'] {
+  ::outline{ line-width:2; line-color:@bike_outline; line-opacity: 0.8; }
+  ::inline{ line-width:1; line-color:@bike_inline; line-opacity: 1.0; }
+}
+
+
+/* Z15 ROAD AND BIKE */
+
+#copenhagen_line[zoom>=15][route='bicycle'][ncn='yes'] {
+  line-width:16; line-opacity:0.2; line-color:#ef9e2b;
+}
+
+#copenhagen_line[zoom>=15][route='bicycle'][rcn='yes'] {
+  line-width:16; line-opacity:0.5; line-color:#ef9f2b;
+}
+
+#copenhagen_line[zoom>=15][route='bicycle'][lcn='yes'] {
+  line-width:16; line-opacity:0.5; line-color:#66950e;
+}
+
+#lines[zoom>=15][highway='path'] {
+  line-width:1; line-dasharray: 6, 3; line-color:#b6b2ad;
+}
+
+#lines[zoom>=15][highway='primary'] {
+  ::outline{ line-width:10; line-color:#fff; line-opacity: 1.0; }
+  ::inline{ line-width:6; line-color:#787560; line-opacity: 1.0; }
+}
+
+#z_14[zoom>=15][kind='major_road'] {
+  ::outline{ line-width:14; line-color:#fff; line-opacity: 1.0; }
+  ::inline{ line-width:9; line-color:#828163; line-opacity: 1.0; }
+}
+
+#z_15[zoom>=15][kind='minor_road'] {
+  ::outline{ line-width:10; line-color:@road_outline; line-opacity: 1.0; }
+  ::inline{ line-width:3; line-color:@road_inline; line-opacity: 1.0; }
+}
+
+#lines[zoom=15][highway='cycleway'] {
+  ::outline{ line-width:5; line-color:@bike_outline; line-opacity: 1.0; }
+  ::inline{ line-width:2.5; line-color:@bike_inline; line-opacity: 1.0; }
+}
+
+#lines[zoom=15][bicycle='yes'] {
+  ::outline{ line-width:5; line-color:@bike_outline; line-opacity: 1.0; }
+  ::inline{ line-width:2.5; line-color:@bike_inline; line-opacity: 1.0; }
+}
+
+#lines[zoom=15][bicycle='designated'] {
+  ::outline{ line-width:5; line-color:@bike_outline; line-opacity: 1.0; }
+  ::inline{ line-width:2.5; line-color:@bike_inline; line-opacity: 1.0; }
+}
+
+#lines[zoom=15][bicycle='ok'] {
+  ::outline{ line-width:5; line-color:@bike_outline; line-opacity: 1.0; }
+  ::inline{ line-width:2.5; line-color:@bike_inline; line-opacity: 1.0; }
+}
+
+#lines[zoom=15][route='bicycle'] {
+  ::outline{ line-width:5; line-color:@bike_outline; line-opacity: 1.0; }
+  ::inline{ line-width:2.5; line-color:@bike_inline; line-opacity: 1.0; }
+}
+
+
+/* Z16 ROAD AND BIKE */
+
+#z_15big[zoom>=16][kind='major_road'] {
+  ::outline{ line-width:22; line-color:@road_outline; line-opacity: 1.0; }
+  ::inline{ line-width:18; line-color:@road_inline; line-opacity: 1.0; }
+}
+
+#z_15small[zoom>=16][kind='minor_road'] {
+  ::outline{ line-width:7; line-color:@road_outline; line-opacity: 1.0; }
+  ::inline{ line-width:4; line-color:@road_inline; line-opacity: 1.0; }
+}
+
+#lines[zoom>=16][highway='cycleway'] {
+  ::outline{ line-width:12; line-color:@bike_outline; line-opacity: 1.0; }
+  ::inline{ line-width:4; line-color:@bike_inline; line-opacity: 1.0; }
+}
+
+#lines[zoom>=16][bicycle='yes'] {
+  ::outline{ line-width:12; line-color:@bike_outline; line-opacity: 1.0; }
+  ::inline{ line-width:4; line-color:@bike_inline; line-opacity: 1.0; }
+}
+
+#lines[zoom>=16][bicycle='designated'] {
+  ::outline{ line-width:12; line-color:@bike_outline; line-opacity: 1.0; }
+  ::inline{ line-width:4; line-color:@bike_inline; line-opacity: 1.0; }
+}
+
+#lines[zoom>=16][bicycle='ok'] {
+  ::outline{ line-width:12; line-color:@bike_outline; line-opacity: 1.0; }
+  ::inline{ line-width:4; line-color:@bike_inline; line-opacity: 1.0; }
+}
+
+#lines[zoom>=16][route='bicycle'] {
+  ::outline{ line-width:12; line-color:@bike_outline; line-opacity: 1.0; }
+  ::inline{ line-width:4; line-color:@bike_inline; line-opacity: 1.0; }
+}
+
+
+
+
+
+
+
+
+
+
+#line_z10[zoom<=10]{
+  line-width:1;
+  line-color:#168;
+}
+
+
+#z_11[zoom=11] {
+  line-width:1;
+  line-color:#168;
+}
+
+#z_12[zoom=12] {
+  line-width:1;
+  line-color:#168;
+}
+
+
+#z_13[zoom=13] {
+  line-width:1;
+  line-color:#168;
+}
