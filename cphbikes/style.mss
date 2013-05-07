@@ -1,13 +1,47 @@
-@ocean: #b8dee6;
-@land: #666;
+@water: #3fcdfd;
+@land: #fff;
+@park: #abfa0e;
+@road_outline: #fff;
+@road_inline: #acacac;
+@bike_outline: #fff;
+@bike_inline: #009734;
 
 Map {
-  background-color: #b8dee6;
+  background-color: @water;
 }
 
+#countries {
+  ::outline {
+    line-color:@land;
+    line-width: 2;
+    line-join: round;
+  }
+  polygon-fill:@land;
+}
+
+#polygon[leisure='park'] { polygon-fill:@park; }
+#polygon[leisure='track'] { polygon-fill:@park; }
+#polygon[leisure='common'] { polygon-fill:#96f30c; }
+#polygon[leisure='recreation_ground'] { polygon-pattern-file: url("images/wetland2.png"); }
+#polygon[leisure='pitch'] { polygon-fill:#96f30c; }
+#polygon[natural='wood'] { polygon-fill:#96f30c; }
+#polygon[natural='wetland'] { polygon-pattern-file: url("images/wetland_blue.png"); }
+#polygon[natural='scrub'] { polygon-pattern-file: url("images/scrub.png"); }
+#polygon[landuse='forest'] { polygon-pattern-file: url("images/forest.png"); }
+#polygon[landuse='greenfield'] { polygon-fill:#96f30c; }
+
+
+#polygon[natural='water'],
+#polygon[waterway!='undefined'] {
+  polygon-fill: @water;
+}
+
+
 .land {
-  polygon-opacity: 1;
-  polygon-fill: @land;
+  line-color:@land;
+  line-width:0.5;
+  polygon-opacity:1;
+  polygon-fill:@land;
 }
 
 .roads {
@@ -149,3 +183,5 @@ Map {
   line-color:#0f0;
 }
 */
+
+
