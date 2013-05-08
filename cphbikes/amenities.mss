@@ -1,6 +1,6 @@
 @parking: #0f0;
 @bicycle_parking: #0f0;
-@placeholder: #d8194a;
+@placeholder: #ededed;
 
 .parking {
   marker-width: 3;

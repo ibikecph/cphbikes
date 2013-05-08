@@ -1,3 +1,4 @@
+/*
 [zoom<=12] {
   .roads[kind='major_road'][render='inline'] {
     line-color: #ccc;
@@ -7,3 +8,4 @@
     line-color: #999;
   }
 }
+*/

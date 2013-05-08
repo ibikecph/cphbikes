@@ -1,4 +1,4 @@
-#z10-roads[zoom=10] {
+[zoom=10] {
   #z10-roads[kind='highway'][render='inline'] {
     line-width: 2;
   }

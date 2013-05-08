@@ -19,20 +19,20 @@ Map {
   polygon-fill:@land;
 }
 
-#polygon[leisure='park'] { polygon-fill:@park; }
-#polygon[leisure='track'] { polygon-fill:@park; }
-#polygon[leisure='common'] { polygon-fill:#96f30c; }
-#polygon[leisure='recreation_ground'] { polygon-pattern-file: url("images/wetland2.png"); }
-#polygon[leisure='pitch'] { polygon-fill:#96f30c; }
-#polygon[natural='wood'] { polygon-fill:#96f30c; }
-#polygon[natural='wetland'] { polygon-pattern-file: url("images/wetland_blue.png"); }
-#polygon[natural='scrub'] { polygon-pattern-file: url("images/scrub.png"); }
-#polygon[landuse='forest'] { polygon-pattern-file: url("images/forest.png"); }
-#polygon[landuse='greenfield'] { polygon-fill:#96f30c; }
+.area[leisure='park'] { polygon-fill:@park; }
+.area[leisure='track'] { polygon-fill:@park; }
+.area[leisure='common'] { polygon-fill:#96f30c; }
+.area[leisure='recreation_ground'] { polygon-pattern-file: url("images/wetland2.png"); }
+.area[leisure='pitch'] { polygon-fill:#96f30c; }
+.area[natural='wood'] { polygon-fill:#96f30c; }
+.area[natural='wetland'] { polygon-pattern-file: url("images/wetland_blue.png"); }
+.area[natural='scrub'] { polygon-pattern-file: url("images/scrub.png"); }
+.area[landuse='forest'] { polygon-pattern-file: url("images/forest.png"); }
+.area[landuse='greenfield'] { polygon-fill:@park; }
 
 
-#polygon[natural='water'],
-#polygon[waterway!='undefined'] {
+.area[natural='water'],
+.area[waterway!='undefined'] {
   polygon-fill: @water;
 }
 
@@ -44,14 +44,17 @@ Map {
   polygon-fill:@land;
 }
 
-.roads {
-  line-join: round;
-  line-cap: round;
-}
 
-.roads[render='outline'],
-.roads[render='casing'] {
-  line-cap: butt;
+
+
+
+
+
+/*
+.roads[kind='path'][render='inline']
+{
+  line-color: #fff;
+  line-dasharray: 2,5;
 }
 
 .roads[kind='highway'][render='inline'] {
@@ -61,6 +64,16 @@ Map {
 .roads[kind='highway'][render='outline'],
 .roads[kind='highway'][render='casing'] {
   line-color: #000;
+}
+
+.roads {
+  line-join: round;
+  line-cap: round;
+}
+
+.roads[render='outline'],
+.roads[render='casing'] {
+  line-cap: butt;
 }
 
 .roads[kind='major_road'][render='inline']
@@ -92,13 +105,6 @@ Map {
   line-color: #444;
 }
 
-.roads[kind='path'][render='inline']
-{
-  line-color: #fff;
-  line-dasharray: 2,5;
-}
-
-/*
 #copenhagen_polygon {
   line-color:#dbc069;
   line-width:0.5;
@@ -117,7 +123,6 @@ Map {
   marker-line-color:lighten(#813, 10%);
   marker-allow-overlap:true;
 }
-
 
 
 #line_z10[zoom<=10] {
