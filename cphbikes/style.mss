@@ -1,8 +1,8 @@
 @water: #3fcdfd;
-@land: #fff;
-@park: #abfa0e;
-@road_outline: #fff;
-@road_inline: #acacac;
+@land: #e1e5e5;
+@park: #abf82d;
+@road_outline: #e1e5e5;
+@road_inline: #fff;
 @bike_outline: #fff;
 @bike_inline: #009734;
 
@@ -21,15 +21,20 @@ Map {
 
 .area[leisure='park'] { polygon-fill:@park; }
 .area[leisure='track'] { polygon-fill:@park; }
-.area[leisure='common'] { polygon-fill:#96f30c; }
+.area[leisure='common'] { polygon-fill:@park; }
+.area[leisure='pitch'] { polygon-fill:@park; }
+.area[natural='wood'] { polygon-fill:@park; }
+.area[landuse='greenfield'] { polygon-fill:@park; }
+/*
 .area[leisure='recreation_ground'] { polygon-pattern-file: url("images/wetland2.png"); }
-.area[leisure='pitch'] { polygon-fill:#96f30c; }
-.area[natural='wood'] { polygon-fill:#96f30c; }
+.area[landuse='forest'] { polygon-pattern-file: url("images/forest2.png"); }
 .area[natural='wetland'] { polygon-pattern-file: url("images/wetland_blue.png"); }
 .area[natural='scrub'] { polygon-pattern-file: url("images/scrub.png"); }
-.area[landuse='forest'] { polygon-pattern-file: url("images/forest.png"); }
-.area[landuse='greenfield'] { polygon-fill:@park; }
-
+*/
+.area[natural='scrub'] { polygon-fill:@park; }
+.area[leisure='recreation_ground'] { polygon-fill:@park; }
+.area[landuse='forest'] { polygon-fill:@park; }
+.area[natural='wetland'] { polygon-fill:@park; }
 
 .area[natural='water'],
 .area[waterway!='undefined'] {

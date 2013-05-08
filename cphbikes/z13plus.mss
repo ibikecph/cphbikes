@@ -1,11 +1,12 @@
 [zoom>=13] {
+
+
+/*
   .roads[is_tunnel='yes'][render='outline'],
   .roads[is_tunnel='yes'][render='casing'] {
     line-opacity: 0.2;
   }
 
-
-/*
   .roads[kind='highway'][is_link='yes'][render='inline'] {
     line-color: #fc0;
   }

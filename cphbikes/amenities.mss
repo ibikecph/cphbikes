@@ -1,3 +1,4 @@
+/*
 @parking: #0f0;
 @bicycle_parking: #0f0;
 @placeholder: #ededed;
@@ -61,3 +62,4 @@
 
   polygon-fill: @placeholder;
 }
+*/
