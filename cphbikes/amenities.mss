@@ -1,15 +1,13 @@
-/*
+
 @parking: #0f0;
 @bicycle_parking: #0f0;
 @placeholder: #ededed;
 
-.parking {
-  marker-width: 3;
-  marker-fill: @parking;
-  marker-line-color: darken(@parking, 10%);
 
-  polygon-fill: @parking;
-}
+
+
+
+/*
 
 .bicycle_parking {
   marker-width: 3;
@@ -17,6 +15,14 @@
   marker-line-color: darken(@bicycle_parking, 10%);
 
   polygon-fill: @bicycle_parking;
+}
+
+.parking {
+  marker-width: 3;
+  marker-fill: @parking;
+  marker-line-color: darken(@parking, 10%);
+
+  polygon-fill: @parking;
 }
 
 .restaurant,

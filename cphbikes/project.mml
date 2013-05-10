@@ -1,9 +1,9 @@
 {
   "bounds": [
-    11.8858,
-    55.4909,
-    13.1506,
-    55.9534
+    12.2799,
+    55.5426,
+    12.7029,
+    55.802
   ],
   "center": [
     12.5625,
@@ -12,14 +12,21 @@
   ],
   "format": "png",
   "interactivity": false,
-  "minzoom": 0,
-  "maxzoom": 22,
+  "minzoom": 11,
+  "maxzoom": 16,
   "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
   "Stylesheet": [
+    "amenities.mss",
+    "style.mss",
+    "nodes.mss",
+    "areas.mss",
+    "labels.mss",
     "z10.mss",
     "z11.mss",
     "z11plus.mss",
     "z12.mss",
+    "z12minus.mss",
+    "z13plus.mss",
     "z13.mss",
     "z14.mss",
     "z14plus.mss",
@@ -28,14 +35,7 @@
     "z16.mss",
     "z16plus.mss",
     "z17.mss",
-    "z18plus.mss",
-    "amenities.mss",
-    "style.mss",
-    "nodes.mss",
-    "areas.mss",
-    "labels.mss",
-    "z12minus.mss",
-    "z13plus.mss"
+    "z18plus.mss"
   ],
   "Layer": [
     {
@@ -73,7 +73,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "copenhagen_polygon",
+        "table": "(SELECT * FROM copenhagen_polygon) as map_stuff2",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -229,7 +229,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "copenhagen_line_z15plus",
+        "table": "(SELECT way, kind, is_bridge, is_link, render FROM copenhagen_line_z15plus) as map_stuff",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -246,6 +246,31 @@
       "name": "z15plus-roads"
     },
     {
+      "extent": [
+        11.894005178830769,
+        55.491001653439916,
+        13.146997525508196,
+        55.94999596434641
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, railway, shop, amenity FROM copenhagen_polygon WHERE building='yes') as map_stuff2",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "1324034.6,7457748.64,1463517.07,7548467.7",
+        "dbname": "cphbikes",
+        "host": "geo.local",
+        "user": "cphbikes"
+      },
+      "id": "buildings",
+      "class": "buildings",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "buildings"
+    },
+    {
       "geometry": "linestring",
       "extent": [
         11.894009490744132,
@@ -255,7 +280,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "copenhagen_line",
+        "table": "(SELECT way, highway, bicycle, route, aeroway, ncn, rcn, lcn FROM copenhagen_line) as map_stuff",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -275,6 +300,35 @@
       "name": "copenhagen_line"
     },
     {
+      "geometry": "linestring",
+      "extent": [
+        11.894009490744132,
+        55.49100246772413,
+        13.146999322138763,
+        55.94999807686779
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, highway, bicycle, route, aeroway, ncn, rcn, lcn FROM copenhagen_line WHERE ncn='yes' OR rcn='yes' OR lcn='yes') as map_stuff",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "1324035.08,7457748.8,1463517.27,7548468.12",
+        "host": "geo.local",
+        "user": "cphbikes",
+        "dbname": "cphbikes",
+        "id": "copenhagenline",
+        "project": "copenhagen",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "copenhagen_line_bike_routes",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "copenhagen_line_bike_routes"
+    },
+    {
       "geometry": "point",
       "extent": [
         11.89401009834438,
@@ -284,7 +338,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "copenhagen_point",
+        "table": "(SELECT way, amenity, layer, name, shop, highway, railway FROM copenhagen_point) as points",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -313,7 +367,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT * FROM copenhagen_point WHERE amenity='parking') as parking_points",
+        "table": "(SELECT way, amenity, covered, layer, name FROM copenhagen_point WHERE amenity='parking') as parking_points",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -338,7 +392,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT * FROM copenhagen_polygon WHERE amenity='parking') as parking_areas",
+        "table": "(SELECT way, amenity, covered, layer, name FROM copenhagen_polygon WHERE amenity='parking') as parking_areas",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -364,7 +418,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT * FROM copenhagen_point WHERE amenity='bicycle_parking') as bicycle_parking_points",
+        "table": "(SELECT way, amenity, covered, layer, name FROM copenhagen_point WHERE amenity='bicycle_parking') as bicycle_parking_points",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
