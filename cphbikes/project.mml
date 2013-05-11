@@ -8,7 +8,7 @@
   "center": [
     12.5625,
     55.6561,
-    14
+    15
   ],
   "format": "png",
   "interactivity": false,
@@ -254,7 +254,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, railway, shop, amenity FROM copenhagen_polygon WHERE building='yes') as map_stuff2",
+        "table": "(SELECT way, railway, shop, amenity, name FROM copenhagen_polygon WHERE building='yes') as map_stuff2",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -418,7 +418,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, amenity, covered, layer, name FROM copenhagen_point WHERE amenity='bicycle_parking') as bicycle_parking_points",
+        "table": "(SELECT way, amenity, covered, layer, name, name as label FROM copenhagen_point WHERE amenity='bicycle_parking') as bicycle_parking_points",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -2294,10 +2294,163 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "townhall_areas"
+    },
+    {
+      "extent": [
+        11.894005178830769,
+        55.49100165343991,
+        13.146997525508196,
+        55.9499959643464
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, name, ST_Area(way) AS area, leisure, landuse FROM copenhagen_polygon WHERE leisure IN ('park', 'water_park', 'marina', 'nature_reserve', 'playground', 'garden', 'common', 'sports_centre', 'golf_course', 'stadium', 'track', 'pitch') OR landuse IN ('cemetery', 'park', 'water_park', 'marina', 'nature_reserve', 'playground', 'garden', 'common', 'forest', 'wood') OR amenity IN ('graveyard') ORDER BY z_order ASC) AS greenlabels",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "1324034.75,7457748.50,1463515.12,7548458.00",
+        "dbname": "cphbikes",
+        "host": "geo.local",
+        "user": "cphbikes"
+      },
+      "id": "green-areas-labels",
+      "class": "green-areas-labels",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "green-areas-labels"
+    },
+    {
+      "extent": [
+        11.894005178830769,
+        55.49100165343991,
+        13.146997525508196,
+        55.9499959643464
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, name, ST_Area(way) AS area, landuse as type FROM copenhagen_polygon WHERE \"natural\" IN ('water', 'bay') OR waterway IN ('riverbank') OR landuse IN ('reservoir') ORDER BY z_order ASC, way_area DESC) AS water",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "1324034.75,7457748.50,1463515.12,7548458.00",
+        "dbname": "cphbikes",
+        "host": "geo.local",
+        "user": "cphbikes"
+      },
+      "id": "water-bodies-labels",
+      "class": "water-bodies-labels",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "water-bodies-labels"
+    },
+    {
+      "extent": [
+        11.894005178830769,
+        55.491001653439916,
+        13.146997525508196,
+        55.94999596434641
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, railway, shop, amenity, name FROM copenhagen_polygon WHERE building='yes') as map_stuff2",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "1324034.6,7457748.64,1463517.07,7548467.7",
+        "dbname": "cphbikes",
+        "host": "geo.local",
+        "user": "cphbikes"
+      },
+      "id": "buildings-labels",
+      "class": "buildings-labels",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "buildings-labels"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        11.894005178830769,
+        55.49100165343991,
+        13.146997525508196,
+        55.9499959643464
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, (CASE WHEN highway = 'motorway' THEN '' ELSE name END) AS name, (CASE WHEN highway = 'motorway' AND CHAR_LENGTH(ref) BETWEEN 2 AND 15 THEN REGEXP_REPLACE(ref, E'\\s*;\\s*', E' / ', 'g') ELSE '' END) AS ref, (CASE WHEN highway = 'motorway' AND CHAR_LENGTH(ref) BETWEEN 2 AND 15 THEN CHAR_LENGTH(ref) ELSE 0 END) AS ref_length, highway, ST_Length(way) AS length,\n\n (CASE WHEN highway IN ('motorway', 'motorway_link') THEN 0 WHEN highway IN ('footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway') THEN 1 WHEN railway IN ('rail', 'spur', 'subway', 'light_rail', 'tram', 'abandoned', 'disused', 'monorail') THEN 2 WHEN highway IN ('trunk', 'trunk_link', 'primary', 'primary_link', 'tertiary') THEN 3 WHEN highway = 'secondary' THEN 4 ELSE 9 END) AS priority, (CASE WHEN highway IN ('secondary', 'trunk', 'trunk_link', 'primary', 'primary_link', 'motorway', 'motorway_link', 'tertiary') THEN 'major_road' WHEN highway IN ('residential', 'unclassified', 'service', 'minor', 'road') THEN 'minor_road' WHEN railway IN ('rail', 'spur', 'subway', 'light_rail', 'tram', 'abandoned', 'disused', 'monorail') THEN 'rail' WHEN highway IN ('footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway') THEN 'path' ELSE '' END) AS kind, (CASE WHEN tunnel IN ('yes', 'true') THEN 'yes' ELSE 'no' END) AS is_tunnel, (CASE WHEN bridge IN ('yes', 'true') THEN 'yes' ELSE 'no' END) AS is_bridge\n\n FROM copenhagen_line\n\n WHERE highway IN ('secondary', 'trunk', 'trunk_link', 'primary', 'primary_link', 'motorway', 'motorway_link','tertiary')\n\n ORDER BY priority ASC, length DESC)\n\n AS collected_lines",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "1324034.75,7457748.50,1463515.12,7548458.00",
+        "dbname": "cphbikes",
+        "host": "geo.local",
+        "user": "cphbikes"
+      },
+      "id": "major-road-labels",
+      "class": "major-road-labels",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "major-road-labels"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        11.894005178830769,
+        55.49100165343991,
+        13.146997525508196,
+        55.9499959643464
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, name, highway, ST_Length(way) AS length,\n\t(CASE\n\t\tWHEN highway IN ('motorway', 'motorway_link') THEN 0\n\t\tWHEN highway IN ('footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway') THEN 1\n\t\tWHEN railway IN ('rail', 'spur', 'subway', 'light_rail', 'tram', 'abandoned', 'disused', 'monorail') THEN 2\n\t\tWHEN highway IN ('trunk', 'trunk_link', 'primary', 'primary_link') THEN 3 WHEN highway = 'secondary' THEN 4\n\t\t ELSE 9 END) AS priority, (CASE WHEN highway IN ('secondary', 'trunk', 'trunk_link', 'primary', 'primary_link', 'motorway', 'motorway_link') THEN 'major_road'\n\t\tWHEN highway IN ('residential', 'unclassified', 'service', 'minor', 'road') THEN 'minor_road'\n\t\tWHEN railway IN ('rail', 'spur', 'subway', 'light_rail', 'tram', 'abandoned', 'disused', 'monorail') THEN 'rail'\n\t\tWHEN highway IN ('footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway') THEN 'path'\n\tELSE '' END) AS kind,\n\t(CASE WHEN tunnel IN ('yes', 'true') THEN 'yes'\n\tELSE 'no' END) AS is_tunnel,\n\t(CASE WHEN bridge IN ('yes', 'true') THEN 'yes'\n\tELSE 'no' END) AS is_bridge\n\n FROM copenhagen_line\n\n WHERE highway IN ('residential', 'unclassified', 'service', 'minor', 'road')\n\n ORDER BY priority ASC, length DESC)\n\n AS collected_lines",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "1324034.75,7457748.50,1463515.12,7548458.00",
+        "dbname": "cphbikes",
+        "host": "geo.local",
+        "user": "cphbikes"
+      },
+      "id": "minor-road-labels",
+      "class": "minor-road-labels",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "minor-road-labels"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        11.894005178830769,
+        55.49100165343991,
+        13.146997525508196,
+        55.9499959643464
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, name, railway, highway FROM copenhagen_point WHERE \"railway\" IN ('station') OR \"highway\" IN ('bus_stop') ORDER BY z_order ASC, way DESC) AS poi",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "1324034.75,7457748.50,1463515.12,7548458.00",
+        "dbname": "cphbikes",
+        "host": "geo.local",
+        "user": "cphbikes"
+      },
+      "id": "poi-station-labels",
+      "class": "poi-station-labels",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "poi-station-labels"
     }
   ],
   "scale": 1,
-  "metatile": 2,
+  "metatile": 4,
   "name": "",
   "description": "",
   "attribution": ""

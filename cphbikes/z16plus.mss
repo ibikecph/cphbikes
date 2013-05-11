@@ -1,3 +1,4 @@
+/*
 [zoom>=16] {
   .area[highway='platform'],
   .area[railway='platform'] {
@@ -9,3 +10,4 @@
     polygon-fill: #bbc;
   }
 }
+*/

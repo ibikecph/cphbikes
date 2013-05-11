@@ -58,7 +58,6 @@
 
   #copenhagen_line[highway='cycleway'],
   #copenhagen_line[bicycle='yes'],
-  #copenhagen_line[bicycle='yes'][route!='ferry'],
   #copenhagen_line[bicycle='designated'],
   #copenhagen_line[bicycle='ok'],
   #copenhagen_line[route='bicycle'] {
@@ -81,8 +80,8 @@
   }
   
   #copenhagen_line[route='ferry'] {
-  	::ferry_outline{ line-width:0;  }
- 	::ferry_inline{ line-width:1.75; line-color:#00b0ec; line-dasharray: 6, 3;  }
+  	::bike_outline, ::bike_inline { line-width:0; } 	
+  	::ferry_inline{ line-width:1.75; line-color:#00b0ec; line-dasharray: 6, 3; }
   }
   
   .area[aeroway='aerodrome'] {
@@ -105,23 +104,27 @@
   }
   
 .node[amenity='compressed_air'] {
-  	marker-width: 5;
+  	marker-width: 4;
   	marker-fill: #007feb;
   	marker-line-color: darken(#0017a0, 10%);
   }
   
 .node[highway='traffic_signals'] {
-  	
+  	point-file: url("images/traffic_signals.png");
+  	/*
   	marker-width: 3;
   	marker-fill: #000;
   	marker-line-color: darken(#000, 10%);
+  	*/
   }
   
 .node[railway='station'] {
-  	
-  	marker-width: 3;
+  	point-file: url("images/metro_12px.png");
+  	/*
+  	marker-width: 15;
   	marker-fill: #ff00a8;
   	marker-line-color: darken(#ff00a8, 10%);
+  	*/
   }
   
 
@@ -207,7 +210,9 @@
   polygon-fill: @bicycle_parking;
 }
 
+/*
 .bicycle_parking[zoom>15] {
   text-face-name: "Arial Regular";
   text-name: [label];
 }
+*/

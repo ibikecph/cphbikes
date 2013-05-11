@@ -22,8 +22,8 @@
 
   #z14-roads[kind='minor_road'],
   #z14-roads[kind='minor_road'][is_bridge='yes'] {
-  	::road_outline{ line-width:4; line-color:@color_road_outline; line-opacity: 1.0; }
-  	::road_inline{ line-width:2; line-color:@color_road_inline; line-opacity: 1.0; }
+  	::road_outline{ line-width:2.5; line-color:@color_road_outline; line-opacity: 1.0; }
+  	::road_inline{ line-width:1; line-color:@color_road_inline; line-opacity: 1.0; }
   }
 
   #z14-roads[kind='rail'] {
@@ -55,11 +55,11 @@
   #copenhagen_line[bicycle='ok'],
   #copenhagen_line[route='bicycle'] {
 	::bike_outline {
-		line-width:4; 
+		line-width:2.5; 
 		line-color:#fff;
 	}
   	::bike_inline {
-		line-width:0.75;
+		line-width:0.9;
 		line-color:#b1b3b3;
 	}
   }
@@ -70,6 +70,11 @@
   
   #copenhagen_line[aeroway='taxiway'] {
  	::inline{ line-width:2; line-color:@color_road_inline; line-opacity: 1.0; }
+  }
+  
+  #copenhagen_line[route='ferry'] {
+  	::bike_outline, ::bike_inline { line-width:0; } 	
+  	::ferry_inline{ line-width:1.3; line-color:#00b0ec; line-dasharray: 5, 2; }
   }
   
   .area[aeroway='aerodrome'] {
