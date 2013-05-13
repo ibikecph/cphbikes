@@ -1,4 +1,6 @@
 [zoom>=18] {
+
+/*
   #z15plus-roads[kind='highway'][render='inline'] {
           line-width: 28;
   }
@@ -54,4 +56,5 @@
           line-dasharray: 4,6;
           line-cap: butt;
   }
+  */
 }

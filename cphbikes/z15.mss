@@ -26,8 +26,8 @@
   }
 
   #z15plus-roads[kind='rail'] {
-  	::road_outline{ line-width:0.75; line-color:@color_road_inline;  }
-  	::road_inline{ line-width:7; line-color:@color_road_inline; line-dasharray: 0.75, 7;  }
+  	::road_outline{ line-width:0.5; line-color:@color_road_inline;  }
+  	::road_inline{ line-width:5; line-color:@color_road_inline; line-dasharray: 0.75, 5;  }
   }
   
   #copenhagen_line[highway='path'] {
@@ -54,8 +54,10 @@
   #copenhagen_line[ramp='yes'][highway='steps'] {
   	line-width:10; line-color:#ff0000;
   }
-*/
+  */
 
+  /* BIKE LANES */
+  
   #copenhagen_line[highway='cycleway'],
   #copenhagen_line[bicycle='yes'],
   #copenhagen_line[bicycle='designated'],
@@ -97,16 +99,29 @@
 	  polygon-fill: #cfcfcf;
   }
   
+.node[barrier='cycle_barrier']{
+    marker-width: 4;
+  	marker-fill: #ff0000;
+  	marker-line-color: darken(#ff0000, 10%);
+  }
+  
 .node[shop='bicycle'] {
+	point-file: url("images/bike_shop.png");
+	/*
    	marker-width: 3;
   	marker-fill: #00c437;
   	marker-line-color: darken(#00c437, 10%);
+  	*/
   }
   
 .node[amenity='compressed_air'] {
-  	marker-width: 4;
+    point-file: url("images/bike_pump.png");
+  	
+  	/*
+  	marker-width: 25;
   	marker-fill: #007feb;
   	marker-line-color: darken(#0017a0, 10%);
+	*/
   }
   
 .node[highway='traffic_signals'] {
@@ -127,87 +142,15 @@
   	*/
   }
   
-
-
-
-/*
-  #z15plus-roads {
-    line-smooth: 1.0;
-  }
-
-  #z15plus-roads[kind='highway'][render='inline'] {
-    line-width: 6;
-  }
-
-  #z15plus-roads[kind='highway'][render='casing'] {
-    line-width: 11;
-  }
-
-  #z15plus-roads[kind='highway'][is_link='yes'][render='inline'] {
-    line-width: 3;	
-  }
-
-  #z15plus-roads[kind='highway'][is_link='yes'][render='casing'] {
-    line-width: 6.5;
-  }
-
-  #z15plus-roads[kind='major_road'][render='inline'] {
-    line-width: 5;
-  }
-
-  #z15plus-roads[kind='major_road'][render='casing'] {
-    line-width: 8;
-  }
-
-  #z15plus-roads[kind='major_road'][is_link='yes'][render='inline'] {
-    line-width: 2.5;
-  }
-
-  #z15plus-roads[kind='major_road'][is_link='yes'][render='casing'] {
-    line-width: 5.5;
-  }
-
-  #z15plus-roads[kind='minor_road'][render='inline'] {
-    line-width: 4;
-  }
-
-  #z15plus-roads[kind='minor_road'][render='casing'] {
-    line-width: 6;
-  }
-
-  #z15plus-roads[highway='service'][render='inline'] {
-    line-width: 2.5;
-  }
-
-  #z15plus-roads[highway='service'][render='casing'] {
-    line-width: 3.5;
-  }
-
-  #z15plus-roads[kind='rail'][render='inline'] {
-    line-width: 1;
-  }
-
-  #z15plus-roads[kind='rail'][render='casing'] {
-    line-width: 3;
-    line-dasharray: 1,3;
-    line-cap: butt;
-  }
-
-  #z15plus-roads[kind='path'][render='inline'] {
-    line-width: 1; 
-    line-dasharray: 2,3;
-    line-cap: butt;
-  }
-  */
 }
 
 
 .bicycle_parking[zoom=15] {
-  marker-width: 3;
-  marker-fill: @bicycle_parking;
-  marker-line-color: darken(@bicycle_parking, 10%);
+  marker-width: 2;
+  marker-fill: #00b893;
+  marker-line-color: darken(#00b893, 10%);
 
-  polygon-fill: @bicycle_parking;
+  polygon-fill: #00b893;
 }
 
 /*

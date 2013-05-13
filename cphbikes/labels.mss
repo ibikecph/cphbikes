@@ -1,3 +1,6 @@
+
+
+
 @water: #3fcdfd;
 @land: #e1e5e5;
 @park: #abf82d;
@@ -7,14 +10,14 @@
 @bike_inline: #009734;
 
 /* roads */
-@highway:		#000;
+@highway:		#666;
 @highway_case:	@land;
-@major:			#000;
+@major:			#666;
 @major_case:	@land;
 @minor:			#999;
-@minor_2:		#000;
+@minor_2:		#666;
 @minor_case:	@land;
-@service:		#000;
+@service:		#666;
 @service_case:	@land;
 @path:			#fff;
 @path_case:		#ededed;
@@ -137,12 +140,12 @@
 }
 
 
-.buildings-labels[zoom>=13][railway='station'],
-.buildings-labels[zoom>=13][shop='mall'],
-.buildings-labels[zoom>=13][amenity='theatre'],
-.buildings-labels[zoom>=13][amenity='university'],
-.buildings-labels[zoom>=13][amenity='hospital'],
-.buildings-labels[zoom>=13][amenity='public_building']
+.buildings-labels[zoom>=14][railway='station'],
+.buildings-labels[zoom>=14][shop='mall'],
+.buildings-labels[zoom>=14][amenity='theatre'],
+.buildings-labels[zoom>=14][amenity='university'],
+.buildings-labels[zoom>=14][amenity='hospital'],
+.buildings-labels[zoom>=14][amenity='public_building']
 {
 	text-face-name: 'Arial Bold';
 	text-size: 12;
@@ -392,3 +395,5 @@
 	text-dx: 0;
 	text-dy: 8;
 }
+
+

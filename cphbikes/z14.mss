@@ -35,6 +35,13 @@
   	::road_inline{ line-width:1.5; line-color:@color_road_inline; line-dasharray: 4, 2; }
   }
   
+  /* ONE WAY STREETS */
+  /*
+  #z14-roads[kind='highway'][oneway='yes'][cycleway='opposite']{
+  	line-width:10; line-opacity: 1.0; line-color:#ff0000;
+  }
+  */
+  
    /* BIKE ROUTES */  
 
   #copenhagen_line_bike_routes[route='bicycle'][ncn='yes'] {
@@ -48,6 +55,8 @@
   #copenhagen_line_bike_routes[route='bicycle'][lcn='yes'] {
   	line-width:3; line-opacity: 1.0; line-color:#48ae02;
   }
+  
+  /* BIKE LANES */
   
   #copenhagen_line[highway='cycleway'],
   #copenhagen_line[bicycle='yes'],
@@ -90,83 +99,5 @@
 	  polygon-fill: #cfcfcf;
   }
   
-  
-  /*
-  .node[shop='bicycle'] {
-   	marker-width: 3;
-  	marker-fill: #00c437;
-  	marker-line-color: darken(#00c437, 10%);
-  }
-  
-  .node[amenity='compressed_air'] {
-  	marker-width: 5;
-  	marker-fill: #007feb;
-  	marker-line-color: darken(#0017a0, 10%);
-  }
-  
-  .node[highway='traffic_signals'] {
-  	
-  	marker-width: 3;
-  	marker-fill: #000;
-  	marker-line-color: darken(#000, 10%);
-  }
-  
-  .node[railway='station'] {
-  	
-  	marker-width: 3;
-  	marker-fill: #ff00a8;
-  	marker-line-color: darken(#ff00a8, 10%);
-  }
-  */
-  
 
-  
-
-
-
-/*
-  #z14-roads[kind='highway'][render='inline'] {
-    line-width: 4;
-  }
-
-  #z14-roads[kind='highway'][render='outline'],
-  #z14-roads[kind='highway'][is_bridge='yes'][render='casing'] {
-    line-width: 8;
-  }
-
-  #z14-roads[kind='highway'][is_link='yes'][render='inline'] {
-    line-width: 2.5;	
-  }
-
-  #z14-roads[kind='highway'][is_link='yes'][render='outline'],
-  #z14-roads[kind='highway'][is_link='yes'][is_bridge='yes'][render='casing'] {
-    line-width: 6;
-  }
-  
-  #z14-roads[kind='major_road'][render='inline'] {
-    line-width: 4;
-  }
-
-  #z14-roads[kind='major_road'][render='outline'],
-  #z14-roads[kind='major_road'][is_bridge='yes'][render='casing'] {
-    line-width: 6;
-  }
-  
-  #z14-roads[kind='major_road'][is_link='yes'][render='outline'],
-  #z14-roads[kind='major_road'][is_link='yes'][is_bridge='yes'][render='casing'] {
-    line-width: 5;
-  }
-  
-  #z14-roads[kind='minor_road'][render='outline'],
-  #z14-roads[kind='minor_road'][is_bridge='yes'][render='casing'] {
-  	::outline{ line-width:0.5; line-color:@road_outline; line-opacity: 1.0; }
-  	::inline{ line-width:0.5; line-color:@road_inline; line-opacity: 1.0; }
-  }
-
-  #z14-roads[kind='rail'][render='casing'] {
-    line-width: 3;
-    line-dasharray: 1,3;
-    line-cap: butt;
-  }
-  */
 }

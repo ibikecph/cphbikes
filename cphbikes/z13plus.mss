@@ -27,8 +27,10 @@
   */
 
 
+/*
   .area[aeroway='taxiway'] {
     polygon-fill: #bbc;
   }
+  */
   
 }
