@@ -56,13 +56,13 @@
   }
 */
 
-  /* BIKE LANES */
+/* BIKE LANES */
   
-  #copenhagen_line[highway='cycleway'],
-  #copenhagen_line[bicycle='yes'],
-  #copenhagen_line[bicycle='designated'],
-  #copenhagen_line[bicycle='ok'],
-  #copenhagen_line[route='bicycle'] {
+#copenhagen_line[highway='cycleway'],
+#copenhagen_line[bicycle='yes'],
+#copenhagen_line[bicycle='designated'],
+#copenhagen_line[bicycle='ok'],
+#copenhagen_line[route='bicycle'] {
 	::bike_outline {
 		line-width:6; 
 		line-color:#fff;
@@ -73,27 +73,35 @@
 	}
   }
   
-  #copenhagen_line[aeroway='runway'] {
+/* AIRPORT */  
+  
+#copenhagen_line[aeroway='runway'] {
  	::inline{ line-width:30; line-color:#eaeded;  }
   }
   
-  #copenhagen_line[aeroway='taxiway'] {
+#copenhagen_line[aeroway='taxiway'] {
  	::inline{ line-width:7; line-color:#eaeded;  }
   }
   
-  #copenhagen_line[route='ferry'] {
+#copenhagen_line[route='ferry'] {
   	::bike_outline, ::bike_inline { line-width:0; } 	
   	::ferry_inline{ line-width:2.25; line-color:#00b0ec; line-dasharray: 6, 3; }
   }
   
-  .area[aeroway='aerodrome'] {
+.area[aeroway='aerodrome'] {
     polygon-fill: #ededed; polygon-opacity: 0.2;
   }
    
-  .buildings[building='yes'] {
+   
+/* BUILDINGS */
+
+.buildings[building='yes'] {
 	  polygon-fill: #d2d3d3;
   }
   
+ 
+/* POIs */ 
+
 .node[shop='bicycle'] {
 	point-file: url("images/bike_shop.png");
 	/*
@@ -135,7 +143,7 @@
 
 
 .bicycle_parking[zoom=16] {
-  marker-width: 3;
+  marker-width: 6;
   marker-fill: @bicycle_parking;
   marker-line-color: darken(@bicycle_parking, 10%);
 

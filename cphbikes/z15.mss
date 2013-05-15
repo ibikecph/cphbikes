@@ -35,7 +35,7 @@
   }
   
 
-  /* BIKE ROUTES */  
+/* BIKE ROUTES */  
 
   #copenhagen_line_bike_routes[route='bicycle'][ncn='yes'] {
   	line-width:4; line-opacity:2; line-color:#fec509;
@@ -56,7 +56,7 @@
   }
   */
 
-  /* BIKE LANES */
+/* BIKE LANES */
   
   #copenhagen_line[highway='cycleway'],
   #copenhagen_line[bicycle='yes'],
@@ -64,7 +64,7 @@
   #copenhagen_line[bicycle='ok'],
   #copenhagen_line[route='bicycle'] {
 	::bike_outline {
-		line-width:6; 
+		line-width:5; 
 		line-color:#fff;
 	}
   	::bike_inline {
@@ -146,11 +146,11 @@
 
 
 .bicycle_parking[zoom=15] {
-  marker-width: 2;
-  marker-fill: #00b893;
-  marker-line-color: darken(#00b893, 10%);
+  marker-width: 3;
+  marker-fill: @bicycle_parking;
+  marker-line-color: darken(@bicycle_parking, 10%);
 
-  polygon-fill: #00b893;
+  polygon-fill: @bicycle_parking;
 }
 
 /*
