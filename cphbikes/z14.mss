@@ -36,11 +36,9 @@
   }
   
   /* ONE WAY STREETS */
-  /*
-  #z14-roads[kind='highway'][oneway='yes'][cycleway='opposite']{
+  #copenhagen_line[oneway='yes'][cycleway='opposite']{
   	line-width:10; line-opacity: 1.0; line-color:#ff0000;
   }
-  */
   
    /* BIKE ROUTES */  
 
