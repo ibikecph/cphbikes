@@ -18,7 +18,7 @@ copenhagen.osm.pbf:
 
 osm-copenhagen: copenhagen.osm.pbf
 	osm2pgsql -d ${DB_NAME} -U ${DB_USER} -H ${DB_HOST} -c -C8000 --number-processes=4 -s -S cphbikes.style -p copenhagen copenhagen.osm.pbf
-	psql -d ${DB_NAME} -U ${DB_USER} -H ${DB_HOST} -f highroad/high_road_views-setup.pgsql
+	psql -d ${DB_NAME} -U ${DB_USER} -h ${DB_HOST} -f highroad/high_road_views-setup.pgsql
 
 osm-denmark: denmark.osm.pbf
 	osm2pgsql -d ${DB_NAME} -U ${DB_USER} -H ${DB_HOST} -c -C8000 --number-processes=4 -s -S cphbikes.style denmark.osm.pbf
