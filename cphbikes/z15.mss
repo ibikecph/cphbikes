@@ -105,7 +105,15 @@
   	marker-line-color: darken(#ff0000, 10%);
   }
   
-.node[shop='bicycle'] {
+.node[shop='bicycle'],
+.node['service:bicycle:retail'='yes'],
+.node['service:bicycle:repair'='yes'],
+.node['service:bicycle:rental'='yes'],
+.node['service:bicycle:pump'='yes'],
+.node['service:bicycle:diy'='yes'],
+.node['service:bicycle:cleaning'='yes'],
+.node['service:bicycle:second_hand'='yes'],
+{
 	point-file: url("images/bike_shop.png");
 	/*
    	marker-width: 3;
