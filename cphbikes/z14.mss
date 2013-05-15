@@ -71,11 +71,11 @@
 	}
   }
   
-  #copenhagen_line[aeroway='runway'] {
+  #aeroway[aeroway='runway'] {
  	::inline{ line-width:4; line-color:@color_road_inline; line-opacity: 1.0; }
   }
   
-  #copenhagen_line[aeroway='taxiway'] {
+  #aeroway[aeroway='taxiway'] {
  	::inline{ line-width:2; line-color:@color_road_inline; line-opacity: 1.0; }
   }
   

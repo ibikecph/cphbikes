@@ -67,11 +67,11 @@
   
 /* AIRPORT */  
   
-#copenhagen_line[aeroway='runway'] {
+#aeroway[aeroway='runway'] {
  	::inline{ line-width:50; line-color:#eaeded;  }
   }
   
-#copenhagen_line[aeroway='taxiway'] {
+#aeroway[aeroway='taxiway'] {
  	::inline{ line-width:15; line-color:#eaeded;  }
   }
   

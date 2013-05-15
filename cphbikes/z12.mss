@@ -32,7 +32,7 @@
   	::road_inline{ line-width:4.5; line-color:@color_road_inline; line-dasharray: 0.5, 5;  }
   }
 
-#copenhagen_line[aeroway='runway'] {
+#aeroway[aeroway='runway'] {
  	::inline{ line-width:2; line-color:#edefef; }
   }
 
