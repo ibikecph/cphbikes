@@ -124,6 +124,7 @@ way       route_name       text     linear
 
 # bicycle-specific amenities
 node,way  ramp:bicycle  text  linear
+way  cycleway  text  linear
 node,way  service:bicycle:retail  text  polygon
 node,way  service:bicycle:repair  text  polygon
 node,way  service:bicycle:rental  text  polygon
