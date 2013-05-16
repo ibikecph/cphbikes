@@ -338,7 +338,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, highway, bicycle, route, aeroway, ncn, rcn, lcn FROM copenhagen_line WHERE ncn='yes' OR rcn='yes' OR lcn='yes') as map_stuff",
+        "table": "(SELECT way, highway, bicycle, route, aeroway, ncn, rcn, lcn, surface FROM copenhagen_line WHERE ncn='yes' OR rcn='yes' OR lcn='yes') as map_stuff",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
