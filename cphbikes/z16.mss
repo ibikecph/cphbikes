@@ -150,6 +150,7 @@
 }
 
 
+/*
 .bicycle_parking[zoom=16] {
   marker-width: 6;
   marker-fill: @bicycle_parking;
@@ -157,12 +158,8 @@
 
   polygon-fill: @bicycle_parking;
 }
-
-/*
-.bicycle_parking[zoom>15] {
-  text-face-name: "Arial Regular";
-  text-name: [label];
-}
 */
+
+
 
 

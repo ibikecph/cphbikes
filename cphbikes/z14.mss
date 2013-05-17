@@ -31,14 +31,42 @@
   	::road_inline{ line-width:4.5; line-color:@color_road_inline; line-dasharray: 0.5, 5;  }
   }
   
+  /* FOOT PATHS */
   #copenhagen_line[highway='path'] {
   	::road_inline{ line-width:1.5; line-color:@color_road_inline; line-dasharray: 4, 2; }
   }
   
-  /* ONE WAY STREETS */
-  #copenhagen_line[oneway='yes'][cycleway='opposite']{
-  	line-width:10; line-opacity: 1.0; line-color:#ff0000;
+  #copenhagen_line[highway='path'][bicycle='no'] {
+  	::road_inline{ line-width:1.5; line-color:#000; line-dasharray: 4, 2; }
   }
+  
+  #copenhagen_line[highway='footway'] {
+  	::road_inline{ line-width:2; line-color:#fff; line-dasharray: 2, 1; }
+  }
+  
+  #copenhagen_line[highway='footway'][bicycle='no'] {
+  	::road_inline{ line-width:2; line-color:#ff9600; line-dasharray: 2, 1; }
+  }
+  
+  #copenhagen_line[highway='pedestrian'] {
+  	::road_inline{ line-width:2; line-color:#fff; line-dasharray: 2, 1; }
+  }
+  
+  #copenhagen_line[highway='pedestrian'][bicycle='no'] {
+  	::road_inline{ line-width:2; line-color:#ff0000; line-dasharray: 2, 1; }
+  }
+  
+  /* ONE WAY STREETS -- WRONG */
+  /*
+  #copenhagen_line[oneway='yes'][cycleway='opposite']{
+  	line-width:2; line-opacity: 1.0; line-color:#ff0000;
+  }
+  */
+  
+  #copenhagen_line['ramp:bicycle'='yes'][highway='steps']{
+  	line-width:10; line-opacity: 1.0; line-color:#000;
+  }
+  
   
    /* BIKE ROUTES */  
 
@@ -56,7 +84,17 @@
   
   /* BIKE LANES */
   
-  #copenhagen_line[highway='cycleway'],
+#copenhagen_line[highway='cycleway']{
+	::bike_inline { line-width:2; line-color:#0804b3; line-dasharray: 2, 1;}
+  }
+ 
+ /* NOT WORKING */
+ /* 
+#copenhagen_line[highway='primary'][cycleway:left='lane']{
+	::bike_inline { line-width:2; line-color:#000; line-dasharray: 2, 1;}
+  }
+  */
+  
   #copenhagen_line[bicycle='yes'],
   #copenhagen_line[bicycle='designated'],
   #copenhagen_line[bicycle='ok'],
@@ -70,6 +108,8 @@
 		line-color:#b1b3b3;
 	}
   }
+  
+
   
   #aeroway[aeroway='runway'] {
  	::inline{ line-width:4; line-color:@color_road_inline; line-opacity: 1.0; }

@@ -105,6 +105,16 @@
   	marker-line-color: darken(#ff0000, 10%);
   }
   
+.node[shop='bicycle']
+{
+	point-file: url("images/bike_shop.png");
+	/*
+   	marker-width: 3;
+  	marker-fill: #00c437;
+  	marker-line-color: darken(#00c437, 10%);
+  	*/
+  }
+  
 .node[shop='bicycle'],
 .node['service:bicycle:retail'='yes'],
 .node['service:bicycle:repair'='yes'],
@@ -114,12 +124,10 @@
 .node['service:bicycle:cleaning'='yes'],
 .node['service:bicycle:second_hand'='yes'],
 {
-	point-file: url("images/bike_shop.png");
-	/*
-   	marker-width: 3;
-  	marker-fill: #00c437;
-  	marker-line-color: darken(#00c437, 10%);
-  	*/
+
+   	marker-width: 20;
+  	marker-fill: #000;
+  	marker-line-color: darken(#000, 10%);
   }
   
 .node[amenity='compressed_air'] {
@@ -150,20 +158,12 @@
   	*/
   }
   
+.node[amenity='cafe'] {
+  marker-width: 20;
+  marker-fill: #0707ff;
+  marker-line-color: darken(#0707ff, 10%);
+
+  polygon-fill: #0707ff;
 }
-
-
-.bicycle_parking[zoom=15] {
-  marker-width: 3;
-  marker-fill: @bicycle_parking;
-  marker-line-color: darken(@bicycle_parking, 10%);
-
-  polygon-fill: @bicycle_parking;
+  
 }
-
-/*
-.bicycle_parking[zoom>15] {
-  text-face-name: "Arial Regular";
-  text-name: [label];
-}
-*/

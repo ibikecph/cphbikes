@@ -139,12 +139,3 @@
   
     
 }
-
-.bicycle_parking[zoom=17] {
-  marker-width: 8;
-  marker-fill: @bicycle_parking;
-  marker-line-color: darken(@bicycle_parking, 10%);
-
-  polygon-fill: @bicycle_parking;
-}
-
