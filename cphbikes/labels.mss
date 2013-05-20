@@ -12,7 +12,7 @@
 /* roads */
 @highway:		#666;
 @highway_case:	@land;
-@major:			#666;
+@major:			#929292;
 @major_case:	@land;
 @minor:			#999;
 @minor_2:		#666;
@@ -135,11 +135,12 @@
 {
 	text-face-name: 'Arial Italic';
 	text-name: '[name]';
-	text-fill: #000;
+	text-fill: #148105;
 	text-halo-fill: @park;
 }
 
 
+/*
 .buildings-labels[zoom>=14][railway='station'],
 .buildings-labels[zoom>=14][shop='mall'],
 .buildings-labels[zoom>=14][amenity='theatre'],
@@ -153,6 +154,7 @@
 	text-fill: #000;
     text-wrap-width: 80;
 }
+*/
 
 
 /* Road labels */

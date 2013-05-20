@@ -21,5 +21,21 @@
   	::road_outline{ line-width:0.25; line-color:@color_road_outline; line-opacity: 1.0; }
   	::road_inline{ line-width:0.25; line-color:@color_road_inline; line-opacity: 1.0; }
   }
+  
+/* BIKE ROUTES */  
+#copenhagen_line_bike_routes[route='bicycle'][ncn='yes'] {
+	/*::bike_outline { line-width:5.5; line-opacity: 1.0; line-color:@bike_outline; }*/
+  	::bike_inline { line-width:0.5; line-color:#fec509;}
+  }
+  
+#copenhagen_line_bike_routes[route='bicycle'][rcn='yes'] {
+	/*::bike_outline { line-width:5.5; line-opacity: 1.0; line-color:@bike_outline; }*/
+  	::bike_inline { line-width:0.5; line-color:#fb9e24;}
+  }
+
+#copenhagen_line_bike_routes[route='bicycle'][lcn='yes'] {
+	/*::bike_outline { line-width:5.5; line-opacity: 1.0; line-color:@bike_outline; }*/
+  	::bike_inline { line-width:0.5; line-color:#48ae02; }
+  }
 
 }
