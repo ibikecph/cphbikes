@@ -12,12 +12,10 @@
   }
 
 /* NOT WORKING */  
-/*
 #z15plus-roads[kind='highway'][is_tunnel='yes']{
   ::road_outline{ line-width:12; line-color:#e1e5e5; line-opacity: 0.4; }
   ::road_inline{ line-width:6; line-color:#e1e5e5; line-opacity: 0.4; }
   }
-  */
 
 #z15plus-roads[kind='major_road'],
 #z15plus-roads[kind='major_road'][is_link='yes'],
@@ -69,12 +67,8 @@
   }
   
 /* PUSH YOUR BIKE */  
-#copenhagen_line[highway='residential'][bicycle='dismount'],
-#copenhagen_line[highway='primary'][bicycle='dismount'],
-#copenhagen_line[highway='secondary'][bicycle='dismount'],
-#copenhagen_line[highway='tertiary'][bicycle='dismount'],
-#copenhagen_line[highway='pedestrian'][bicycle='dismount'] {
-  	::road_inline{ line-width:1.5; line-color:#78c600; line-dasharray: 3, 2; }
+#copenhagen_line[bicycle='dismount'] {
+  	::road_inline{ line-width:20; line-color:#78c600; line-dasharray: 3, 2; }
   }
     
 

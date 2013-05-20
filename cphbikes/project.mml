@@ -258,7 +258,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, kind, is_bridge, is_link, render FROM copenhagen_line_z15plus) as map_stuff",
+        "table": "(SELECT way, kind, is_bridge, is_tunnel, is_link, render FROM copenhagen_line_z15plus) as map_stuff",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -367,7 +367,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, amenity, layer, name, shop, highway, railway, barrier, access, foot, \"ramp:bicycle\", \"service:bicycle:retail\", \"service:bicycle:repair\", \"service:bicycle:rental\", \"service:bicycle:pump\", \"service:bicycle:diy\", \"service:bicycle:cleaning\", \"service:bicycle:second_hand\" FROM copenhagen_point) as points",
+        "table": "(SELECT way, amenity, layer, name, shop, highway, railway, barrier, access, foot, \"ramp:bicycle\", \"service:bicycle:retail\", \"service:bicycle:repair\", \"service:bicycle:rental\", \"service:bicycle:pump\", \"service:bicycle:diy\", \"service:bicycle:cleaning\", \"service:bicycle:second_hand\", \"addr:housenumber\" FROM copenhagen_point) as points",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -2383,7 +2383,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, railway, shop, amenity, name FROM copenhagen_polygon WHERE building='yes') as map_stuff2",
+        "table": "(SELECT way, railway, shop, amenity, name, way_area, \"addr:housenumber\" FROM copenhagen_polygon WHERE building='yes') as map_stuff2",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",

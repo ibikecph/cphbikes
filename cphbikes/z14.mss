@@ -121,35 +121,25 @@
   }
  
 /* PAINTED LANE */ 
-#copenhagen_line[highway='residential']['cycleway:left'='lane'],
-#copenhagen_line[highway='primary']['cycleway:left'='lane'],
-#copenhagen_line[highway='secondary']['cycleway:left'='lane'],
-#copenhagen_line[highway='tertiary']['cycleway:left'='lane'],
-#copenhagen_line[highway='pedestrian']['cycleway:left'='lane']{
+#copenhagen_line['cycleway:left'='lane']{
 	::bike_inline { line-width:1.25; line-color:#06ab06; line-offset: -1;}
   }
-#copenhagen_line[highway='residential']['cycleway:right'='lane'],
-#copenhagen_line[highway='primary']['cycleway:right'='lane'],
-#copenhagen_line[highway='secondary']['cycleway:right'='lane'],
-#copenhagen_line[highway='tertiary']['cycleway:right'='lane'],
-#copenhagen_line[highway='pedestrian']['cycleway:right'='lane']{
+#copenhagen_line['cycleway:right'='lane']{
 	::bike_inline { line-width:1.25; line-color:#06ab06; line-offset: -1;}
   }
   
 /* RAISED CURB */
-#copenhagen_line[highway='residential'][cycleway='track']['cycleway:left'='track'],
-#copenhagen_line[highway='primary'][cycleway='track']['cycleway:left'='track'],
-#copenhagen_line[highway='secondary'][cycleway='track']['cycleway:left'='track'],
-#copenhagen_line[highway='tertiary'][cycleway='track']['cycleway:left'='track'],
-#copenhagen_line[highway='pedestrian'][cycleway='track']['cycleway:left'='track']{
-	::bike_inline { line-width:20; line-color:#06ab06; line-offset: -1;}
+/*
+#copenhagen_line[cycleway='track']{
+	::bike_inline { line-width:20; line-color:#06ab06;}
+}
+*/
+
+#copenhagen_line[cycleway='track']['cycleway:left'='track']{
+	::bike_inline { line-width:20; line-color:#06ab06; line-offset: -10;}
   }
-#copenhagen_line[highway='residential'][cycleway='track']['cycleway:right'='track'],
-#copenhagen_line[highway='primary'][cycleway='track']['cycleway:right'='track'],
-#copenhagen_line[highway='secondary'][cycleway='track']['cycleway:right'='track'],
-#copenhagen_line[highway='tertiary'][cycleway='track']['cycleway:right'='track'],
-#copenhagen_line[highway='pedestrian'][cycleway='track']['cycleway:right'='track']{
-	::bike_inline { line-width:20; line-color:#06ab06; line-offset: -1;}
+#copenhagen_line[cycleway='track']['cycleway:right'='track']{
+	::bike_inline { line-width:20; line-color:#06ab06; line-offset: 10;}
   }
   
   

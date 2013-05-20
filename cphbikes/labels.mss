@@ -140,21 +140,39 @@
 }
 
 
-/*
-.buildings-labels[zoom>=14][railway='station'],
-.buildings-labels[zoom>=14][shop='mall'],
-.buildings-labels[zoom>=14][amenity='theatre'],
-.buildings-labels[zoom>=14][amenity='university'],
-.buildings-labels[zoom>=14][amenity='hospital'],
-.buildings-labels[zoom>=14][amenity='public_building']
+
+.buildings-labels[railway='station'],
+.buildings-labels[shop='mall'],
+.buildings-labels[amenity='theatre'],
+.buildings-labels[amenity='university'],
+.buildings-labels[amenity='hospital'],
+.buildings-labels[amenity='public_building']
 {
-	text-face-name: 'Arial Bold';
-	text-size: 12;
-	text-name: '[name]';
-	text-fill: #000;
-    text-wrap-width: 80;
+	[zoom=14]
+	{
+		[way_area>=50000]
+		{
+			text-face-name: 'Arial Bold';
+			text-size: 12;
+			text-name: '[name]';
+			text-fill: #000;
+			text-wrap-width: 80;
+		}
+	}
+	
+	[zoom=15]
+	{
+		[way_area>=10000]
+		{
+			text-face-name: 'Arial Bold';
+			text-size: 12;
+			text-name: '[name]';
+			text-fill: #000;
+			text-wrap-width: 80;
+		}
+	}
 }
-*/
+
 
 
 /* Road labels */
@@ -397,4 +415,13 @@
 	text-dy: 8;
 }
 
+.buildings-labels[zoom>=17]['addr:housenumber'=~'.+'],
+.node[zoom>=17]['addr:housenumber'=~'.+']
+{
+	text-face-name: 'Arial Regular';
+	text-size: 12;
+	text-name: '[addr:housenumber]';
+	text-fill: #000;
+	text-wrap-width: 80;
+}
 
