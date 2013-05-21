@@ -319,7 +319,7 @@
 
     [zoom>=17]
     {
-      line-pattern-file: url("images/cobblestone3.png");
+      line-pattern-file: url("images/cobblestone4.png");
     }
 }
 
@@ -358,7 +358,7 @@
   [zoom>=15]
   {
     line-dasharray: 4, 2;
-    line-width: 1.25;
+    line-width: 1.35;
     
     [bicycle='no'] 
     { line-dasharray: 3, 2; line-width: 1; }
@@ -422,6 +422,25 @@
 /** Bike lanes **/
 
 
+
+.line[highway='cycleway']
+{
+  [zoom>=14]
+  {
+    line-width: 1.25;
+    line-color: #00c34e; line-dasharray: 4, 1;
+  }
+
+  [zoom>=15]
+  {
+    line-width: 1.75; line-dasharray: 5, 2;
+  }
+
+  [zoom>=16]
+  {
+    line-width: 2; line-dasharray: 7, 3;
+  }
+}
 
 
 /* Ferries */
