@@ -1,31 +1,4 @@
 
-  /** Push your bike **/ /* TODO not sure this is catching anything */
-
-/*
-  [bicycle='dismount'] 
-  {
-    [zoom>=14]
-    {
-      line-color: #78c600;
-      line-dasharray: 2, 3;
-    }
-
-    [zoom>=15]
-    {
-      line-width: 20;
-      line-dasharray: 3, 2;
-    }
-
-    [zoom>=16]
-    {
-      line-width: 1.5;
-      line-dasharray: 4, 3;
-    }
-  }
-  */
-
-
-
 #highway
 {
   [zoom>=10]
@@ -245,7 +218,7 @@
     {
       ::outline { line-width: 1; line-color: #fff; }
       line-width: 1;
-      line-color: #feb0ce;
+      line-color: #e58dad;
       line-dasharray: 3, 1;
     }
   }
@@ -260,7 +233,7 @@
     {
       ::outline { line-width: 2.25; line-color: #fff; }
       line-width: 2.25;
-      line-color: #d59ab0;
+      line-color: #d78ba7;
       line-dasharray: 3, 2;
     }
   }
@@ -290,7 +263,7 @@
     {
       ::outline { line-width: 7; line-color: #fff; }
       line-width: 7;
-      line-color: #ecc1d1;
+      line-color: #efbacd;
       line-dasharray: 10, 3;
     }
   }
@@ -313,8 +286,7 @@
     
     [zoom>=16]
     {
-      ::outline { line-color: #c9c7c7; line-width: 3.75; }
-      line-width: 3.75; line-color: #f1f2f2; line-dasharray: 2, 4;
+      line-pattern-file: url("images/cobblestone5.png");
     }
 
     [zoom>=17]
@@ -341,7 +313,7 @@
 
 	  [bicycle='no']
 	  {
-	    line-color: #f6839e;
+	    line-color: #fd4571;
 	    line-dasharray: 0.5, 1;
       }
   }
@@ -352,7 +324,7 @@
     line-width: 1;
 
     [bicycle='no']
-    { line-dasharray: 1.7, 1.7; line-width: 0.6; }
+    { line-dasharray: 1.5, 1.5; line-width: 0.6; }
   }
 
   [zoom>=15]
@@ -382,6 +354,29 @@
     { line-width: 1.5; line-dasharray: 4, 3; }
   }
 }
+
+/** Push your bike **/ /* TODO not sure this is catching anything */
+
+.line[bicycle='dismount'] 
+  {
+    [zoom>=14]
+    {
+      ::outline { line-color: #fff; line-width: 1; }
+      line-width: 1; line-color: #f4b201; line-dasharray: 3.5, 1.5;
+    }
+
+    [zoom>=15]
+    {
+      ::outline { line-color: #fff; line-width: 2; }
+      line-width: 2; line-color: #ffba00; line-dasharray: 3.5, 1.5;
+    }
+
+    [zoom>=16]
+    {
+      ::outline { line-color: #fff; line-width: 2.25; }
+      line-width: 2.25; line-color: #ffba00; line-dasharray: 6, 2.5;
+    }
+  }
 
 
 /** Steps **/
@@ -425,6 +420,11 @@
 
 .line[highway='cycleway']
 {
+  [zoom>=13]
+  {
+    line-width: 0.5;
+    line-color: #00c34e; line-dasharray: 4, 1;
+  }
   [zoom>=14]
   {
     line-width: 1.25;
