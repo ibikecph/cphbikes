@@ -60,7 +60,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT * FROM copenhagen_polygon) as map_stuff2",
+        "table": "(SELECT * FROM planet_osm_polygon) as map_stuff2",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -86,7 +86,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, aeroway FROM copenhagen_polygon WHERE aeroway IS NOT NULL UNION SELECT way, aeroway FROM copenhagen_line WHERE aeroway IS NOT NULL) as map_stuff",
+        "table": "(SELECT way, aeroway FROM planet_osm_polygon WHERE aeroway IS NOT NULL UNION SELECT way, aeroway FROM planet_osm_line WHERE aeroway IS NOT NULL) as map_stuff",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -219,7 +219,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, highway, bicycle, route, aeroway, ncn, rcn, lcn, surface FROM copenhagen_line WHERE route='bicycle' AND (ncn='yes' OR rcn='yes' OR lcn='yes')) as map_stuff",
+        "table": "(SELECT way, highway, bicycle, route, aeroway, ncn, rcn, lcn, surface FROM planet_osm_line WHERE route='bicycle' AND (ncn='yes' OR rcn='yes' OR lcn='yes')) as map_stuff",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -248,7 +248,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, highway, bicycle, route, aeroway, ncn, rcn, lcn, \"ramp:bicycle\", oneway, cycleway, \"cycleway:left\", \"cycleway:right\", surface FROM copenhagen_line) as map_stuff",
+        "table": "(SELECT way, highway, bicycle, route, aeroway, ncn, rcn, lcn, \"ramp:bicycle\", oneway, cycleway, \"cycleway:left\", \"cycleway:right\", surface FROM planet_osm_line) as map_stuff",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -276,7 +276,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT * FROM copenhagen_polygon WHERE building='yes') as map_stuff2",
+        "table": "(SELECT * FROM planet_osm_polygon WHERE building='yes') as map_stuff2",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -302,7 +302,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, amenity, layer, name, shop, highway, railway, barrier, access, foot, \"ramp:bicycle\", \"service:bicycle:retail\", \"service:bicycle:repair\", \"service:bicycle:rental\", \"service:bicycle:pump\", \"service:bicycle:diy\", \"service:bicycle:cleaning\", \"service:bicycle:second_hand\", \"addr:housenumber\" FROM copenhagen_point) as points",
+        "table": "(SELECT way, amenity, layer, name, shop, highway, railway, barrier, access, foot, \"ramp:bicycle\", \"service:bicycle:retail\", \"service:bicycle:repair\", \"service:bicycle:rental\", \"service:bicycle:pump\", \"service:bicycle:diy\", \"service:bicycle:cleaning\", \"service:bicycle:second_hand\", \"addr:housenumber\" FROM planet_osm_point) as points",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -331,7 +331,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, religion FROM copenhagen_point WHERE amenity='place_of_worship' UNION SELECT way, religion FROM copenhagen_polygon WHERE amenity='place_of_worship') as place_of_worship",
+        "table": "(SELECT way, religion FROM planet_osm_point WHERE amenity='place_of_worship' UNION SELECT way, religion FROM planet_osm_polygon WHERE amenity='place_of_worship') as place_of_worship",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -356,7 +356,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, name, ST_Area(way) AS area, leisure, landuse FROM copenhagen_polygon WHERE leisure IN ('park', 'water_park', 'marina', 'nature_reserve', 'playground', 'garden', 'common', 'sports_centre', 'golf_course', 'stadium', 'track', 'pitch') OR landuse IN ('cemetery', 'park', 'water_park', 'marina', 'nature_reserve', 'playground', 'garden', 'common', 'forest', 'wood') OR amenity IN ('graveyard') ORDER BY z_order ASC) AS greenlabels",
+        "table": "(SELECT way, name, ST_Area(way) AS area, leisure, landuse FROM planet_osm_polygon WHERE leisure IN ('park', 'water_park', 'marina', 'nature_reserve', 'playground', 'garden', 'common', 'sports_centre', 'golf_course', 'stadium', 'track', 'pitch') OR landuse IN ('cemetery', 'park', 'water_park', 'marina', 'nature_reserve', 'playground', 'garden', 'common', 'forest', 'wood') OR amenity IN ('graveyard') ORDER BY z_order ASC) AS greenlabels",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -381,7 +381,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, name, ST_Area(way) AS area, landuse as type FROM copenhagen_polygon WHERE \"natural\" IN ('water', 'bay') OR waterway IN ('riverbank') OR landuse IN ('reservoir') ORDER BY z_order ASC, way_area DESC) AS water",
+        "table": "(SELECT way, name, ST_Area(way) AS area, landuse as type FROM planet_osm_polygon WHERE \"natural\" IN ('water', 'bay') OR waterway IN ('riverbank') OR landuse IN ('reservoir') ORDER BY z_order ASC, way_area DESC) AS water",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -406,7 +406,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, railway, shop, amenity, name, way_area, \"addr:housenumber\" FROM copenhagen_polygon WHERE building='yes') as map_stuff2",
+        "table": "(SELECT way, railway, shop, amenity, name, way_area, \"addr:housenumber\" FROM planet_osm_polygon WHERE building='yes') as map_stuff2",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -432,7 +432,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, (CASE WHEN highway = 'motorway' THEN '' ELSE name END) AS name, (CASE WHEN highway = 'motorway' AND CHAR_LENGTH(ref) BETWEEN 2 AND 15 THEN REGEXP_REPLACE(ref, E'\\s*;\\s*', E' / ', 'g') ELSE '' END) AS ref, (CASE WHEN highway = 'motorway' AND CHAR_LENGTH(ref) BETWEEN 2 AND 15 THEN CHAR_LENGTH(ref) ELSE 0 END) AS ref_length, highway, ST_Length(way) AS length,\n\n (CASE WHEN highway IN ('motorway', 'motorway_link') THEN 0 WHEN highway IN ('footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway') THEN 1 WHEN railway IN ('rail', 'spur', 'subway', 'light_rail', 'tram', 'abandoned', 'disused', 'monorail') THEN 2 WHEN highway IN ('trunk', 'trunk_link', 'primary', 'primary_link', 'tertiary') THEN 3 WHEN highway = 'secondary' THEN 4 ELSE 9 END) AS priority, (CASE WHEN highway IN ('secondary', 'trunk', 'trunk_link', 'primary', 'primary_link', 'motorway', 'motorway_link', 'tertiary') THEN 'major_road' WHEN highway IN ('residential', 'unclassified', 'service', 'minor', 'road') THEN 'minor_road' WHEN railway IN ('rail', 'spur', 'subway', 'light_rail', 'tram', 'abandoned', 'disused', 'monorail') THEN 'rail' WHEN highway IN ('footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway') THEN 'path' ELSE '' END) AS kind, (CASE WHEN tunnel IN ('yes', 'true') THEN 'yes' ELSE 'no' END) AS is_tunnel, (CASE WHEN bridge IN ('yes', 'true') THEN 'yes' ELSE 'no' END) AS is_bridge\n\n FROM copenhagen_line\n\n WHERE highway IN ('secondary', 'trunk', 'trunk_link', 'primary', 'primary_link', 'motorway', 'motorway_link','tertiary')\n\n ORDER BY priority ASC, length DESC)\n\n AS collected_lines",
+        "table": "(SELECT way, (CASE WHEN highway = 'motorway' THEN '' ELSE name END) AS name, (CASE WHEN highway = 'motorway' AND CHAR_LENGTH(ref) BETWEEN 2 AND 15 THEN REGEXP_REPLACE(ref, E'\\s*;\\s*', E' / ', 'g') ELSE '' END) AS ref, (CASE WHEN highway = 'motorway' AND CHAR_LENGTH(ref) BETWEEN 2 AND 15 THEN CHAR_LENGTH(ref) ELSE 0 END) AS ref_length, highway, ST_Length(way) AS length,\n\n (CASE WHEN highway IN ('motorway', 'motorway_link') THEN 0 WHEN highway IN ('footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway') THEN 1 WHEN railway IN ('rail', 'spur', 'subway', 'light_rail', 'tram', 'abandoned', 'disused', 'monorail') THEN 2 WHEN highway IN ('trunk', 'trunk_link', 'primary', 'primary_link', 'tertiary') THEN 3 WHEN highway = 'secondary' THEN 4 ELSE 9 END) AS priority, (CASE WHEN highway IN ('secondary', 'trunk', 'trunk_link', 'primary', 'primary_link', 'motorway', 'motorway_link', 'tertiary') THEN 'major_road' WHEN highway IN ('residential', 'unclassified', 'service', 'minor', 'road') THEN 'minor_road' WHEN railway IN ('rail', 'spur', 'subway', 'light_rail', 'tram', 'abandoned', 'disused', 'monorail') THEN 'rail' WHEN highway IN ('footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway') THEN 'path' ELSE '' END) AS kind, (CASE WHEN tunnel IN ('yes', 'true') THEN 'yes' ELSE 'no' END) AS is_tunnel, (CASE WHEN bridge IN ('yes', 'true') THEN 'yes' ELSE 'no' END) AS is_bridge\n\n FROM planet_osm_line\n\n WHERE highway IN ('secondary', 'trunk', 'trunk_link', 'primary', 'primary_link', 'motorway', 'motorway_link','tertiary')\n\n ORDER BY priority ASC, length DESC)\n\n AS collected_lines",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -458,7 +458,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, name, highway, ST_Length(way) AS length,\n\t(CASE\n\t\tWHEN highway IN ('motorway', 'motorway_link') THEN 0\n\t\tWHEN highway IN ('footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway') THEN 1\n\t\tWHEN railway IN ('rail', 'spur', 'subway', 'light_rail', 'tram', 'abandoned', 'disused', 'monorail') THEN 2\n\t\tWHEN highway IN ('trunk', 'trunk_link', 'primary', 'primary_link') THEN 3 WHEN highway = 'secondary' THEN 4\n\t\t ELSE 9 END) AS priority, (CASE WHEN highway IN ('secondary', 'trunk', 'trunk_link', 'primary', 'primary_link', 'motorway', 'motorway_link') THEN 'major_road'\n\t\tWHEN highway IN ('residential', 'unclassified', 'service', 'minor', 'road') THEN 'minor_road'\n\t\tWHEN railway IN ('rail', 'spur', 'subway', 'light_rail', 'tram', 'abandoned', 'disused', 'monorail') THEN 'rail'\n\t\tWHEN highway IN ('footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway') THEN 'path'\n\tELSE '' END) AS kind,\n\t(CASE WHEN tunnel IN ('yes', 'true') THEN 'yes'\n\tELSE 'no' END) AS is_tunnel,\n\t(CASE WHEN bridge IN ('yes', 'true') THEN 'yes'\n\tELSE 'no' END) AS is_bridge\n\n FROM copenhagen_line\n\n WHERE highway IN ('residential', 'unclassified', 'service', 'minor', 'road')\n\n ORDER BY priority ASC, length DESC)\n\n AS collected_lines",
+        "table": "(SELECT way, name, highway, ST_Length(way) AS length,\n\t(CASE\n\t\tWHEN highway IN ('motorway', 'motorway_link') THEN 0\n\t\tWHEN highway IN ('footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway') THEN 1\n\t\tWHEN railway IN ('rail', 'spur', 'subway', 'light_rail', 'tram', 'abandoned', 'disused', 'monorail') THEN 2\n\t\tWHEN highway IN ('trunk', 'trunk_link', 'primary', 'primary_link') THEN 3 WHEN highway = 'secondary' THEN 4\n\t\t ELSE 9 END) AS priority, (CASE WHEN highway IN ('secondary', 'trunk', 'trunk_link', 'primary', 'primary_link', 'motorway', 'motorway_link') THEN 'major_road'\n\t\tWHEN highway IN ('residential', 'unclassified', 'service', 'minor', 'road') THEN 'minor_road'\n\t\tWHEN railway IN ('rail', 'spur', 'subway', 'light_rail', 'tram', 'abandoned', 'disused', 'monorail') THEN 'rail'\n\t\tWHEN highway IN ('footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway') THEN 'path'\n\tELSE '' END) AS kind,\n\t(CASE WHEN tunnel IN ('yes', 'true') THEN 'yes'\n\tELSE 'no' END) AS is_tunnel,\n\t(CASE WHEN bridge IN ('yes', 'true') THEN 'yes'\n\tELSE 'no' END) AS is_bridge\n\n FROM planet_osm_line\n\n WHERE highway IN ('residential', 'unclassified', 'service', 'minor', 'road')\n\n ORDER BY priority ASC, length DESC)\n\n AS collected_lines",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -484,7 +484,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, name, railway, highway FROM copenhagen_point WHERE \"railway\" IN ('station') OR \"highway\" IN ('bus_stop') ORDER BY z_order ASC, way DESC) AS poi",
+        "table": "(SELECT way, name, railway, highway FROM planet_osm_point WHERE \"railway\" IN ('station') OR \"highway\" IN ('bus_stop') ORDER BY z_order ASC, way DESC) AS poi",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
