@@ -22,7 +22,6 @@
     "labels.mss",
     "z10.mss",
     "z11.mss",
-    "z11plus.mss",
     "z12.mss",
     "z12minus.mss",
     "z13plus.mss",
@@ -98,7 +97,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, aeroway FROM copenhagen_point WHERE aeroway IS NOT NULL UNION SELECT way, aeroway FROM copenhagen_line WHERE aeroway IS NOT NULL UNION SELECT way, aeroway FROM copenhagen_polygon WHERE aeroway IS NOT NULL) as map_stuff",
+        "table": "(SELECT way, aeroway FROM copenhagen_polygon WHERE aeroway IS NOT NULL UNION SELECT way, aeroway FROM copenhagen_line WHERE aeroway IS NOT NULL) as map_stuff",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",

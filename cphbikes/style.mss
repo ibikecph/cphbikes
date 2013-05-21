@@ -67,7 +67,82 @@ Map {
   polygon-fill:@land;
 }
 
+@road: #fff;
+@runway: #eaeded;
 
+/* Airport features */
+
+#aeroway
+{
+  line-width: 0;
+
+  [zoom>=12]
+  {
+    line-color: #edefef;
+
+    [aeroway='runway']
+    {
+      line-width: 4;
+    }
+
+    [aeroway='taxiway']
+    {
+      line-width: 2;
+    }
+  }
+
+  [zoom>=13]
+  {
+    line-color: @road;
+
+    [aeroway='aerodrome']
+    {
+      polygon-fill: #ededed;
+      polygon-opacity: 0.2;
+    }
+  }
+
+  [zoom>=15]
+  {
+    line-color: @runway;
+
+    [aeroway='runway']
+    {
+      line-width: 14;
+    }
+
+    [aeroway='taxiway']
+    {
+      line-width: 4;
+    }
+  }
+
+  [zoom>=16]
+  {
+    [aeroway='runway']
+    {
+      line-width: 30;
+    }
+
+    [aeroway='taxiway']
+    {
+      line-width: 7;
+    }
+  }
+
+  [zoom>=17]
+  {
+    [aeroway='runway']
+    {
+      line-width: 50;
+    }
+
+    [aeroway='taxiway']
+    {
+      line-width: 15;
+    }
+  }
+}
 
 
 

@@ -117,19 +117,6 @@
 	::bike_inline { line-width:1.5; line-color:#06ab06; line-offset: -1;}
   }
   
-/* AIRPORT */  
-#aeroway[aeroway='runway'] {
- 	::inline{ line-width:30; line-color:#eaeded;  }
-  }
-  
-#aeroway[aeroway='taxiway'] {
- 	::inline{ line-width:7; line-color:#eaeded;  }
-  }
-  
-.area[aeroway='aerodrome'] {
-    polygon-fill: #ededed; polygon-opacity: 0.2;
-  }
-  
 /* FERRY */  
 #copenhagen_line[route='ferry'] {
   	::bike_outline, ::bike_inline { line-width:0; } 	

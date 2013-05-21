@@ -86,18 +86,6 @@
 	}
   }
   
-#aeroway[aeroway='runway'] {
- 	::inline{ line-width:4; line-color:@color_road_inline; line-opacity: 1.0; }
-  }
-  
-#aeroway[aeroway='taxiway'] {
- 	::inline{ line-width:2; line-color:@color_road_inline; line-opacity: 1.0; }
-  }
-  
-.area[aeroway='aerodrome'] {
-    polygon-fill: #ededed; polygon-opacity: 0.2;
-  }
-   
 .buildings[railway='station'],
 .buildings[shop='mall'],
 .buildings[amenity='theatre'],

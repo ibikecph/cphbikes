@@ -48,9 +48,4 @@
   	::bike_inline { line-width:1; line-opacity: 1.0; line-color:#48ae02; }
   }
 
-#aeroway[aeroway='runway'] {
- 	::inline{ line-width:2; line-color:#edefef; }
-  }
-
-
 }
