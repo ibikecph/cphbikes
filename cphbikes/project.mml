@@ -437,7 +437,7 @@
       "name": "bicycle_parking_areas"
     },
     {
-      "geometry": "point",
+      "geometry": "unknown",
       "extent": [
         11.89401009834438,
         55.4910004947167,
@@ -446,7 +446,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT * FROM copenhagen_point WHERE amenity='place_of_worship') as place_of_worship_points",
+        "table": "(SELECT way, religion FROM copenhagen_point WHERE amenity='place_of_worship' UNION SELECT way, religion FROM copenhagen_polygon WHERE amenity='place_of_worship') as place_of_worship",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -455,37 +455,12 @@
         "host": "geo.local",
         "user": "cphbikes"
       },
-      "id": "place_of_worship_points",
+      "id": "place_of_worship",
       "class": "place_of_worship",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "place_of_worship_points"
-    },
-    {
-      "extent": [
-        11.894005178830769,
-        55.49100165343991,
-        13.146997525508196,
-        55.9499959643464
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT * FROM copenhagen_polygon WHERE amenity='place_of_worship') as place_of_worship_areas",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "auto",
-        "extent": "1324034.75,7457748.50,1463515.12,7548458.00",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
-      },
-      "id": "place_of_worship_areas",
-      "class": "place_of_worship",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "place_of_worship_areas"
+      "name": "place_of_worship"
     },
     {
       "extent": [

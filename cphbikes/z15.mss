@@ -212,11 +212,11 @@
   }
   */
   
-.place_of_worship[amenity='place_of_worship'][religion='christian'] {
+.place_of_worship[religion='christian'] {
 	point-file: url("images/christian.png");
   }
   
-.place_of_worship[amenity='place_of_worship'][religion='muslim'] {
+.place_of_worship[religion='muslim'] {
 	marker-width: 30;
 	marker-fill: #f400f1;
 	marker-line-color: darken(#f400f1, 10%);
@@ -224,7 +224,7 @@
 	polygon-fill: #ffe507;
   }
   
-.place_of_worship[amenity='place_of_worship'][religion='buddhist'] {
+.place_of_worship[religion='buddhist'] {
 	marker-width: 30;
 	marker-fill: #ad3b59;
 	marker-line-color: darken(#f400f1, 10%);
