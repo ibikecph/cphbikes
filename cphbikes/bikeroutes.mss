@@ -8,17 +8,17 @@
 {
   [ncn='yes'] /* national cycle networks */
   {
-    line-color: #fec509;
+    line-color: #9463e4;
   }
 
   [rcn='yes'] /* regional cycle networks */
   {
-    line-color: #fb9e24;
+    line-color: #0083e9;
   }
 
   [lcn='yes'] /* local cycle networks */
   {
-    line-color: #48ae02;
+    line-color: #00bf3f;
   }
 
   [zoom>=10]
@@ -28,27 +28,32 @@
 
   [zoom>=11]
   {
-    line-width: 0.85;
+    line-width: 0.8;
   }
 
   [zoom>=12]
   {
-    line-width: 1;
+    line-width: 1.1;
   }
 
   [zoom>=13]
   {
-    line-width: 1.5;
+    line-width: 2;
+  }
+  
+  [zoom>=14]
+  {
+    line-width: 2.5;
   }
 
   [zoom>=15]
   {
-    line-width: 2;
+    line-width: 2.75;
   }
 
   [zoom>=16]
   {
-    line-width: 3.5;
+    line-width: 3.8;
   }
 
   [zoom>=17]

@@ -155,7 +155,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "rail"
+      "name": "rail",
+      "status": "off"
     },
     {
       "geometry": "unknown",
@@ -219,35 +220,6 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, highway, bicycle, route, aeroway, ncn, rcn, lcn, surface FROM copenhagen_line WHERE route='bicycle' AND (ncn='yes' OR rcn='yes' OR lcn='yes')) as map_stuff",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "auto",
-        "extent": "1324035.08,7457748.8,1463517.27,7548468.12",
-        "host": "geo.local",
-        "user": "cphbikes",
-        "dbname": "cphbikes",
-        "id": "copenhagenline",
-        "project": "copenhagen",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
-      },
-      "id": "copenhagen_line_bike_routes",
-      "class": "bikeroute",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "copenhagen_line_bike_routes"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        11.894009490744132,
-        55.49100246772413,
-        13.146999322138763,
-        55.94999807686779
-      ],
-      "Datasource": {
-        "type": "postgis",
         "table": "(SELECT way, highway, bicycle, route, aeroway, ncn, rcn, lcn, \"ramp:bicycle\", oneway, cycleway, \"cycleway:left\", \"cycleway:right\", surface FROM copenhagen_line) as map_stuff",
         "key_field": "",
         "geometry_field": "",
@@ -266,6 +238,35 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "copenhagen_line"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        11.894009490744132,
+        55.49100246772413,
+        13.146999322138763,
+        55.94999807686779
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, highway, bicycle, route, aeroway, ncn, rcn, lcn, surface FROM copenhagen_line WHERE route='bicycle' AND (ncn='yes' OR rcn='yes' OR lcn='yes')) as map_stuff",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "1324035.08,7457748.8,1463517.27,7548468.12",
+        "host": "geo.local",
+        "user": "cphbikes",
+        "dbname": "cphbikes",
+        "id": "copenhagenline",
+        "project": "copenhagen",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "copenhagen_line_bike_routes",
+      "class": "bikeroute",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "copenhagen_line_bike_routes"
     },
     {
       "extent": [
@@ -290,7 +291,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "buildings"
+      "name": "buildings",
+      "status": "off"
     },
     {
       "geometry": "point",
@@ -319,7 +321,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "copenhagen_point"
+      "name": "copenhagen_point",
+      "status": "off"
     },
     {
       "geometry": "unknown",
@@ -345,7 +348,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "place_of_worship"
+      "name": "place_of_worship",
+      "status": "off"
     },
     {
       "extent": [
@@ -370,7 +374,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "green-areas-labels"
+      "name": "green-areas-labels",
+      "status": "off"
     },
     {
       "extent": [
@@ -395,7 +400,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "water-bodies-labels"
+      "name": "water-bodies-labels",
+      "status": "off"
     },
     {
       "extent": [
@@ -420,7 +426,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "buildings-labels"
+      "name": "buildings-labels",
+      "status": "off"
     },
     {
       "geometry": "linestring",
@@ -446,7 +453,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "major-road-labels"
+      "name": "major-road-labels",
+      "status": "off"
     },
     {
       "geometry": "linestring",
@@ -472,7 +480,8 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "minor-road-labels"
+      "name": "minor-road-labels",
+      "status": "off"
     },
     {
       "geometry": "point",
@@ -498,12 +507,12 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "poi-station-labels"
+      "name": "poi-station-labels",
+      "status": "off"
     }
   ],
   "scale": 1,
   "metatile": 4,
-  "_basemap": "",
   "name": "",
   "description": "",
   "attribution": ""

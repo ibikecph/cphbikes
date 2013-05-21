@@ -150,7 +150,7 @@
 {
 	[zoom=14]
 	{
-		[way_area>=50000]
+		[way_area>=100000]
 		{
 			text-face-name: 'Arial Bold';
 			text-size: 12;
@@ -162,7 +162,7 @@
 	
 	[zoom=15]
 	{
-		[way_area>=10000]
+		[way_area>=50000]
 		{
 			text-face-name: 'Arial Bold';
 			text-size: 12;

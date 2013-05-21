@@ -25,6 +25,6 @@
 {
   [zoom>=16]
   {
-    polygon-fill: #d2d3d3;
+    polygon-fill: #d7d8d8;
   }
 }

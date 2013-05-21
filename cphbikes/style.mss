@@ -28,68 +28,66 @@ Map {
 
   [zoom>=12]
   {
-    line-color: #edefef;
+    line-color: @runway;
 
     [aeroway='runway']
-    {
-      line-width: 4;
-    }
-
-    [aeroway='taxiway']
-    {
-      line-width: 2;
-    }
+    { line-width: 2; }
   }
 
   [zoom>=13]
   {
-    line-color: @road;
+    line-color: @runway;
 
     [aeroway='aerodrome']
     {
       polygon-fill: #ededed;
       polygon-opacity: 0.2;
     }
-  }
-
-  [zoom>=15]
-  {
-    line-color: @runway;
-
+    
     [aeroway='runway']
-    {
-      line-width: 14;
-    }
+    { line-width: 4; }
 
     [aeroway='taxiway']
-    {
-      line-width: 4;
-    }
+    { line-width: 1.5; }
+  }
+
+  [zoom>=14]
+  {
+    line-color: @runway;
+    
+    [aeroway='runway']
+    { line-width: 10; }
+
+    [aeroway='taxiway']
+    { line-width: 2.2; }
+  }
+  
+  [zoom>=15]
+  {
+    line-color: #e7ebeb;
+
+    [aeroway='runway']
+    { line-width: 15; }
+
+    [aeroway='taxiway']
+    { line-width: 4; }
   }
 
   [zoom>=16]
   {
     [aeroway='runway']
-    {
-      line-width: 30;
-    }
+    { line-width: 30; }
 
     [aeroway='taxiway']
-    {
-      line-width: 7;
-    }
+    { line-width: 7; }
   }
 
   [zoom>=17]
   {
     [aeroway='runway']
-    {
-      line-width: 50;
-    }
+    { line-width: 55; }
 
     [aeroway='taxiway']
-    {
-      line-width: 15;
-    }
+    { line-width: 15; }
   }
 }
