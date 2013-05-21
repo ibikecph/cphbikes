@@ -17,23 +17,12 @@
   "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
   "Stylesheet": [
     "style.mss",
-    "nodes.mss",
     "areas.mss",
-    "labels.mss",
-    "z10.mss",
-    "z11.mss",
-    "z12.mss",
-    "z12minus.mss",
-    "z13plus.mss",
-    "z13.mss",
-    "z14.mss",
-    "z14plus.mss",
-    "z15.mss",
-    "z15plus.mss",
-    "z16.mss",
-    "z16plus.mss",
-    "z17.mss",
-    "z18plus.mss"
+    "roads.mss",
+    "bikeroutes.mss",
+    "buildings.mss",
+    "amenities.mss",
+    "labels.mss"
   ],
   "Layer": [
     {
@@ -117,160 +106,166 @@
       "name": "aeroway"
     },
     {
-      "geometry": "linestring",
+      "geometry": "unknown",
       "extent": [
-        11.894010029733302,
-        55.491031069446635,
-        13.146980367686268,
-        55.94997916476738
+        11.894005178830769,
+        55.49100165343991,
+        13.146997525508196,
+        55.9499959643464
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "copenhagen_line_z10",
+        "table": "(SELECT * FROM high_road(!scale_denominator!, !bbox!) WHERE kind='minor_road') AS minor_road",
         "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "auto",
-        "extent": "1324035.14,7457754.42,1463515.16,7548464.36",
+        "geometry_field": "way",
+        "extent_cache": "custom",
+        "extent": "1324034.6,7457748.64,1463517.07,7548467.7",
         "dbname": "cphbikes",
         "host": "geo.local",
         "user": "cphbikes"
       },
-      "id": "z10-roads",
+      "id": "minor_road",
       "class": "roads",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "z10-roads"
+      "name": "minor_road"
+    },
+    {
+      "geometry": "unknown",
+      "extent": [
+        11.894005178830769,
+        55.49100165343991,
+        13.146997525508196,
+        55.9499959643464
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM high_road(!scale_denominator!, !bbox!) WHERE kind='rail') AS rail",
+        "key_field": "",
+        "geometry_field": "way",
+        "extent_cache": "custom",
+        "extent": "1324034.6,7457748.64,1463517.07,7548467.7",
+        "dbname": "cphbikes",
+        "host": "geo.local",
+        "user": "cphbikes"
+      },
+      "id": "rail",
+      "class": "roads",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "rail"
+    },
+    {
+      "geometry": "unknown",
+      "extent": [
+        11.894005178830769,
+        55.49100165343991,
+        13.146997525508196,
+        55.9499959643464
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM high_road(!scale_denominator!, !bbox!) WHERE kind='major_road') AS major_road",
+        "key_field": "",
+        "geometry_field": "way",
+        "extent_cache": "custom",
+        "extent": "1324034.6,7457748.64,1463517.07,7548467.7",
+        "dbname": "cphbikes",
+        "host": "geo.local",
+        "user": "cphbikes"
+      },
+      "id": "major_road",
+      "class": "roads",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "major_road"
+    },
+    {
+      "geometry": "unknown",
+      "extent": [
+        11.894005178830769,
+        55.49100165343991,
+        13.146997525508196,
+        55.9499959643464
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM high_road(!scale_denominator!, !bbox!) WHERE kind='highway') AS highway",
+        "key_field": "",
+        "geometry_field": "way",
+        "extent_cache": "custom",
+        "extent": "1324034.6,7457748.64,1463517.07,7548467.7",
+        "dbname": "cphbikes",
+        "host": "geo.local",
+        "user": "cphbikes"
+      },
+      "id": "highway",
+      "class": "roads",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "highway"
     },
     {
       "geometry": "linestring",
       "extent": [
-        11.894010029733302,
-        55.491003790935956,
-        13.146986745724787,
-        55.949989274694545
+        11.894009490744132,
+        55.49100246772413,
+        13.146999322138763,
+        55.94999807686779
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "copenhagen_line_z11",
+        "table": "(SELECT way, highway, bicycle, route, aeroway, ncn, rcn, lcn, surface FROM copenhagen_line WHERE route='bicycle' AND (ncn='yes' OR rcn='yes' OR lcn='yes')) as map_stuff",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
-        "extent": "1324035.14,7457749.06,1463515.87,7548466.37",
-        "dbname": "cphbikes",
+        "extent": "1324035.08,7457748.8,1463517.27,7548468.12",
         "host": "geo.local",
-        "user": "cphbikes"
+        "user": "cphbikes",
+        "dbname": "cphbikes",
+        "id": "copenhagenline",
+        "project": "copenhagen",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
-      "id": "z11-roads",
-      "class": "roads",
+      "id": "copenhagen_line_bike_routes",
+      "class": "bikeroute",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "z11-roads"
+      "name": "copenhagen_line_bike_routes"
     },
     {
       "geometry": "linestring",
       "extent": [
-        11.894010029733302,
-        55.491003790935956,
-        13.146992764437188,
-        55.94999666852021
+        11.894009490744132,
+        55.49100246772413,
+        13.146999322138763,
+        55.94999807686779
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "copenhagen_line_z12",
+        "table": "(SELECT way, highway, bicycle, route, aeroway, ncn, rcn, lcn, \"ramp:bicycle\", oneway, cycleway, \"cycleway:left\", \"cycleway:right\", surface FROM copenhagen_line) as map_stuff",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
-        "extent": "1324035.14,7457749.06,1463516.54,7548467.84",
-        "dbname": "cphbikes",
+        "extent": "1324035.08,7457748.8,1463517.27,7548468.12",
         "host": "geo.local",
-        "user": "cphbikes"
+        "user": "cphbikes",
+        "dbname": "cphbikes",
+        "id": "copenhagenline",
+        "project": "copenhagen",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
       },
-      "id": "z12-roads",
-      "class": "roads",
+      "id": "copenhagen_line",
+      "class": "line",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "z12-roads"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        11.894010029733302,
-        55.491003790935956,
-        13.146992764437188,
-        55.94999666852021
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "copenhagen_line_z13",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "auto",
-        "extent": "1324035.14,7457749.06,1463516.54,7548467.84",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
-      },
-      "id": "z13-roads",
-      "class": "roads",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "z13-roads"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        11.894010029733302,
-        55.491003790935956,
-        13.146992764437188,
-        55.94999666852021
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "copenhagen_line_z14",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "auto",
-        "extent": "1324035.14,7457749.06,1463516.54,7548467.84",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
-      },
-      "id": "z14-roads",
-      "class": "roads",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "z14-roads"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        11.894010029733302,
-        55.49100297665176,
-        13.146992764437188,
-        55.94999676911646
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT way, kind, is_bridge, is_tunnel, is_link, render FROM copenhagen_line_z15plus) as map_stuff",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "auto",
-        "extent": "1324035.14,7457748.9,1463516.54,7548467.86",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
-      },
-      "id": "z15plus-roads",
-      "class": "roads",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "z15plus-roads"
+      "name": "copenhagen_line"
     },
     {
       "extent": [
@@ -296,64 +291,6 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "buildings"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        11.894009490744132,
-        55.49100246772413,
-        13.146999322138763,
-        55.94999807686779
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT way, highway, bicycle, route, aeroway, ncn, rcn, lcn, \"ramp:bicycle\", oneway, cycleway, \"cycleway:left\", \"cycleway:right\", surface FROM copenhagen_line) as map_stuff",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "auto",
-        "extent": "1324035.08,7457748.8,1463517.27,7548468.12",
-        "host": "geo.local",
-        "user": "cphbikes",
-        "dbname": "cphbikes",
-        "id": "copenhagenline",
-        "project": "copenhagen",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
-      },
-      "id": "copenhagen_line",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "copenhagen_line"
-    },
-    {
-      "geometry": "linestring",
-      "extent": [
-        11.894009490744132,
-        55.49100246772413,
-        13.146999322138763,
-        55.94999807686779
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT way, highway, bicycle, route, aeroway, ncn, rcn, lcn, surface FROM copenhagen_line WHERE ncn='yes' OR rcn='yes' OR lcn='yes') as map_stuff",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "auto",
-        "extent": "1324035.08,7457748.8,1463517.27,7548468.12",
-        "host": "geo.local",
-        "user": "cphbikes",
-        "dbname": "cphbikes",
-        "id": "copenhagenline",
-        "project": "copenhagen",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
-      },
-      "id": "copenhagen_line_bike_routes",
-      "class": "",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "copenhagen_line_bike_routes"
     },
     {
       "geometry": "point",
@@ -383,57 +320,6 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "copenhagen_point"
-    },
-    {
-      "geometry": "point",
-      "extent": [
-        11.89401009834438,
-        55.4910004947167,
-        13.14699499816992,
-        55.94999859471493
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT way, amenity, covered, layer, name, name as label FROM copenhagen_point WHERE amenity='bicycle_parking') as bicycle_parking_points",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "auto",
-        "extent": "1324035.14763775,7457748.41232064,1463516.78865799,7548468.22295555",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
-      },
-      "id": "bicycle_parking_points",
-      "class": "bicycle_parking",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "bicycle_parking_points"
-    },
-    {
-      "extent": [
-        11.894005178830769,
-        55.49100165343991,
-        13.146997525508196,
-        55.9499959643464
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT * FROM copenhagen_polygon WHERE amenity='bicycle_parking') as bicycle_parking_areas",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "auto",
-        "extent": "1324034.6,7457748.64,1463517.07,7548467.7",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
-      },
-      "id": "bicycle_parking_areas",
-      "class": "bicycle_parking",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "bicycle_parking_areas"
     },
     {
       "geometry": "unknown",
