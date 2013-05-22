@@ -73,6 +73,32 @@
   }
 }
 
+/* One-way for cars, effectively one-way for bikes */
+.line[highway!='motorway'][highway!='motorway_link'][oneway='yes'],
+.line[highway!='motorway'][highway!='motorway_link'][oneway='-1'],
+{
+  [zoom>=16]
+  {
+    ::overlay
+    {
+      line-pattern-file: url("images/forest.png");
+    }
+  }
+}
+
+/* Explicitly one-way for bikes */
+.line['oneway:bicycle'='yes'],
+.line['oneway:bicycle'='-1'],
+{
+  [zoom>=16]
+  {
+    ::overlay
+    {
+      line-pattern-file: url("images/forest.png");
+    }
+  }
+}
+
 /** Default styles for all roads */
 .roads
 {

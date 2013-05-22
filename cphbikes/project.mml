@@ -143,7 +143,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, highway, bicycle, route, aeroway, ncn, rcn, lcn, \"ramp:bicycle\", oneway, cycleway, \"cycleway:left\", \"cycleway:right\", surface FROM planet_osm_line) as map_stuff",
+        "table": "(SELECT way, highway, bicycle, route, aeroway, ncn, rcn, lcn, \"ramp:bicycle\", oneway, cycleway, \"cycleway:left\", \"cycleway:right\", \"oneway:bicycle\", surface FROM planet_osm_line) as map_stuff",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
