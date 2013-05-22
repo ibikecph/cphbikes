@@ -115,7 +115,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT * FROM high_road(!scale_denominator!, !bbox!) WHERE kind='minor_road') AS minor_road",
+        "table": "(SELECT * FROM high_road(!scale_denominator!, !bbox!)) AS roads",
         "key_field": "",
         "geometry_field": "way",
         "extent_cache": "custom",
@@ -124,90 +124,12 @@
         "host": "geo.local",
         "user": "cphbikes"
       },
-      "id": "minor_road",
+      "id": "roads",
       "class": "roads",
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "minor_road"
-    },
-    {
-      "geometry": "unknown",
-      "extent": [
-        11.894005178830769,
-        55.49100165343991,
-        13.146997525508196,
-        55.9499959643464
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT * FROM high_road(!scale_denominator!, !bbox!) WHERE kind='rail') AS rail",
-        "key_field": "",
-        "geometry_field": "way",
-        "extent_cache": "custom",
-        "extent": "1324034.6,7457748.64,1463517.07,7548467.7",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
-      },
-      "id": "rail",
-      "class": "roads",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "rail"
-    },
-    {
-      "geometry": "unknown",
-      "extent": [
-        11.894005178830769,
-        55.49100165343991,
-        13.146997525508196,
-        55.9499959643464
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT * FROM high_road(!scale_denominator!, !bbox!) WHERE kind='major_road') AS major_road",
-        "key_field": "",
-        "geometry_field": "way",
-        "extent_cache": "custom",
-        "extent": "1324034.6,7457748.64,1463517.07,7548467.7",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
-      },
-      "id": "major_road",
-      "class": "roads",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "major_road"
-    },
-    {
-      "geometry": "unknown",
-      "extent": [
-        11.894005178830769,
-        55.49100165343991,
-        13.146997525508196,
-        55.9499959643464
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT * FROM high_road(!scale_denominator!, !bbox!) WHERE kind='highway') AS highway",
-        "key_field": "",
-        "geometry_field": "way",
-        "extent_cache": "custom",
-        "extent": "1324034.6,7457748.64,1463517.07,7548467.7",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
-      },
-      "id": "highway",
-      "class": "roads",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "highway"
+      "name": "roads"
     },
     {
       "geometry": "linestring",
