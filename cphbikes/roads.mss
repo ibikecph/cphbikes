@@ -374,7 +374,7 @@
     [zoom>=16]
     {
       ::outline { line-color: #fff; line-width: 2.25; }
-      line-width: 2.25; line-color: #ffba00; line-dasharray: 6, 2.5;
+      line-width: 2.25; line-color: #ffc000; line-dasharray: 6, 2.5;
     }
   }
 
@@ -382,23 +382,21 @@
 /** Steps **/
 
 /* TODO what about standalone steps? */
-/*
-.line['ramp:bicycle'='yes'][highway='steps']
+
+.line[highway='steps']
 {
   [zoom>=14]
-  {
-    line-width: 1;
-    line-color: #06ab06;
-    line-dasharray: 2, 4;
-  }
+  { line-width: 2.5; line-color: #fff; line-dasharray: 1, 0.75; }
 
   [zoom>=15]
-  {
-    line-width: 10;
-    line-color: #f00;
-  }
+  { line-width: 5; line-color: #fff; line-dasharray: 1, 1.5; }
+  
+  [zoom>=16]
+  { line-width: 7; line-color: #fff; line-dasharray: 1.25, 1.5; }
+  
+  [zoom>=17]
+  { line-width: 9; line-color: #fff; line-dasharray: 1.5, 1.9; }
 }
-*/
 
 /* raised curb (on opposite side) * /
 .line[cycleway='opposite_track'],
@@ -445,7 +443,7 @@
 
 /* Ferries */
 /* TODO layer under bridges */
-/*
+
 .line[route='ferry']
 {
   [zoom>=14]
@@ -466,5 +464,5 @@
     line-width: 2.25;
   }
 }
-*/
+
 
