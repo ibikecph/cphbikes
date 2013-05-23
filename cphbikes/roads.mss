@@ -477,15 +477,15 @@
   
   [zoom>=12]
   {
-	[cycleway='lane'],
-	[cycleway='opposite_lane'],
-	[cycleway='shared_lane'],
-	[cycleway='track'],
-	[cycleway='opposite_track'],
-	{
-	  line-color: #daffcc;
-	  line-width:1.25;
-	}
+    [cycleway='lane'],
+    [cycleway='opposite_lane'],
+    [cycleway='shared_lane'],
+    [cycleway='track'],
+    [cycleway='opposite_track'],
+    {
+      line-color: #daffcc;
+      line-width:1.25;
+    }
   }
   
   [zoom>=13]
@@ -512,15 +512,24 @@
   [zoom>=15]
   {
     ::outline { line-width: 3.5; }
-	line-width: 2.25;
+    line-width: 2.25;
 	
-	[access='private'],
+    [access='private'],
     [access='restricted'],
     {
       ::outline { line-width: 2.25; line-color: #fff; }
       line-width: 2.25;
       line-color: #d78ba7;
       line-dasharray: 3, 2;
+    }
+
+    [cycleway='lane'],
+    [cycleway='opposite_lane'],
+    [cycleway='shared_lane'],
+    [cycleway='track'],
+    [cycleway='opposite_track'],
+    {
+      line-width:2.25;
     }
   }
 
@@ -537,6 +546,15 @@
       line-color: #e996b5;
       line-dasharray: 5, 2;
     }
+
+    [cycleway='lane'],
+    [cycleway='opposite_lane'],
+    [cycleway='shared_lane'],
+    [cycleway='track'],
+    [cycleway='opposite_track'],
+    {
+      line-width:5;
+    }
   }
 
   [zoom>=17]
@@ -551,6 +569,15 @@
       line-width: 7;
       line-color: #efbacd;
       line-dasharray: 10, 3;
+    }
+
+    [cycleway='lane'],
+    [cycleway='opposite_lane'],
+    [cycleway='shared_lane'],
+    [cycleway='track'],
+    [cycleway='opposite_track'],
+    {
+      line-width:7;
     }
   }
 }
