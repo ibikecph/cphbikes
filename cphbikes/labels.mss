@@ -126,7 +126,7 @@
 	}
 }
 
-#green-areas-labels[zoom=12][area>5000000],
+#green-areas-labels[zoom=12][area>4000000],
 #green-areas-labels[zoom=13][area>2000000],
 #green-areas-labels[zoom=14][area>200000],
 #green-areas-labels[zoom=15][area>50000],
@@ -135,8 +135,8 @@
 {
 	text-face-name: 'Arial Italic';
 	text-name: '[name]';
-	text-fill: #148105;
-	text-halo-fill: @park;
+	text-fill: #0f6e02;
+	text-halo-fill: rgba(171, 248, 45, 0.7);
 }
 
 
@@ -416,12 +416,12 @@
 }
 
 .buildings-labels[zoom>=17]['addr:housenumber'=~'.+'],
-.node[zoom>=17]['addr:housenumber'=~'.+']
+.node[zoom>=18]['addr:housenumber'=~'.+']
 {
 	text-face-name: 'Arial Regular';
-	text-size: 12;
+	text-size: 9;
 	text-name: '[addr:housenumber]';
-	text-fill: #000;
+	text-fill: #848484;
 	text-wrap-width: 80;
 }
 

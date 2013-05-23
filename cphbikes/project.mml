@@ -12,8 +12,8 @@
   ],
   "format": "png",
   "interactivity": false,
-  "minzoom": 8,
-  "maxzoom": 19,
+  "minzoom": 11,
+  "maxzoom": 18,
   "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
   "Stylesheet": [
     "style.mss",
@@ -74,8 +74,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "copenhagen_polygon",
-      "status": "off"
+      "name": "copenhagen_polygon"
     },
     {
       "geometry": "linestring",
@@ -104,8 +103,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "aeroway",
-      "status": "off"
+      "name": "aeroway"
     },
     {
       "geometry": "unknown",
@@ -189,8 +187,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "copenhagen_line",
-      "status": "off"
+      "name": "copenhagen_line"
     },
     {
       "extent": [
@@ -215,8 +212,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "buildings",
-      "status": "off"
+      "name": "buildings"
     },
     {
       "geometry": "point",
@@ -245,8 +241,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "copenhagen_point",
-      "status": "off"
+      "name": "copenhagen_point"
     },
     {
       "geometry": "unknown",
@@ -272,8 +267,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "place_of_worship",
-      "status": "off"
+      "name": "place_of_worship"
     },
     {
       "extent": [
@@ -298,8 +292,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "green-areas-labels",
-      "status": "off"
+      "name": "green-areas-labels"
     },
     {
       "extent": [
@@ -324,8 +317,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "water-bodies-labels",
-      "status": "off"
+      "name": "water-bodies-labels"
     },
     {
       "extent": [
@@ -350,8 +342,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "buildings-labels",
-      "status": "off"
+      "name": "buildings-labels"
     },
     {
       "geometry": "linestring",
@@ -377,8 +368,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "major-road-labels",
-      "status": "off"
+      "name": "major-road-labels"
     },
     {
       "geometry": "linestring",
@@ -404,8 +394,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "minor-road-labels",
-      "status": "off"
+      "name": "minor-road-labels"
     },
     {
       "geometry": "point",
@@ -431,13 +420,11 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "poi-station-labels",
-      "status": "off"
+      "name": "poi-station-labels"
     }
   ],
   "scale": 1,
   "metatile": 4,
-  "_basemap": "",
   "name": "",
   "description": "",
   "attribution": ""

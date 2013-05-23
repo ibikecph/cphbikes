@@ -3,18 +3,19 @@
 .node[barrier='cycle_barrier']
 {
   [zoom>=15]
-  {
-    point-file: url("images/barrier.png");
-  }
+  { point-file: url("images/barrier_xs.png"); }
+  [zoom>=16]
+  { point-file: url("images/barrier_med.png"); }
+  [zoom>=17]
+  { point-file: url("images/barrier_large.png"); }
 }
   
 .node[shop='bicycle']
 {
-  [zoom>=15]
-  {
-    point-file: url("images/bike_shop2.png");
-  }
+  [zoom>=16]
+  { point-file: url("images/bike_shop_green_med.png"); }
 }
+
   
 .node[shop='bicycle'],
 .node['service:bicycle:retail'='yes'],
@@ -36,46 +37,45 @@
   
 .node[amenity='compressed_air']
 {
+  [zoom>=14]
+  { point-file: url("images/bike_pump11.png"); }
   [zoom>=15]
   {
-    point-file: url("images/bike_pump.png");
+    point-file: url("images/bike_pump8.png");
     /*
     marker-width: 25;
     marker-fill: #007feb;
     marker-line-color: darken(#0017a0, 10%);
     */
   }
+  [zoom>=17]
+  { point-file: url("images/bike_pump13.png"); }
 }
   
 .node[highway='traffic_signals']
 {
   [zoom>=15]
-  {
-    point-file: url("images/traffic_signals_small.png");
-  }
+  { point-file: url("images/traffic_signals_small.png"); }
+  [zoom>=16]
+  { point-file: url("images/traffic_signals_small2.png"); }
+  [zoom>=17]
+  { point-file: url("images/traffic_signals.png"); }
 }
   
 .node[railway='station']
 {
+  [zoom>=14]
+  { point-file: url("images/metro_small4.png"); }
   [zoom>=15]
-  {
-    point-file: url("images/metro_12px.png");
-  }
+  { point-file: url("images/metro_12px.png"); }
+  [zoom>=16]
+  { point-file: url("images/metro_16px.png"); }
 }
   
 .node[amenity='cafe']
 {
-  [zoom>=15]
-  {
-    point-file: url("images/cafe_xsmall2.png");
-    /*
-    marker-width: 3;
-    marker-fill: #0707ff;
-    marker-line-color: darken(#0707ff, 10%);
-
-    polygon-fill: #0707ff;
-    */
-  }
+  [zoom>=16]
+  { point-file: url("images/cafe_small.png"); }
 }
 
 /*
@@ -94,10 +94,12 @@
   
 .place_of_worship[religion='christian']
 {
+  [zoom>=14]
+  { point-file: url("images/christian_xs3.png"); }
   [zoom>=15]
-  {
-    point-file: url("images/christian.png");
-  }
+  { point-file: url("images/christian.png"); }
+  [zoom>=16]
+  { point-file: url("images/christian_med.png"); }
 }
   
 .place_of_worship[religion='muslim']

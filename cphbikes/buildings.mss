@@ -16,15 +16,18 @@
 .buildings[amenity='library'],
 {
   [zoom>=14]
-  {
-    polygon-fill: #cfcfcf;
-  }
+  { polygon-fill: #cfcfcf; }
 }
 
 .buildings[building='yes']
 {
   [zoom>=16]
-  {
-    polygon-fill: #d8dcdc;
-  }
+  { polygon-fill: #d8dbdb; }
 }
+
+.buildings[building='yes']
+{
+  [zoom>=18]
+  { polygon-fill: #d8dbdb; }
+}
+
