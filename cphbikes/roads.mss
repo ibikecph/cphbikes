@@ -1,5 +1,5 @@
 @bike_path: #f0f;
-@bike_friendly: #48ff00;
+@bike_friendly: #fbd42c;
 /* @bike_path: #b1b3b3; */
 
 .line[highway='cycleway']
@@ -291,13 +291,36 @@
     [cycleway='track'],
     [cycleway='opposite_track'],
     {
-      line-color: @bike_friendly;
+      ::outline
+      {
+	line-width: 3.5;
+	line-color: @bike_friendly;
+      }
+
+      line-color: #fff;
+      line-width: 2.7;
     }
   }
 
   [zoom>=13]
   {
     ::outline { line-width: 4; }
+    
+    [cycleway='lane'],
+    [cycleway='opposite_lane'],
+    [cycleway='shared_lane'],
+    [cycleway='track'],
+    [cycleway='opposite_track'],
+    {
+      ::outline
+      {
+	line-width: 4.5;
+	line-color: @bike_friendly;
+      }
+
+      line-color: #fff;
+      line-width: 2.5;
+    }
   }
 
   [zoom>=14]
@@ -578,7 +601,7 @@
 
 	  [bicycle='no']
 	  {
-	    line-color: #fd4571;
+	    line-color: #b0c115;
 	    line-dasharray: 0.5, 1;
       }
   }
