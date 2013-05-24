@@ -87,10 +87,14 @@
   {
     line-width: 0;
     line-color: @color_road_outline;
+    line-cap: round;
+    line-join: round;
   }
 
   line-width: 0;
   line-color: @color_road_inline;
+  line-cap: round;
+  line-join: round;
 }
 
 
@@ -390,8 +394,15 @@
 {
   
   ::outline
-  { line-width: 0; line-color: #f0f2f2; }
+  {
+    line-width: 0;
+    line-color: #f0f2f2;
+    line-cap: butt;
+    line-join: miter;
+  }
   line-width: 0;
+  line-cap: butt;
+  line-join: miter;
 
   [zoom>=14]
   {
@@ -490,10 +501,18 @@
     [access='private'],
     [access='restricted'],
     {
-      ::outline { line-width: 1; line-color: #fff; }
+      ::outline
+      {
+	line-width: 1;
+	line-color: #fff;
+	line-cap: butt;
+	line-join: miter;
+      }
       line-width: 1;
       line-color: #e58dad;
       line-dasharray: 3, 1;
+      line-cap: butt;
+      line-join: miter;
     }
     
     [cycleway='lane'],
