@@ -7,22 +7,21 @@
   [zoom>=13]
   {
     line-width: 0.5;
-    line-color: #06ab06; line-dasharray: 4, 1;
+    line-color: #fff;
   }
   [zoom>=14]
   {
     line-width: 1.25;
-    line-color: #06ab06; line-dasharray: 4, 1;
   }
 
   [zoom>=15]
   {
-    line-width: 1.75; line-dasharray: 5, 2;
+    line-width: 1.75;
   }
 
   [zoom>=16]
   {
-    line-width: 2; line-dasharray: 7, 3;
+    line-width: 2;
   }
 }
 
@@ -137,7 +136,7 @@
   [zoom>=11]
   {
     ::outline { line-width: 3.5; }
-    line-width: 3.5; line-color: #eef0f0;
+    line-width: 3.5; line-color: #f2f3f3;
 
     
     [cycleway='lane'],
@@ -154,7 +153,7 @@
   [zoom>=12]
   {
     ::outline { line-width: 4.5; }
-	line-width: 4; line-color: #cbd6d6;
+	line-width: 4; line-color: #f2f3f3;
 
     
     [cycleway='lane'],
@@ -248,7 +247,7 @@
   [cycleway='track'],
   [cycleway='opposite_track'],
   {
-    line-color: @bike_friendly;
+    line-color: #fff;
   }
   
 
@@ -259,24 +258,13 @@
       line-width: 1.5;
     }
 
-    line-width: 1.5;
+    line-width: 0.75;
   }
 
   [zoom>=11]
   {
-    ::outline { line-width: 3; }
-    line-width: 3; line-color: #eef0f0;
-
-    
-    [cycleway='lane'],
-    [cycleway='opposite_lane'],
-    [cycleway='shared_lane'],
-    [cycleway='track'],
-    [cycleway='opposite_track'],
-    {
-      line-color: @bike_friendly;
-      line-width: 1;
-    }
+    ::outline { line-width: 1; }
+    line-width: 1;
     
   }
 
@@ -369,7 +357,7 @@
 
   [zoom>=16]
   {
-    ::outline { line-width: 14; }
+    ::outline { line-width: 16; }
     line-width: 8.5;
 
     
@@ -381,7 +369,7 @@
     {
       ::outline
       {
-	line-width: 13;
+	line-width: 16;
 	line-color: @bike_friendly;
       }
 
@@ -465,7 +453,7 @@
       line-width: 0.25;
     }
 
-    line-width: 0.25;
+    line-width: 0.25; line-color: #fff;
   }
 
   [zoom>=11]
@@ -483,7 +471,7 @@
     [cycleway='track'],
     [cycleway='opposite_track'],
     {
-      line-color: #daffcc;
+      line-color: #f7ffcc;
       line-width:1.25;
     }
   }
@@ -507,6 +495,22 @@
       line-color: #e58dad;
       line-dasharray: 3, 1;
     }
+    
+    [cycleway='lane'],
+    [cycleway='opposite_lane'],
+    [cycleway='shared_lane'],
+    [cycleway='track'],
+    [cycleway='opposite_track'],
+    {
+      ::outline
+      {
+	  line-width: 2.75;
+	  line-color: #f0e172;
+      }
+
+      line-color: #fff;
+      line-width: 1;
+    }
   }
 
   [zoom>=15]
@@ -529,7 +533,14 @@
     [cycleway='track'],
     [cycleway='opposite_track'],
     {
-      line-width:2.25;
+      ::outline
+      {
+	  line-width: 4;
+	  line-color: @bike_friendly;
+      }
+
+      line-color: #fff;
+      line-width: 2.25;
     }
   }
 
@@ -538,6 +549,11 @@
     ::outline { line-width: 6; }
 	line-width: 5;
 	
+	[highway='service']
+	{
+	  line-width: 2.5;
+	}
+	
 	[access='private'],
     [access='restricted'],
     {
@@ -545,6 +561,12 @@
       line-width: 3.5;
       line-color: #e996b5;
       line-dasharray: 5, 2;
+      
+      [highway='service']
+	  {
+        ::outline { line-width: 2.5; line-color: #fff; }
+	    line-width: 2.5;
+	  }
     }
 
     [cycleway='lane'],
@@ -553,7 +575,14 @@
     [cycleway='track'],
     [cycleway='opposite_track'],
     {
-      line-width:5;
+      ::outline
+      {
+	  line-width: 8;
+	  line-color: @bike_friendly;
+      }
+
+      line-color: #fff;
+      line-width: 5;
     }
   }
 
@@ -562,6 +591,11 @@
     ::outline { line-width: 10; }
 	line-width: 7;
 	
+	[highway='service']
+	{
+	  line-width: 3;
+	}
+	
 	[access='private'],
     [access='restricted'],
     {
@@ -569,6 +603,12 @@
       line-width: 7;
       line-color: #efbacd;
       line-dasharray: 10, 3;
+
+	  [highway='service']
+	  {
+        ::outline { line-width: 3; line-color: #fff; }
+	    line-width: 3;
+	  }
     }
 
     [cycleway='lane'],
@@ -577,7 +617,14 @@
     [cycleway='track'],
     [cycleway='opposite_track'],
     {
-      line-width:7;
+      ::outline
+      {
+	  line-width: 11;
+	  line-color: @bike_friendly;
+      }
+
+      line-color: #fff;
+      line-width: 7;
     }
   }
 }
@@ -759,13 +806,13 @@
   { line-width: 2.5; line-color: #fff; line-dasharray: 1, 0.75; }
 
   [zoom>=15]
-  { line-width: 5; line-color: #fff; line-dasharray: 1, 1.5; }
+  { line-width: 5; line-color: #fe8300; line-dasharray: 1, 1.5; }
   
   [zoom>=16]
-  { line-width: 7; line-color: #fff; line-dasharray: 1.25, 1.5; }
+  { line-width: 7; line-dasharray: 1.25, 1.5; }
   
   [zoom>=17]
-  { line-width: 9; line-color: #fff; line-dasharray: 1.5, 1.9; }
+  { line-width: 9; line-dasharray: 1.5, 1.9; }
 }
 
 /** Bike lanes **/

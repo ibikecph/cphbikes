@@ -122,6 +122,14 @@
 {
   [zoom>=10]
   {
-    polygon-fill:#c7dada;
+    polygon-fill:#eceeee;
+  }
+}
+
+.area[amenity='university']
+{
+  [zoom>=10]
+  {
+    polygon-fill: #e9ead5;
   }
 }

@@ -34,7 +34,18 @@
 #city-points-z11[zoom=11],
 #city-points-z12[zoom=12] {
 	text-name: '[name]';
+	text-face-name: 'Arial Regular';
+	text-fill: #fff;
+	text-halo-fill: @land;
+	text-placement: point;
+	text-max-char-angle-delta: 30;
+	text-wrap-width: 40;
+	text-halo-radius: 2;
 	text-allow-overlap: false;
+	text-size: 13;
+	text-spacing: 100;
+	text-line-spacing: -5;
+	text-wrap-width: 70;
 }
 
 #city-points-z9[zoom=9] {
@@ -70,6 +81,7 @@
 	text-size: 20;
 }
 */
+
 
 /* Parks and water labels */
 #water-bodies-labels[zoom=9][area>100000000][type='reservoir'],
@@ -201,7 +213,8 @@
 
 /* zoom 13 */
 #major-road-labels[highway='primary'][zoom=13],
-#major-road-labels[highway='trunk'][zoom=13] {
+#major-road-labels[highway='trunk'][zoom=13],
+#major-road-labels[highway='secondary'][zoom=13] {
 	text-name: '[name]';
 	text-face-name: 'Arial Bold';
 	text-placement: line;
