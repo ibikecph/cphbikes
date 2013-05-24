@@ -400,3 +400,16 @@
     text-wrap-width: 70;
   }
 }
+
+#bike-route-labels
+{
+  shield-file: url("images/forest.png");
+  shield-name: '[ref]';
+  shield-face-name: 'Arial Bold';
+  shield-size: 12;
+  shield-fill: #4581C3;
+  shield-halo-radius: 1;
+  shield-halo-fill: @land;
+  shield-spacing: 100;
+  shield-wrap-width: 30;
+}

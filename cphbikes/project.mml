@@ -187,8 +187,7 @@
       "srs-name": "900913",
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
-      "name": "copenhagen_line",
-      "status": "off"
+      "name": "copenhagen_line"
     },
     {
       "extent": [
@@ -448,6 +447,32 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "place-labels"
+    },
+    {
+      "geometry": "linestring",
+      "extent": [
+        7.642616975134489,
+        54.330000350706904,
+        13.369999174393747,
+        57.97999727327287
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT ref, way, highway, ncn, rcn, lcn, surface FROM planet_osm_line WHERE route='bicycle' AND ref IS NOT NULL AND (ncn='yes' OR rcn='yes' OR lcn='yes')) as map_stuff",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "850772.23,7232903.8,1488341.5,7963116.76",
+        "host": "geo.local",
+        "dbname": "cphbikes",
+        "user": "cphbikes"
+      },
+      "id": "bike-route-labels",
+      "class": "",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "bike-route-labels"
     }
   ],
   "scale": 1,
