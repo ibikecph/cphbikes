@@ -398,20 +398,20 @@
       "name": "minor-road-labels"
     },
     {
-      "geometry": "point",
+      "geometry": "polygon",
       "extent": [
-        11.894005178830769,
-        55.49100165343991,
-        13.146997525508196,
-        55.9499959643464
+        11.894006526303695,
+        55.491000940941205,
+        13.146980008360156,
+        55.94994717512968
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, name, railway, highway FROM planet_osm_point WHERE \"railway\" IN ('station') OR \"highway\" IN ('bus_stop') ORDER BY z_order ASC, way DESC) AS poi",
+        "table": "((SELECT way, name, railway, highway, z_order FROM planet_osm_point WHERE \"railway\" IN ('station') OR \"highway\" IN ('bus_stop')\nUNION\nSELECT way, name, railway, highway, z_order FROM planet_osm_polygon WHERE \"railway\" IN ('station'))  ORDER BY z_order ASC, way DESC) AS poi",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
-        "extent": "1324034.75,7457748.50,1463515.12,7548458.00",
+        "extent": "1324034.75,7457748.5,1463515.12,7548458",
         "dbname": "cphbikes",
         "host": "geo.local",
         "user": "cphbikes"

@@ -352,22 +352,20 @@
 	text-size: 12;
 }
 
-/* Subway stations and icons */
-#poi-stations[zoom>=18][railway='station'] { 
-	/* this doesn't have a data source right now */
-	text-name: '[name]';
-	text-face-name: 'Arial Bold';
-	text-size: 12;
-	text-placement: point;
-	text-max-char-angle-delta: 30;
-	text-fill: #4581C3;
-	text-halo-radius: 1;
-	text-halo-fill: @land;
-	text-spacing: 100;
-	text-allow-overlap: true;
-	text-wrap-width: 30;
-	text-dx: 0;
-	text-dy: 8;
+/* Subway and rail stations */
+#poi-station-labels[zoom>=16][railway='station'] { 
+  text-name: '[name]';
+  text-face-name: 'Arial Bold';
+  text-size: 12;
+  text-max-char-angle-delta: 30;
+  text-fill: #4581C3;
+  text-halo-radius: 1;
+  text-halo-fill: @land;
+  text-spacing: 100;
+  text-allow-overlap: true;
+  text-wrap-width: 30;
+  text-dx: 0;
+  text-dy: 8;
 }
 
 .buildings-labels[zoom>=17]['addr:housenumber'=~'.+'],
