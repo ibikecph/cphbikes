@@ -425,3 +425,26 @@
 	text-wrap-width: 80;
 }
 
+#place-labels
+{
+  [place='city'][zoom>=10],
+  [place='town'][zoom>=10],
+  [place='village'][zoom>=12],
+  [place='suburb'][zoom>=13],
+  [place='neighborhood'][zoom>=13],
+  {
+    text-name: '[name]';
+    text-face-name: 'Arial Regular';
+    text-fill: #fff;
+    text-halo-fill: @land;
+    text-placement: point;
+    text-max-char-angle-delta: 30;
+    text-wrap-width: 40;
+    text-halo-radius: 2;
+    text-allow-overlap: false;
+    text-size: 13;
+    text-spacing: 100;
+    text-line-spacing: -5;
+    text-wrap-width: 70;
+  }
+}
