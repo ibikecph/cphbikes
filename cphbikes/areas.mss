@@ -133,3 +133,11 @@
     polygon-fill: #e9ead5;
   }
 }
+
+.area[railway='platform']
+{
+  [zoom>=17]
+  {
+    polygon-fill:#f0f;
+  }
+}
