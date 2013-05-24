@@ -25,64 +25,6 @@
 @aeroway: 		#eee;
 
 
-/* The labels are for world zooms, mid-zooms, and detailed city zooms. */
-/*Map { font-directory: url(./fonts); }*/
-
-/*
-#city-points-z9[zoom=9],
-#city-points-z10[zoom=10],
-#city-points-z11[zoom=11],
-#city-points-z12[zoom=12] {
-	text-name: '[name]';
-	text-face-name: 'Arial Regular';
-	text-fill: #fff;
-	text-halo-fill: @land;
-	text-placement: point;
-	text-max-char-angle-delta: 30;
-	text-wrap-width: 40;
-	text-halo-radius: 2;
-	text-allow-overlap: false;
-	text-size: 13;
-	text-spacing: 100;
-	text-line-spacing: -5;
-	text-wrap-width: 70;
-}
-
-#city-points-z9[zoom=9] {
-	text-name: '[name]';
-	text-size: 13;
-}
-#city-points-z9[zoom=9][font_size=20] {
-	text-name: '[name]';
-	text-size: 20;
-}
-#city-points-z10[zoom=10] {
-	text-name: '[name]';
-	text-size: 13;
-}
-#city-points-z10[zoom=10][font_size=20] {
-	text-name: '[name]';
-	text-size: 20;
-}
-#city-points-z11[zoom=11] {
-	text-name: '[name]';
-	text-size: 13;
-}
-#city-points-z11[zoom=11][font_size=20] {
-	text-name: '[name]';
-	text-size: 20;
-}
-#city-points-z12[zoom=12] {
-	text-name: '[name]';
-	text-size: 13;
-}
-#city-points-z12[zoom=12][font_size=20] {
-	text-name: '[name]';
-	text-size: 20;
-}
-*/
-
-
 /* Parks and water labels */
 #water-bodies-labels[zoom=9][area>100000000][type='reservoir'],
 #water-bodies-labels[zoom=10][area>100000000][type='reservoir'],
@@ -450,7 +392,6 @@
     text-face-name: 'Arial Regular';
     text-fill: #fff;
     text-halo-fill: @land;
-    text-placement: point;
     text-max-char-angle-delta: 30;
     text-wrap-width: 40;
     text-halo-radius: 2;
