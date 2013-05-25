@@ -12,11 +12,11 @@
 /* roads */
 @highway:		#666;
 @highway_case:	@land;
-@major:			#929292;
-@major_case:	@land;
+@major:			#000;
+@major_case:	#fff;
 @minor:			#999;
-@minor_2:		#666;
-@minor_case:	@land;
+@minor_2:		#000;
+@minor_case:	#fff;
 @service:		#666;
 @service_case:	@land;
 @path:			#fff;
@@ -95,34 +95,57 @@
 
 
 
-.buildings-labels[railway='station'],
+
 .buildings-labels[shop='mall'],
 .buildings-labels[amenity='theatre'],
 .buildings-labels[amenity='university'],
 .buildings-labels[amenity='hospital'],
-.buildings-labels[amenity='public_building']
+.buildings-labels[amenity='public_building'],
+.buildings[amenity='place_of_worship'],
+.buildings[amenity='townhall'],
+.buildings[amenity='library']
 {
-	[zoom=14]
+	[zoom>=14]
 	{
-		[way_area>=100000]
+		[way_area>=20000]
 		{
-			text-face-name: 'Arial Bold';
-			text-size: 12;
+			text-face-name: 'Arial Regular';
+			text-size: 10;
 			text-name: '[name]';
 			text-fill: #000;
-			text-wrap-width: 80;
+			text-wrap-width: 30;
+			text-halo-fill: #eceeee;
+			text-halo-radius: 2;
 		}
 	}
 	
-	[zoom=15]
+	[zoom>=15]
 	{
-		[way_area>=50000]
+		[way_area>=10000]
+		{
+			text-face-name: 'Arial Bold';
+			text-size: 11;
+			text-name: '[name]';
+		}
+	}
+	
+	[zoom>=16]
+	{
+		[way_area>=5000]
 		{
 			text-face-name: 'Arial Bold';
 			text-size: 12;
 			text-name: '[name]';
-			text-fill: #000;
-			text-wrap-width: 80;
+		}
+	}
+	
+	[zoom>=17]
+	{
+		[way_area>=5000]
+		{
+			text-face-name: 'Arial Bold';
+			text-size: 14;
+			text-name: '[name]';
 		}
 	}
 }
@@ -140,7 +163,7 @@
 #major-road-labels[highway='primary'][zoom=12],
 #major-road-labels[highway='trunk'][zoom=12] {
 	text-name: '[name]';
-	text-face-name: 'Arial Bold';
+	text-face-name: 'Arial Regular';
 	text-placement: line;
 	text-max-char-angle-delta: 30;
 	text-fill: @major;
@@ -149,8 +172,8 @@
 	text-spacing: 100;
 	text-placement: line;
 
-	text-dy: 7;
-	text-size: 12;
+	/*text-dy: 1;*/
+	text-size: 9;
 }
 
 /* zoom 13 */
@@ -158,7 +181,7 @@
 #major-road-labels[highway='trunk'][zoom=13],
 #major-road-labels[highway='secondary'][zoom=13] {
 	text-name: '[name]';
-	text-face-name: 'Arial Bold';
+	text-face-name: 'Arial Regular';
 	text-placement: line;
 	text-max-char-angle-delta: 30;
 	text-fill: @major;
@@ -167,8 +190,7 @@
 	text-spacing: 100;
 	text-placement: line;
 	
-	text-dy: 8;
-	text-size: 13;
+	text-size: 10;
 }
 
 /* zoom 14 */
@@ -178,7 +200,7 @@
 #major-road-labels[highway='tertiary'][zoom=14]
 {
 	text-name: '[name]';
-	text-face-name: 'Arial Bold';
+	text-face-name: 'Arial Regular';
 	text-placement: line;
 	text-max-char-angle-delta: 30;
 	text-fill: @major;
@@ -187,15 +209,13 @@
 	text-spacing: 100;
 	text-placement: line;
 
-	text-size: 14;
-	text-dy: 9;
+	text-size: 11;
 }
 
 #major-road-labels[highway='secondary'][zoom=14],
 #major-road-labels[highway='tertiary'][zoom=14] 
 {
 	text-size: 12;
-	text-dy: 7;
 }
 
 /* zoom 15 */
@@ -204,7 +224,7 @@
 #major-road-labels[highway='secondary'][zoom=15],
 #major-road-labels[highway='tertiary'][zoom=15] {
 	text-name: '[name]';
-	text-face-name: 'Arial Bold';
+	text-face-name: 'Arial Regular';
 	text-placement: line;
 	text-max-char-angle-delta: 30;
 	text-fill: @major;
@@ -213,13 +233,11 @@
 	text-spacing: 100;
 	text-placement: line;
 
-	text-size: 15;
-	text-dy: 12;
+	text-size: 12;
 }
 #major-road-labels[highway='secondary'][zoom=15],
 #major-road-labels[highway='tertiary'][zoom=15]  {
 	text-size: 12;
-	text-dy: 11;
 }
 
 #minor-road-labels[zoom=15] {
@@ -231,9 +249,8 @@
 	text-halo-radius: 2;
 	text-halo-fill: @minor_case;
 	text-spacing: 124;
-	text-dy: 10;
 
-	text-size: 10;
+	text-size: 9;
 }
 
 
@@ -243,7 +260,7 @@
 #major-road-labels[highway='secondary'][zoom=16],
 #major-road-labels[highway='tertiary'][zoom=16] {
 	text-name: '[name]';
-	text-face-name: 'Arial Bold';
+	text-face-name: 'Arial Regular';
 	text-placement: line;
 	text-max-char-angle-delta: 30;
 	text-fill: @major;
@@ -252,12 +269,11 @@
 	text-spacing: 124;
 	text-placement: line;
 
-	text-size: 14;
-	text-dy: 13;
+	text-size: 12;
 }
 #major-road-labels[highway='secondary'][zoom=16],
 #major-road-labels[highway='tertiary'][zoom=16] {
-	text-size: 13;
+	text-size: 12;
 }
 
 #minor-road-labels[zoom=16] {
@@ -269,7 +285,6 @@
 	text-halo-radius: 2;
 	text-halo-fill: @minor_case;
 	text-spacing: 124;
-	text-dy: 10;
 
 	text-size: 10;
 }
@@ -280,7 +295,7 @@
 #major-road-labels[highway='secondary'][zoom=17],
 #major-road-labels[highway='tertiary'][zoom=17] {
 	text-name: '[name]';
-	text-face-name: 'Arial Bold';
+	text-face-name: 'Arial Regular';
 	text-placement: line;
 	text-max-char-angle-delta: 30;
 	text-fill: @major;
@@ -288,18 +303,15 @@
 	text-halo-fill: @major_case;
 	text-spacing: 180;
 	text-placement: line;
-	text-dy: 16;
 
 	text-size: 16;
 }
 #major-road-labels[highway='primary'][zoom=17],
 #major-road-labels[highway='secondary'][zoom=17] {
 	text-size: 13;
-	text-dy: 14;
 }
 #major-road-labels[highway='tertiary'][zoom=17] {
 	text-size: 12;
-	text-dy: 13;
 }
 #minor-road-labels[zoom=17] {
 	text-name: '[name]';
@@ -310,9 +322,8 @@
 	text-halo-radius: 2;
 	text-halo-fill: @minor_case;
 	text-spacing: 180;
-	text-dy: 13;
 
-	text-size: 12;
+	text-size: 11;
 }
 
 /* zoom 18+ */
@@ -353,28 +364,49 @@
 }
 
 /* Subway and rail stations */
-#poi-station-labels[zoom>=16][railway='station'] { 
+#poi-station-labels[zoom>=15][railway='station'] { 
   text-name: '[name]';
-  text-face-name: 'Arial Bold';
-  text-size: 12;
+  text-face-name: 'Arial Regular';
+  text-size: 9;
   text-max-char-angle-delta: 30;
-  text-fill: #4581C3;
-  text-halo-radius: 1;
+  text-fill: #000;
+  text-halo-radius: 2;
   text-halo-fill: @land;
   text-spacing: 100;
   text-allow-overlap: true;
   text-wrap-width: 30;
   text-dx: 0;
   text-dy: 8;
+  
+  [zoom>=15]
+  {
+    text-name: '[name]';
+    text-face-name: 'Arial Regular';
+    text-size: 9;
+    text-halo-radius: 3;
+  }
+  
+  [zoom>=16]
+  {
+    text-halo-radius: 2;
+  }
+  
+  [zoom>=17]
+  {
+    text-name: '[name]';
+    text-face-name: 'Arial Regular';
+    text-size: 11;
+    text-halo-radius: 2;
+  }
 }
 
 .buildings-labels[zoom>=17]['addr:housenumber'=~'.+'],
 .node[zoom>=18]['addr:housenumber'=~'.+']
 {
-	text-face-name: 'Arial Regular';
-	text-size: 9;
+	text-face-name: 'Arial Bold';
+	text-size: 10;
 	text-name: '[addr:housenumber]';
-	text-fill: #848484;
+	text-fill: #fff;
 	text-wrap-width: 80;
 }
 
@@ -384,32 +416,44 @@
   [place='town'][zoom>=10],
   [place='village'][zoom>=12],
   [place='suburb'][zoom>=13],
-  [place='neighborhood'][zoom>=13],
+  [place='neighborhood']
   {
     text-name: '[name]';
     text-face-name: 'Arial Regular';
-    text-fill: #fff;
+    text-fill: #000;
     text-halo-fill: @land;
     text-max-char-angle-delta: 30;
     text-wrap-width: 40;
     text-halo-radius: 2;
     text-allow-overlap: false;
-    text-size: 13;
+    text-size: 10;
     text-spacing: 100;
-    text-line-spacing: -5;
+    text-line-spacing: 2;
     text-wrap-width: 70;
+  }
+  
+  [zoom>=11]
+  {
+  	[population>=50000]
+  	{
+      text-name: '[name]';
+      text-face-name: 'Arial Regular';
+      text-size: 20;
+    }
   }
 }
 
+/*
 #bike-route-labels
 {
   shield-file: url("images/forest.png");
   shield-name: '[ref]';
-  shield-face-name: 'Arial Bold';
-  shield-size: 12;
-  shield-fill: #4581C3;
+  shield-face-name: 'Arial Regular';
+  shield-size: 10;
+  shield-fill: #666;
   shield-halo-radius: 1;
   shield-halo-fill: @land;
-  shield-spacing: 100;
+  shield-spacing: 120;
   shield-wrap-width: 30;
 }
+*/

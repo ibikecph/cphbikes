@@ -122,7 +122,7 @@
 {
   [zoom>=10]
   {
-    polygon-fill:#eceeee;
+    polygon-fill:#f0e6dc;
   }
 }
 
@@ -130,7 +130,7 @@
 {
   [zoom>=10]
   {
-    polygon-fill: #e9ead5;
+    polygon-fill: #d6e5e7;
   }
 }
 
@@ -138,6 +138,17 @@
 {
   [zoom>=17]
   {
-    polygon-fill:#f0f;
+    polygon-fill:#eff0f0;
   }
 }
+
+.area[landuse='construction']
+{
+  [zoom>=14]
+  {
+    polygon-fill:#dfd6e2;
+  }
+}
+
+
+
