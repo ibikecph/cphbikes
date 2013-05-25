@@ -443,17 +443,19 @@
   }
 }
 
+
 /*
 #bike-route-labels
 {
-  shield-file: url("images/forest.png");
+  shield-file: url("images/shield_test2.png");
   shield-name: '[ref]';
-  shield-face-name: 'Arial Regular';
+  shield-face-name: 'Arial Bold';
   shield-size: 10;
-  shield-fill: #666;
+  shield-fill: #fff;
   shield-halo-radius: 1;
   shield-halo-fill: @land;
   shield-spacing: 120;
   shield-wrap-width: 30;
 }
 */
+

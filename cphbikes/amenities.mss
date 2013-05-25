@@ -77,20 +77,6 @@
   [zoom>=16]
   { point-file: url("images/cafe_small.png"); }
 }
-
-/*
-.node[amenity='place_of_worship']
-{
-  [zoom>=15]
-  {
-    marker-width: 30;
-    marker-fill: #ffe507;
-    marker-line-color: darken(#ffe507, 10%);
-
-    polygon-fill: #ffe507;
-  }
-}
-*/
   
 .place_of_worship[religion='christian']
 {
@@ -101,7 +87,9 @@
   [zoom>=16]
   { point-file: url("images/christian_med.png"); }
 }
-  
+ 
+/* commenting these out, since I don't see so many of them*/
+/*  
 .place_of_worship[religion='muslim']
 {
   [zoom>=15]
@@ -125,3 +113,4 @@
     polygon-fill: #ad3b59;
   }
 }
+*/
