@@ -224,7 +224,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, amenity, layer, name, shop, highway, railway, barrier, access, foot, \"ramp:bicycle\", \"service:bicycle:retail\", \"service:bicycle:repair\", \"service:bicycle:rental\", \"service:bicycle:pump\", \"service:bicycle:diy\", \"service:bicycle:cleaning\", \"service:bicycle:second_hand\", \"addr:housenumber\" FROM planet_osm_point) as points",
+        "table": "(SELECT way, amenity, layer, COALESCE(name, '') AS name, shop, highway, railway, barrier, access, foot, \"ramp:bicycle\", \"service:bicycle:retail\", \"service:bicycle:repair\", \"service:bicycle:rental\", \"service:bicycle:pump\", \"service:bicycle:diy\", \"service:bicycle:cleaning\", \"service:bicycle:second_hand\", \"addr:housenumber\" FROM planet_osm_point) as points",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -268,6 +268,32 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "place_of_worship"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        11.894006526303695,
+        55.491000940941205,
+        13.146980008360156,
+        55.94994717512968
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "((SELECT way, name, railway, highway, z_order FROM planet_osm_point WHERE (\"railway\" IN ('station') OR \"highway\" IN ('bus_stop')) AND name IS NOT NULL\nUNION\nSELECT way, name, railway, highway, z_order FROM planet_osm_polygon WHERE \"railway\" IN ('station') AND name is NOT NULL)  ORDER BY z_order ASC, way DESC) AS poi",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "1324034.75,7457748.5,1463515.12,7548458",
+        "dbname": "cphbikes",
+        "host": "geo.local",
+        "user": "cphbikes"
+      },
+      "id": "poi-station-labels",
+      "class": "poi-station-labels",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "poi-station-labels"
     },
     {
       "extent": [
@@ -328,7 +354,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, railway, shop, amenity, name, way_area, \"addr:housenumber\" FROM planet_osm_polygon WHERE building='yes') as map_stuff2",
+        "table": "(SELECT way, railway, shop, amenity, COALESCE(name, '') as name, way_area, \"addr:housenumber\" FROM planet_osm_polygon WHERE building='yes') as map_stuff2",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -395,32 +421,6 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "minor-road-labels"
-    },
-    {
-      "geometry": "polygon",
-      "extent": [
-        11.894006526303695,
-        55.491000940941205,
-        13.146980008360156,
-        55.94994717512968
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "((SELECT way, name, railway, highway, z_order FROM planet_osm_point WHERE \"railway\" IN ('station') OR \"highway\" IN ('bus_stop')\nUNION\nSELECT way, name, railway, highway, z_order FROM planet_osm_polygon WHERE \"railway\" IN ('station'))  ORDER BY z_order ASC, way DESC) AS poi",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "auto",
-        "extent": "1324034.75,7457748.5,1463515.12,7548458",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
-      },
-      "id": "poi-station-labels",
-      "class": "poi-station-labels",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "poi-station-labels"
     },
     {
       "geometry": "polygon",

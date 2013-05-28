@@ -101,9 +101,9 @@
 .buildings-labels[amenity='university'],
 .buildings-labels[amenity='hospital'],
 .buildings-labels[amenity='public_building'],
-.buildings[amenity='place_of_worship'],
-.buildings[amenity='townhall'],
-.buildings[amenity='library']
+.buildings-labels[amenity='place_of_worship'],
+.buildings-labels[amenity='townhall'],
+.buildings-labels[amenity='library']
 {
 	[zoom>=14]
 	{
@@ -116,6 +116,7 @@
 			text-wrap-width: 30;
 			text-halo-fill: #eceeee;
 			text-halo-radius: 2;
+			text-wrap-width: 40;
 		}
 	}
 	
@@ -126,6 +127,7 @@
 			text-face-name: 'Arial Bold';
 			text-size: 11;
 			text-name: '[name]';
+			text-wrap-width: 40;
 		}
 	}
 	
@@ -136,6 +138,7 @@
 			text-face-name: 'Arial Bold';
 			text-size: 12;
 			text-name: '[name]';
+			text-wrap-width: 40;
 		}
 	}
 	
@@ -146,6 +149,7 @@
 			text-face-name: 'Arial Bold';
 			text-size: 14;
 			text-name: '[name]';
+			text-wrap-width: 40;
 		}
 	}
 }
@@ -400,8 +404,8 @@
   }
 }
 
-.buildings-labels[zoom>=17]['addr:housenumber'=~'.+'],
-.node[zoom>=18]['addr:housenumber'=~'.+']
+.buildings-labels[zoom>=17]['addr:housenumber'!=''],
+.node[zoom>=18]['addr:housenumber'!='']
 {
 	text-face-name: 'Arial Bold';
 	text-size: 10;
