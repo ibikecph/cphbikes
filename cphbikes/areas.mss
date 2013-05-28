@@ -21,7 +21,7 @@
 .area[landuse='greenfield'],
 .area[landuse='farmland'],
 {
-  [zoom>=10]
+  [zoom>=9]
   {
     polygon-fill: @park;
   }
@@ -33,13 +33,24 @@
 .area[natural='scrub'] { polygon-pattern-file: url("images/scrub.png"); }
 */
 .area[leisure='recreation_ground'],
-.area[landuse='forest'],
 .area[natural='wetland'],
 .area[natural='scrub'],
 {
   [zoom>=10]
   {
     polygon-fill: @park;
+  }
+}
+
+.area[landuse='forest']
+{
+  [zoom>=10]
+  {
+    polygon-fill: @park;
+  }
+  [zoom>=15]
+  {
+    polygon-pattern-file: url("images/forest5.png");
   }
 }
 

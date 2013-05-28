@@ -426,10 +426,32 @@
     text-wrap-width: 40;
     text-halo-radius: 2;
     text-allow-overlap: false;
-    text-size: 10;
+    text-size: 9;
     text-spacing: 100;
     text-line-spacing: 2;
     text-wrap-width: 70;
+  }
+  
+  [zoom>=9]
+  {
+  	[population>=50000]
+  	{
+      text-name: '[name]';
+      text-face-name: 'Arial Regular';
+      text-size: 15;
+      text-halo-radius: 2;
+      text-halo-fill: @land;
+    }
+  }
+  
+  [zoom>=10]
+  {
+  	[population>=50000]
+  	{
+      text-name: '[name]';
+      text-face-name: 'Arial Regular';
+      text-size: 15;
+    }
   }
   
   [zoom>=11]
@@ -473,7 +495,7 @@
 
 #bike-route-labels
 {
-  [chars>4]
+  [chars>4][zoom>=11]
   {
     text-name: '[ref]';
     text-face-name: 'Arial Bold';
@@ -483,12 +505,14 @@
     
     [ncn='yes'] /* national cycle networks */
     {
-      text-fill: #9463e4;
+      text-halo-fill: #9463e4;
+      text-fill: #fff;
     }
 
     [rcn='yes'] /* regional cycle networks */
     {
-      text-fill: #0083e9;
+      text-halo-fill: #0083e9;
+      text-fill: #fff;
     }
 
     [lcn='yes'] /* local cycle networks */
@@ -498,7 +522,7 @@
     }
   }
 
-  [chars<=4]
+  [chars<=4][zoom>=11]
   {
     shield-file: url("images/shield_test4.png");
     shield-name: '[ref]';

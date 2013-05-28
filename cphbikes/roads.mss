@@ -126,6 +126,16 @@
     line-width:2.5;
   }
   
+  [zoom>=9]
+  {
+    ::outline
+    {
+      line-width: 1;
+    }
+
+    line-width: 0.5;
+  }
+  
 
   [zoom>=10]
   {
@@ -252,6 +262,17 @@
   [cycleway='opposite_track'],
   {
     line-color: #fff;
+  }
+  
+  
+  [zoom>=9]
+  {
+    ::outline
+    {
+      line-width: 1;
+    }
+
+    line-width: 0.5;
   }
   
 
