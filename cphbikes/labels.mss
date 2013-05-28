@@ -438,7 +438,34 @@
   	{
       text-name: '[name]';
       text-face-name: 'Arial Regular';
-      text-size: 20;
+      text-size: 16;
+    }
+  }
+  
+  [zoom>=12]
+  {
+  	[population>=50000]
+  	{
+      text-name: '[name]';
+      text-face-name: 'Arial Regular';
+      text-size: 15;
+    }
+  }
+  
+  [zoom>=12]
+  {
+  	[population>=40000]
+  	{
+      text-name: '[name]';
+      text-face-name: 'Arial Regular';
+      text-size: 17;
+    }
+    
+    [population>=15000]
+  	{
+      text-name: '[name]';
+      text-face-name: 'Arial Regular';
+      text-size: 14;
     }
   }
 }
@@ -449,10 +476,26 @@
   [chars>4]
   {
     text-name: '[ref]';
-    text-face-name: 'Arial Regular';
-    text-size: 11;
+    text-face-name: 'Arial Bold';
+    text-size: 13;
     text-halo-radius: 2;
     text-placement: line;
+    
+    [ncn='yes'] /* national cycle networks */
+    {
+      text-fill: #9463e4;
+    }
+
+    [rcn='yes'] /* regional cycle networks */
+    {
+      text-fill: #0083e9;
+    }
+
+    [lcn='yes'] /* local cycle networks */
+    { 
+      text-halo-fill: #00bf3f;
+      text-fill: #fff;
+    }
   }
 
   [chars<=4]
@@ -466,27 +509,79 @@
     shield-halo-radius: 1;
     shield-halo-fill: @land;
     */
-    shield-spacing: 120;
+    shield-spacing: 200;
     shield-wrap-width: 30;
 
     [chars=1]
     {
-      shield-file: url("images/wetland2.png");
+      [ncn='yes'] /* national cycle networks */
+      {
+        shield-file: url("images/shield_ncn_15px.png");
+      } 
+
+      [rcn='yes'] /* regional cycle networks */
+      {
+        shield-file: url("images/shield_rcn_15px.png");
+      }
+
+      [lcn='yes'] /* local cycle networks */
+      {
+        shield-file: url("images/shield_lcn_15px.png");
+      }
     }
 
     [chars=2]
     {
-      shield-file: url("images/scrub.png");
+      [ncn='yes'] /* national cycle networks */
+      {
+        shield-file: url("images/shield_ncn_18px.png");
+      } 
+
+      [rcn='yes'] /* regional cycle networks */
+      {
+        shield-file: url("images/shield_rcn_18px.png");
+      }
+
+      [lcn='yes'] /* local cycle networks */
+      {
+        shield-file: url("images/shield_lcn_18px.png");
+      }
     }
 
     [chars=3]
     {
-      shield-file: url("images/christian.png");
+      [ncn='yes'] /* national cycle networks */
+      {
+        shield-file: url("images/shield_ncn_26px.png");
+      } 
+
+      [rcn='yes'] /* regional cycle networks */
+      {
+        shield-file: url("images/shield_rcn_26px.png");
+      }
+
+      [lcn='yes'] /* local cycle networks */
+      {
+        shield-file: url("images/shield_lcn_26px.png");
+      }
     }
 
     [chars=4]
     {
-      shield-file: url("images/forest.png");
+      [ncn='yes'] /* national cycle networks */
+      {
+        shield-file: url("images/shield_ncn_30px.png");
+      } 
+
+      [rcn='yes'] /* regional cycle networks */
+      {
+        shield-file: url("images/shield_rcn_30px.png");
+      }
+
+      [lcn='yes'] /* local cycle networks */
+      {
+        shield-file: url("images/shield_lcn_30px.png");
+      }
     }
   }
 }
