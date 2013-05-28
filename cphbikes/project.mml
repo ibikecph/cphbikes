@@ -270,32 +270,6 @@
       "name": "place_of_worship"
     },
     {
-      "geometry": "polygon",
-      "extent": [
-        11.894006526303695,
-        55.491000940941205,
-        13.146980008360156,
-        55.94994717512968
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "((SELECT way, name, railway, highway, z_order FROM planet_osm_point WHERE (\"railway\" IN ('station') OR \"highway\" IN ('bus_stop')) AND name IS NOT NULL\nUNION\nSELECT way, name, railway, highway, z_order FROM planet_osm_polygon WHERE \"railway\" IN ('station') AND name is NOT NULL)  ORDER BY z_order ASC, way DESC) AS poi",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "auto",
-        "extent": "1324034.75,7457748.5,1463515.12,7548458",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
-      },
-      "id": "poi-station-labels",
-      "class": "poi-station-labels",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "poi-station-labels"
-    },
-    {
       "extent": [
         11.894005178830769,
         55.49100165343991,
@@ -369,6 +343,32 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "buildings-labels"
+    },
+    {
+      "geometry": "polygon",
+      "extent": [
+        11.894006526303695,
+        55.491000940941205,
+        13.146980008360156,
+        55.94994717512968
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "((SELECT way, name, railway, z_order, (CASE WHEN name LIKE '%Metro%' THEN 'yes' ELSE 'no' END) AS is_metro FROM planet_osm_point WHERE \"railway\" IN ('station') AND name IS NOT NULL\nUNION\nSELECT way, name, railway, z_order, (CASE WHEN name LIKE '%Metro%' THEN 'yes' ELSE 'no' END) AS is_metro FROM planet_osm_polygon WHERE \"railway\" IN ('station') AND name IS NOT NULL)  ORDER BY z_order ASC, way DESC) AS poi",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "1324034.75,7457748.5,1463515.12,7548458",
+        "dbname": "cphbikes",
+        "host": "geo.local",
+        "user": "cphbikes"
+      },
+      "id": "poi-station-labels",
+      "class": "poi-station-labels",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "poi-station-labels"
     },
     {
       "geometry": "linestring",

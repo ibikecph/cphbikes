@@ -368,51 +368,90 @@
 }
 
 /* Subway and rail stations */
-#poi-station-labels[railway='station']
+/*
+#poi-station-labels
 {
-  point-allow-overlap: false;
-  point-ignore-placement: true;
-  point-placement: interior;
+  [railway='station']
+  {
+    point-allow-overlap: false;
+    point-ignore-placement: true;
+    point-placement: interior;
+    [zoom>=14]
+    { point-file: url("images/railway_11px2.png"); }
+    [zoom>=15]
+    { point-file: url("images/railway_16px.png"); }
+    [zoom>=16]
+    { point-file: url("images/railway_16px.png"); }
+
+    /* Use for subway * /
+    [name =~ '.+Metro\)']
+    {
+      [zoom>=14]
+      { point-file: url("images/metro_small4.png"); }
+      [zoom>=15]
+      { point-file: url("images/metro_12px.png"); }
+      [zoom>=16]
+      { point-file: url("images/metro_16px.png"); }
+    }
+  }
+}
+*/
+#poi-station-labels
+{
   [zoom>=14]
-  { point-file: url("images/railway_11px2.png"); }
+  {
+    point-allow-overlap: false;
+    point-ignore-placement: true;
+    point-placement: interior;
+    point-file: url("images/railway_11px2.png");
+  }
+
   [zoom>=15]
-  { point-file: url("images/railway_16px.png"); }
+  {
+    point-file: url("images/railway_16px.png");
+  }
+
   [zoom>=16]
-  { point-file: url("images/railway_16px.png"); }
+  {
+    point-file: url("images/railway_16px.png");
+  }
+
+  [is_metro='yes']
+  {
+    [zoom>=14]
+    {
+      point-file: url("images/metro_small4.png");
+    }
+
+    [zoom>=15]
+    {
+      point-file: url("images/metro_12px.png");
+    }
+
+    [zoom>=16]
+    {
+      point-file: url("images/metro_16px.png");
+    }
+  }
 }
 
-/* Use for subway */
-#poi-station-labels[railway='station'][name =~ '.+Metro\)']
+#poi-station-labels
 {
-  [zoom>=14]
-  { point-file: url("images/metro_small4.png"); }
-  [zoom>=15]
-  { point-file: url("images/metro_12px.png"); }
-  [zoom>=16]
-  { point-file: url("images/metro_16px.png"); }
-}
-
-#poi-station-labels[zoom>=15][railway='station'] { 
-  text-name: '[name]';
-  text-face-name: 'Arial Regular';
-  text-size: 9;
-  text-max-char-angle-delta: 30;
-  text-fill: #000;
-  text-halo-radius: 2;
-  text-halo-fill: @land;
-  text-spacing: 100;
-  text-min-distance: 10;
-  text-allow-overlap: false;
-  text-wrap-width: 30;
-  text-dx: 0;
-  text-dy: 8;
-  
   [zoom>=15]
   {
     text-name: '[name]';
     text-face-name: 'Arial Regular';
     text-size: 9;
+    text-max-char-angle-delta: 30;
+    text-fill: #000;
     text-halo-radius: 3;
+    text-halo-fill: @land;
+    text-spacing: 100;
+    text-min-distance: 10;
+    text-allow-overlap: false;
+    text-wrap-width: 30;
+    text-dx: 0;
+    text-dy: 8;
   }
   
   [zoom>=16]
@@ -422,8 +461,6 @@
   
   [zoom>=17]
   {
-    text-name: '[name]';
-    text-face-name: 'Arial Regular';
     text-size: 11;
     text-halo-radius: 2;
   }
