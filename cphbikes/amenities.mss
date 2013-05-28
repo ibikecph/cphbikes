@@ -16,8 +16,6 @@
   { point-file: url("images/bike_shop_green_med.png"); }
 }
 
-  
-.node[shop='bicycle'],
 .node['service:bicycle:retail'='yes'],
 .node['service:bicycle:repair'='yes'],
 .node['service:bicycle:rental'='yes'],
@@ -26,12 +24,8 @@
 .node['service:bicycle:cleaning'='yes'],
 .node['service:bicycle:second_hand'='yes'],
 {
-  [zoom>=15]
-  {
-    marker-width: 3;
-    marker-fill: #000;
-    marker-line-color: darken(#000, 10%);
-  }
+  [zoom>=16]
+  { point-file: url("images/service_station20px.png"); }
 }
   
   
@@ -65,12 +59,25 @@
 .node[railway='station']
 {
   [zoom>=14]
+  { point-file: url("images/railway_11px2.png"); }
+  [zoom>=15]
+  { point-file: url("images/railway_16px.png"); }
+  [zoom>=16]
+  { point-file: url("images/railway_16px.png"); }
+}
+
+/* Use for subway */
+/*
+.node[railway='station']
+{
+  [zoom>=14]
   { point-file: url("images/metro_small4.png"); }
   [zoom>=15]
   { point-file: url("images/metro_12px.png"); }
   [zoom>=16]
   { point-file: url("images/metro_16px.png"); }
 }
+*/
   
 .node[amenity='cafe']
 {
