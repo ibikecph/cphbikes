@@ -458,7 +458,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT ref, way, highway, ncn, rcn, lcn, surface FROM planet_osm_line WHERE route='bicycle' AND ref IS NOT NULL AND (ncn='yes' OR rcn='yes' OR lcn='yes')) as map_stuff",
+        "table": "(SELECT ref, way, highway, ncn, rcn, lcn, surface, length(ref) AS chars FROM planet_osm_line WHERE route='bicycle' AND ref IS NOT NULL AND (ncn='yes' OR rcn='yes' OR lcn='yes')) as map_stuff",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",

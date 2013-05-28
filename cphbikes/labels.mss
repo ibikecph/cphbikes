@@ -444,20 +444,50 @@
 }
 
 
-
 #bike-route-labels
 {
-  shield-file: url("images/shield_test4.png");
-  shield-name: '[ref]';
-  shield-face-name: 'Arial Bold';
-  shield-size: 10;
-  shield-fill: #fff;
-  /*
-  shield-halo-radius: 1;
-  shield-halo-fill: @land;
-  */
-  shield-spacing: 120;
-  shield-wrap-width: 30;
-}
+  [chars>4]
+  {
+    text-name: '[ref]';
+    text-face-name: 'Arial Regular';
+    text-size: 11;
+    text-halo-radius: 2;
+    text-placement: line;
+  }
 
+  [chars<=4]
+  {
+    shield-file: url("images/shield_test4.png");
+    shield-name: '[ref]';
+    shield-face-name: 'Arial Bold';
+    shield-size: 10;
+    shield-fill: #fff;
+    /*
+    shield-halo-radius: 1;
+    shield-halo-fill: @land;
+    */
+    shield-spacing: 120;
+    shield-wrap-width: 30;
+
+    [chars=1]
+    {
+      shield-file: url("images/wetland2.png");
+    }
+
+    [chars=2]
+    {
+      shield-file: url("images/scrub.png");
+    }
+
+    [chars=3]
+    {
+      shield-file: url("images/christian.png");
+    }
+
+    [chars=4]
+    {
+      shield-file: url("images/forest.png");
+    }
+  }
+}
 
