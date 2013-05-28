@@ -452,7 +452,7 @@
     }
   }
   
-  [zoom>=12]
+  [zoom>=14][zoom<=15]
   {
   	[population>=40000]
   	{
