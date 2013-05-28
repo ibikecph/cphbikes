@@ -368,6 +368,30 @@
 }
 
 /* Subway and rail stations */
+#poi-station-labels[railway='station']
+{
+  point-allow-overlap: false;
+  point-ignore-placement: true;
+  point-placement: interior;
+  [zoom>=14]
+  { point-file: url("images/railway_11px2.png"); }
+  [zoom>=15]
+  { point-file: url("images/railway_16px.png"); }
+  [zoom>=16]
+  { point-file: url("images/railway_16px.png"); }
+}
+
+/* Use for subway */
+#poi-station-labels[railway='station'][name =~ '.+Metro\)']
+{
+  [zoom>=14]
+  { point-file: url("images/metro_small4.png"); }
+  [zoom>=15]
+  { point-file: url("images/metro_12px.png"); }
+  [zoom>=16]
+  { point-file: url("images/metro_16px.png"); }
+}
+
 #poi-station-labels[zoom>=15][railway='station'] { 
   text-name: '[name]';
   text-face-name: 'Arial Regular';
@@ -377,7 +401,8 @@
   text-halo-radius: 2;
   text-halo-fill: @land;
   text-spacing: 100;
-  text-allow-overlap: true;
+  text-min-distance: 10;
+  text-allow-overlap: false;
   text-wrap-width: 30;
   text-dx: 0;
   text-dy: 8;
