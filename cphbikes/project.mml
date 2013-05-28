@@ -215,35 +215,6 @@
       "name": "buildings"
     },
     {
-      "geometry": "point",
-      "extent": [
-        11.89401009834438,
-        55.4910004947167,
-        13.14699499816992,
-        55.94999859471493
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT way, amenity, layer, COALESCE(name, '') AS name, shop, highway, railway, barrier, access, foot, \"ramp:bicycle\", \"service:bicycle:retail\", \"service:bicycle:repair\", \"service:bicycle:rental\", \"service:bicycle:pump\", \"service:bicycle:diy\", \"service:bicycle:cleaning\", \"service:bicycle:second_hand\", \"addr:housenumber\" FROM planet_osm_point) as points",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "auto",
-        "extent": "1324035.14763775,7457748.41232064,1463516.78865799,7548468.22295555",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes",
-        "id": "copenhagen_point",
-        "project": "copenhagen",
-        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
-      },
-      "id": "copenhagen_point",
-      "class": "node",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "copenhagen_point"
-    },
-    {
       "geometry": "unknown",
       "extent": [
         11.89401009834438,
@@ -473,6 +444,35 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "bike-route-labels"
+    },
+    {
+      "geometry": "point",
+      "extent": [
+        11.89401009834438,
+        55.4910004947167,
+        13.14699499816992,
+        55.94999859471493
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT way, amenity, layer, COALESCE(name, '') AS name, shop, highway, railway, barrier, access, foot, \"ramp:bicycle\", \"service:bicycle:retail\", \"service:bicycle:repair\", \"service:bicycle:rental\", \"service:bicycle:pump\", \"service:bicycle:diy\", \"service:bicycle:cleaning\", \"service:bicycle:second_hand\", \"addr:housenumber\" FROM planet_osm_point) as points",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "1324035.14763775,7457748.41232064,1463516.78865799,7548468.22295555",
+        "dbname": "cphbikes",
+        "host": "geo.local",
+        "user": "cphbikes",
+        "id": "copenhagen_point",
+        "project": "copenhagen",
+        "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
+      },
+      "id": "copenhagen_point",
+      "class": "node",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "copenhagen_point"
     }
   ],
   "scale": 1,
