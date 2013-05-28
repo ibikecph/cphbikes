@@ -101,9 +101,9 @@
 .buildings-labels[amenity='university'],
 .buildings-labels[amenity='hospital'],
 .buildings-labels[amenity='public_building'],
-.buildings[amenity='place_of_worship'],
-.buildings[amenity='townhall'],
-.buildings[amenity='library']
+.buildings-labels[amenity='place_of_worship'],
+.buildings-labels[amenity='townhall'],
+.buildings-labels[amenity='library']
 {
 	[zoom>=14]
 	{
@@ -116,6 +116,7 @@
 			text-wrap-width: 30;
 			text-halo-fill: #eceeee;
 			text-halo-radius: 2;
+			text-wrap-width: 40;
 		}
 	}
 	
@@ -126,6 +127,7 @@
 			text-face-name: 'Arial Bold';
 			text-size: 11;
 			text-name: '[name]';
+			text-wrap-width: 40;
 		}
 	}
 	
@@ -136,6 +138,7 @@
 			text-face-name: 'Arial Bold';
 			text-size: 12;
 			text-name: '[name]';
+			text-wrap-width: 40;
 		}
 	}
 	
@@ -146,6 +149,7 @@
 			text-face-name: 'Arial Bold';
 			text-size: 14;
 			text-name: '[name]';
+			text-wrap-width: 40;
 		}
 	}
 }
@@ -364,6 +368,30 @@
 }
 
 /* Subway and rail stations */
+#poi-station-labels[railway='station']
+{
+  point-allow-overlap: false;
+  point-ignore-placement: true;
+  point-placement: interior;
+  [zoom>=14]
+  { point-file: url("images/railway_11px2.png"); }
+  [zoom>=15]
+  { point-file: url("images/railway_16px.png"); }
+  [zoom>=16]
+  { point-file: url("images/railway_16px.png"); }
+}
+
+/* Use for subway */
+#poi-station-labels[railway='station'][name =~ '.+Metro\)']
+{
+  [zoom>=14]
+  { point-file: url("images/metro_small4.png"); }
+  [zoom>=15]
+  { point-file: url("images/metro_12px.png"); }
+  [zoom>=16]
+  { point-file: url("images/metro_16px.png"); }
+}
+
 #poi-station-labels[zoom>=15][railway='station'] { 
   text-name: '[name]';
   text-face-name: 'Arial Regular';
@@ -373,7 +401,8 @@
   text-halo-radius: 2;
   text-halo-fill: @land;
   text-spacing: 100;
-  text-allow-overlap: true;
+  text-min-distance: 10;
+  text-allow-overlap: false;
   text-wrap-width: 30;
   text-dx: 0;
   text-dy: 8;
@@ -400,8 +429,8 @@
   }
 }
 
-.buildings-labels[zoom>=17]['addr:housenumber'=~'.+'],
-.node[zoom>=18]['addr:housenumber'=~'.+']
+.buildings-labels[zoom>=17]['addr:housenumber'!=''],
+.node[zoom>=18]['addr:housenumber'!='']
 {
 	text-face-name: 'Arial Bold';
 	text-size: 10;

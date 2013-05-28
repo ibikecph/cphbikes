@@ -56,29 +56,6 @@
   { point-file: url("images/traffic_signals.png"); }
 }
   
-.node[railway='station']
-{
-  [zoom>=14]
-  { point-file: url("images/railway_11px2.png"); }
-  [zoom>=15]
-  { point-file: url("images/railway_16px.png"); }
-  [zoom>=16]
-  { point-file: url("images/railway_16px.png"); }
-}
-
-/* Use for subway */
-/*
-.node[railway='station']
-{
-  [zoom>=14]
-  { point-file: url("images/metro_small4.png"); }
-  [zoom>=15]
-  { point-file: url("images/metro_12px.png"); }
-  [zoom>=16]
-  { point-file: url("images/metro_16px.png"); }
-}
-*/
-  
 .node[amenity='cafe']
 {
   [zoom>=16]
