@@ -7,10 +7,21 @@
 .bikeroute
 {
   line-color: #fff;
-
-  [zoom>=10]
+  line-width: 0;
+  
+  [zoom=8]
   {
-    line-width: 0.3;
+    line-width: 0.1;
+  }
+
+  [zoom=9]
+  {
+    line-width: 0.15;
+  }
+  
+  [zoom=10]
+  {
+    line-width: 0.35;
   }
 
   [zoom>=11]

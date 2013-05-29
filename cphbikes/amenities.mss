@@ -71,7 +71,7 @@
     text-size: 9;
     text-max-char-angle-delta: 30;
     text-fill: #000;
-    text-halo-radius: 3;
+    text-halo-radius: 2;
     text-halo-fill: @land;
     text-spacing: 100;
     text-min-distance: 10;
@@ -79,6 +79,12 @@
     text-wrap-width: 30;
     text-dx: 0;
     text-dy: 8;
+  }
+  [zoom>=17]
+  {
+    text-name: '[name]';
+    text-face-name: 'Arial Regular';
+    text-size: 10;
   }
 }
   

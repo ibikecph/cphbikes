@@ -21,7 +21,7 @@
 .area[landuse='greenfield'],
 .area[landuse='farmland'],
 {
-  [zoom>=9]
+  [zoom>=8]
   {
     polygon-fill: @park;
   }
@@ -133,7 +133,7 @@
 {
   [zoom>=10]
   {
-    polygon-fill:#f0e6dc;
+    polygon-fill:#dad3cb;
   }
 }
 

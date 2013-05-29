@@ -478,7 +478,7 @@
 
 #place-labels
 {
-  [place='city'][zoom>=10],
+  [place='city'][zoom>=8],
   [place='town'][zoom>=10],
   [place='village'][zoom>=12],
   [place='suburb'][zoom>=13],
@@ -498,7 +498,7 @@
     text-wrap-width: 70;
   }
   
-  [zoom>=9]
+  [zoom>=8]
   {
   	[population>=50000]
   	{
