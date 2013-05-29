@@ -112,6 +112,20 @@
   line-color: @bike_path;
 }
 
+/* Low-zoom roads */
+
+.line[highway='motorway'],
+.line[highway='trunk'],
+.line[highway='primary'],
+.line[highway='secondary'],
+{
+  [zoom<10]
+  {
+    line-width: 5;
+    line-color: #f0f;
+  }
+}
+
 
 .roads[kind='highway']
 {
