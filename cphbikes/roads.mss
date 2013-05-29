@@ -442,7 +442,7 @@
   }
 }
 
-.roads[kind='rail']
+#rail
 {
   
   ::outline
