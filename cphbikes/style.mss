@@ -11,10 +11,35 @@ Map {
 }
 
 .land {
-  line-color: @land;
+
+  line-color: #d2d6d6;
   line-width: 0.5;
   polygon-opacity: 1;
-  polygon-fill: @land;
+  polygon-fill: #d2d6d6;
+  
+  [zoom>=11]
+  {
+    line-color: #d5d9d9;
+    line-width: 0.5;
+    polygon-opacity: 1;
+    polygon-fill: #d5d9d9;
+  }
+  
+  [zoom>=12]
+  {
+    line-color: #d9dddd;
+    line-width: 0.5;
+    polygon-opacity: 1;
+    polygon-fill: #d9dddd;
+  }
+  
+  [zoom>=13]
+  {
+    line-color: @land;
+    line-width: 0.5;
+    polygon-opacity: 1;
+    polygon-fill: @land;
+  }
 }
 
 @road: #fff;

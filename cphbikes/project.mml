@@ -106,6 +106,31 @@
       "name": "aeroway"
     },
     {
+      "extent": [
+        11.894005178830769,
+        55.491001653439916,
+        13.146997525508196,
+        55.94999596434641
+      ],
+      "Datasource": {
+        "type": "postgis",
+        "table": "(SELECT * FROM planet_osm_polygon WHERE building='yes') as map_stuff2",
+        "key_field": "",
+        "geometry_field": "",
+        "extent_cache": "auto",
+        "extent": "1324034.6,7457748.64,1463517.07,7548467.7",
+        "dbname": "cphbikes",
+        "host": "geo.local",
+        "user": "cphbikes"
+      },
+      "id": "buildings",
+      "class": "buildings",
+      "srs-name": "900913",
+      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
+      "advanced": {},
+      "name": "buildings"
+    },
+    {
       "geometry": "unknown",
       "extent": [
         11.894005178830769,
@@ -188,31 +213,6 @@
       "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
       "advanced": {},
       "name": "copenhagen_line"
-    },
-    {
-      "extent": [
-        11.894005178830769,
-        55.491001653439916,
-        13.146997525508196,
-        55.94999596434641
-      ],
-      "Datasource": {
-        "type": "postgis",
-        "table": "(SELECT * FROM planet_osm_polygon WHERE building='yes') as map_stuff2",
-        "key_field": "",
-        "geometry_field": "",
-        "extent_cache": "auto",
-        "extent": "1324034.6,7457748.64,1463517.07,7548467.7",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
-      },
-      "id": "buildings",
-      "class": "buildings",
-      "srs-name": "900913",
-      "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over",
-      "advanced": {},
-      "name": "buildings"
     },
     {
       "geometry": "unknown",

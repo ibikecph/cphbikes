@@ -6,24 +6,11 @@
 
 .bikeroute
 {
-  [ncn='yes'] /* national cycle networks */
-  {
-    line-color: #9463e4;
-  }
-
-  [rcn='yes'] /* regional cycle networks */
-  {
-    line-color: #0083e9;
-  }
-
-  [lcn='yes'] /* local cycle networks */
-  {
-    line-color: #00bf3f;
-  }
+  line-color: #fff;
 
   [zoom>=10]
   {
-    line-width: 0.5;
+    line-width: 0.3;
   }
 
   [zoom>=11]
@@ -33,12 +20,30 @@
 
   [zoom>=12]
   {
-    line-width: 1.1;
+    line-width: 1;
+    
+    [ncn='yes'] /* national cycle networks */
+    {
+      /*line-color: #9463e4;*/
+      line-color: #d0b6ff;
+    }
+ 
+    [rcn='yes'] /* regional cycle networks */
+    {
+      /*line-color: #0083e9;*/
+      line-color: #5bd3bd;
+    }
+
+    [lcn='yes'] /* local cycle networks */
+    {
+      /*line-color: #00bf3f;*/
+      line-color: #50d37b;
+    }
   }
 
   [zoom>=13]
   {
-    line-width: 2;
+    line-width: 1.5;
   }
   
   [zoom>=14]

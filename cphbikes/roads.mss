@@ -141,7 +141,7 @@
   {
     ::outline
     {
-      line-width: 2.5;
+      line-width: 2.5; line-color: #d2d6d6;
     }
 
     line-width: 2.5;
@@ -149,8 +149,8 @@
 
   [zoom>=11]
   {
-    ::outline { line-width: 3.5; }
-    line-width: 3.5; line-color: #f2f3f3;
+    ::outline { line-width: 6; line-color: #d5d9d9; }
+    line-width: 4; line-color: #f2f3f3;
 
     
     [cycleway='lane'],
@@ -166,8 +166,8 @@
 
   [zoom>=12]
   {
-    ::outline { line-width: 4.5; }
-	line-width: 4; line-color: #f2f3f3;
+    ::outline { line-width: 4.5; line-color: #d9dddd; }
+	line-width: 4; line-color: #f9f9f9;
 
     
     [cycleway='lane'],
@@ -184,7 +184,7 @@
   [zoom>=13]
   {
     ::outline { line-width: 6; }
-	 line-width: 4; line-color: #cddada;
+	 line-width: 4; line-color: #f9fafa;
 	 
 	 [is_link='yes']
     {
@@ -195,8 +195,9 @@
 
   [zoom>=14]
   {
-    ::outline { line-width: 12; }
-	line-width: 5;
+    ::outline { line-width: 12; line-color: @land; }
+	line-width: 5; line-color: #f0f2f2;
+	
 
     [is_tunnel='yes']
     {
@@ -212,8 +213,8 @@
 
   [zoom>=15]
   {
-    ::outline { line-width: 15; }
-	line-width: 7;
+    ::outline { line-width: 17; }
+	line-width: 10; line-color: #d3dbdb;
 
     [is_tunnel='yes']
     {
@@ -230,7 +231,7 @@
   [zoom>=16]
   {
     ::outline { line-width: 17; }
-	line-width: 10.5;
+	line-width: 10.5; line-color: #cddada;
 	
 	[is_link='yes']
     {
@@ -283,20 +284,20 @@
       line-width: 1.5;
     }
 
-    line-width: 0.75;
+    line-width: 0.8;
   }
 
   [zoom>=11]
   {
-    ::outline { line-width: 1; }
-    line-width: 1;
+    ::outline { line-width: 2; }
+    line-width: 1.25;
     
   }
 
   [zoom>=12]
   {
     ::outline { line-width: 3.2; }
-    line-color: #fff;
+    line-width: 1.25; line-color: #fff;
     
     [cycleway='lane'],
     [cycleway='opposite_lane'],
@@ -306,12 +307,12 @@
     {
       ::outline
       {
-	line-width: 3.5;
-	line-color: @bike_friendly;
+	line-width: 3.2;
+	line-color: #fff;
       }
 
       line-color: #fff;
-      line-width: 2.7;
+      line-width: 3;
     }
   }
 
@@ -339,7 +340,7 @@
   [zoom>=14]
   {
     ::outline { line-width: 8; }
-	line-width: 3;
+	line-width: 3.6;
 	
 	[cycleway='lane'],
     [cycleway='opposite_lane'],
@@ -349,19 +350,19 @@
     {
       ::outline
       {
-	line-width: 6;
-	line-color: @bike_friendly;
+	    line-width: 7;
+	    line-color: @bike_friendly;
       }
 
       line-color: #fff;
-      line-width: 3;
+      line-width: 3.6;
     }
   }
 
   [zoom>=15]
   {
-    ::outline { line-width: 12; }
-	line-width: 6;
+    ::outline { line-width: 13; }
+	line-width: 7;
 	
 	[cycleway='lane'],
     [cycleway='opposite_lane'],
@@ -371,12 +372,12 @@
     {
       ::outline
       {
-	line-width: 12;
+	line-width: 13;
 	line-color: #ffe400;
       }
 
       line-color: #fff;
-      line-width: 6;
+      line-width: 7;
     }
   }
 
@@ -501,26 +502,37 @@
       line-width: 0.25;
     }
 
-    line-width: 0.25; line-color: #fff;
+    line-width: 0.3; line-color: #fff;
   }
 
   [zoom>=11]
   {
     ::outline { line-width: 0.3; }
-    line-width: 0.3;
+    line-width: 0.15;
     
-  }
-  
-  [zoom>=12]
-  {
     [cycleway='lane'],
     [cycleway='opposite_lane'],
     [cycleway='shared_lane'],
     [cycleway='track'],
     [cycleway='opposite_track'],
     {
-      line-color: #f7ffcc;
-      line-width:1.25;
+      line-color: #fff;
+      line-width:0.15;
+    }
+    
+  }
+  
+  [zoom>=12]
+  {
+    
+    [cycleway='lane'],
+    [cycleway='opposite_lane'],
+    [cycleway='shared_lane'],
+    [cycleway='track'],
+    [cycleway='opposite_track'],
+    {
+      line-color: #fff;
+      line-width:0.75;
     }
   }
   
@@ -532,20 +544,20 @@
 
   [zoom>=14]
   {
-    ::outline { line-width: 2.5; }
-	line-width: 1;
+    ::outline { line-width: 4; }
+	line-width: 2.1;
 
     [access='private'],
     [access='restricted'],
     {
       ::outline
       {
-	line-width: 1;
-	line-color: #fff;
-	line-cap: butt;
-	line-join: miter;
+	    line-width: 2.1;
+	    line-color: #fff;
+	    line-cap: butt;
+	    line-join: miter;
       }
-      line-width: 1;
+      line-width: 2.1;
       line-color: #e58dad;
       line-dasharray: 3, 1;
       line-cap: butt;
@@ -560,27 +572,32 @@
     {
       ::outline
       {
-	  line-width: 2.75;
+	  line-width: 5.5;
 	  line-color: #f0e172;
       }
 
       line-color: #fff;
-      line-width: 1;
+      line-width: 2.1;
     }
   }
 
   [zoom>=15]
   {
-    ::outline { line-width: 3.5; }
-    line-width: 2.25;
+    ::outline { line-width: 6; }
+    line-width: 3.8;
+    
+    [highway='service']
+	{
+	  line-width: 1.25;
+	}
 	
     [access='private'],
     [access='restricted'],
     {
-      ::outline { line-width: 2.25; line-color: #fff; }
-      line-width: 2.25;
+      ::outline { line-width: 3.8; line-color: #fff; }
+      line-width: 3.8;
       line-color: #d78ba7;
-      line-dasharray: 3, 2;
+      line-dasharray: 3.8, 2;
     }
 
     [cycleway='lane'],
@@ -591,12 +608,12 @@
     {
       ::outline
       {
-	  line-width: 4;
+	  line-width: 6;
 	  line-color: #ffe400;
       }
 
       line-color: #fff;
-      line-width: 2.25;
+      line-width: 3.8;
     }
   }
 
@@ -721,12 +738,11 @@
 .line[highway='footway']
 {
 
-  line-color: @color_road_inline;
+  line-color: #c2c4c4;
   line-width: 0;
 
   [zoom>=13]
   {
-    line-dasharray: 4, 1;
     line-width: 0.4;
 
 	  [bicycle='no']
@@ -738,8 +754,7 @@
 
   [zoom>=14]
   {
-    line-dasharray: 3, 1.5;
-    line-width: 1;
+    line-width: 0.6;
 
     [bicycle='no']
     { line-dasharray: 1.5, 1.5; line-width: 0.6; }
@@ -747,26 +762,23 @@
 
   [zoom>=15]
   {
-    line-dasharray: 4, 2;
-    line-width: 1.35;
+    line-width: 0.8;
     
     [bicycle='no'] 
-    { line-dasharray: 3, 2; line-width: 1; }
+    { line-dasharray: 3, 2; line-width: 0.8; }
   }
 
   [zoom>=16]
   {
-    line-width: 1.4;
-    line-dasharray: 6, 2;
+    line-width: 1;
 
     [bicycle='no']
-    { line-width: 1.2; line-dasharray: 4, 3; }
+    { line-width: 1; line-dasharray: 4, 3; }
   }
 
   [zoom>=17]
   {
-    line-width: 1.7;
-    line-dasharray: 6, 3;
+    line-width: 1.5; line-color: #fff;
 
     [bicycle='no']
     { line-width: 1.5; line-dasharray: 4, 3; }
@@ -779,76 +791,58 @@
 .line[highway='pedestrian']
 {
 
-  line-color: @color_road_inline;
+  line-color: #c2c4c4;
   line-width: 0;
 
   [zoom>=13]
   {
-    line-dasharray: 4, 1;
     line-width: 0.5;
   }
 
   [zoom>=14]
   {
-    line-dasharray: 3, 1.5;
-    line-width: 1;
+    line-width: 0.5;
   }
 
   [zoom>=15]
   {
-    line-dasharray: 4, 2;
-    line-width: 2.25;
+    line-width: 1.7;
   }
 
   [zoom>=16]
   {
-    line-width: 5;
-    line-dasharray: 6, 2;
+    line-width: 2; line-color: #fff;
   }
 
   [zoom>=17]
   {
-    line-width: 7;
-    line-dasharray: 6, 3;
+    line-width: 4;
   }
 }
 
 /** Push your bike **/
 
-.roads[bicycle='dismount']
+.line[bicycle='dismount']
 {
   [zoom>=14]
   {
-    ::outline
-    {
-      line-color: @color_road_outline;
-      line-width: 1;
-    }
-
-    line-color: @color_road_inline;
-    line-width: 1;
-    line-dasharray: 3.5, 1.5;
+    line-color: #c2c4c4;
+    line-width: 0.6;
   }
 
   [zoom>=15]
   {
-    ::outline
-    {
-      line-width: 2;
-    }
-
-    line-width: 2;
+    line-width: 0.8;
   }
 
   [zoom>=16]
   {
-    ::outline
-    {
-      line-width: 2.25;
-    }
-
-    line-width: 2.25;
-    line-dasharray: 6, 2.5;
+    line-width: 1;
+  }
+  
+  [zoom>=17]
+  {
+    line-width: 1.5; line-color: #fff;
   }
 }
 

@@ -487,7 +487,7 @@
     text-name: '[name]';
     text-face-name: 'Arial Regular';
     text-fill: #000;
-    text-halo-fill: @land;
+    text-halo-fill: #fff;
     text-max-char-angle-delta: 30;
     text-wrap-width: 40;
     text-halo-radius: 2;
@@ -506,7 +506,7 @@
       text-face-name: 'Arial Regular';
       text-size: 15;
       text-halo-radius: 2;
-      text-halo-fill: @land;
+      text-halo-fill: #fff;
     }
   }
   
@@ -561,7 +561,7 @@
 
 #bike-route-labels
 {
-  [chars>4][zoom>=11]
+  [chars>4][zoom>=15]
   {
     text-name: '[ref]';
     text-face-name: 'Arial Bold';
@@ -588,7 +588,7 @@
     }
   }
 
-  [chars<=4][zoom>=11]
+  [chars<=4][zoom>=15]
   {
     shield-file: url("images/shield_test4.png");
     shield-name: '[ref]';
