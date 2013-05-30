@@ -421,6 +421,11 @@
       line-color: #fff;
       line-width: 7;
     }
+
+    [highway='tertiary'][bicycle='no']
+    {
+      line-color: #cddada;
+    }
   }
 
   [zoom>=16]
