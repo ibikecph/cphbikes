@@ -370,18 +370,18 @@
     {
       "geometry": "linestring",
       "extent": [
-        11.894005178830769,
-        55.49100165343991,
-        13.146997525508196,
-        55.9499959643464
+        11.894006526303695,
+        55.491000940941205,
+        13.146980008360156,
+        55.94994717512968
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, (CASE WHEN highway = 'motorway' THEN '' ELSE name END) AS name, (CASE WHEN highway = 'motorway' AND CHAR_LENGTH(ref) BETWEEN 2 AND 15 THEN REGEXP_REPLACE(ref, E'\\s*;\\s*', E' / ', 'g') ELSE '' END) AS ref, (CASE WHEN highway = 'motorway' AND CHAR_LENGTH(ref) BETWEEN 2 AND 15 THEN CHAR_LENGTH(ref) ELSE 0 END) AS ref_length, highway, ST_Length(way) AS length,\n\n (CASE WHEN highway IN ('motorway', 'motorway_link') THEN 0 WHEN highway IN ('footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway') THEN 1 WHEN railway IN ('rail', 'spur', 'subway', 'light_rail', 'tram', 'abandoned', 'disused', 'monorail') THEN 2 WHEN highway IN ('trunk', 'trunk_link', 'primary', 'primary_link', 'tertiary') THEN 3 WHEN highway = 'secondary' THEN 4 ELSE 9 END) AS priority, (CASE WHEN highway IN ('secondary', 'trunk', 'trunk_link', 'primary', 'primary_link', 'motorway', 'motorway_link', 'tertiary') THEN 'major_road' WHEN highway IN ('residential', 'unclassified', 'service', 'minor', 'road') THEN 'minor_road' WHEN railway IN ('rail', 'spur', 'subway', 'light_rail', 'tram', 'abandoned', 'disused', 'monorail') THEN 'rail' WHEN highway IN ('footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway') THEN 'path' ELSE '' END) AS kind, (CASE WHEN tunnel IN ('yes', 'true') THEN 'yes' ELSE 'no' END) AS is_tunnel, (CASE WHEN bridge IN ('yes', 'true') THEN 'yes' ELSE 'no' END) AS is_bridge\n\n FROM planet_osm_line\n\n WHERE highway IN ('secondary', 'trunk', 'trunk_link', 'primary', 'primary_link', 'motorway', 'motorway_link','tertiary')\n\n ORDER BY priority ASC, length DESC)\n\n AS collected_lines",
+        "table": "(SELECT way, (CASE WHEN highway = 'motorway' THEN '' ELSE name END) AS name, (CASE WHEN highway = 'motorway' AND CHAR_LENGTH(ref) BETWEEN 2 AND 15 THEN REGEXP_REPLACE(ref, E'\\s*;\\s*', E' / ', 'g') ELSE '' END) AS ref, (CASE WHEN highway = 'motorway' AND CHAR_LENGTH(ref) BETWEEN 2 AND 15 THEN CHAR_LENGTH(ref) ELSE 0 END) AS ref_length, highway, ST_Length(way) AS length,\n\n (CASE WHEN highway IN ('motorway', 'motorway_link') THEN 0 WHEN highway IN ('footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway') THEN 1 WHEN railway IN ('rail', 'spur', 'subway', 'light_rail', 'tram', 'abandoned', 'disused', 'monorail') THEN 2 WHEN highway IN ('trunk', 'trunk_link', 'primary', 'primary_link', 'tertiary') THEN 3 WHEN highway = 'secondary' THEN 4 ELSE 9 END) AS priority, (CASE WHEN highway IN ('secondary', 'trunk', 'trunk_link', 'primary', 'primary_link', 'motorway', 'motorway_link', 'tertiary') THEN 'major_road' WHEN highway IN ('residential', 'unclassified', 'service', 'minor', 'road') THEN 'minor_road' WHEN railway IN ('rail', 'spur', 'subway', 'light_rail', 'tram', 'abandoned', 'disused', 'monorail') THEN 'rail' WHEN highway IN ('footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway') THEN 'path' ELSE '' END) AS kind, (CASE WHEN tunnel IN ('yes', 'true') THEN 'yes' ELSE 'no' END) AS is_tunnel, (CASE WHEN bridge IN ('yes', 'true') THEN 'yes' ELSE 'no' END) AS is_bridge,\nLENGTH(ref) as chars\n\n FROM planet_osm_line\n\n WHERE highway IN ('secondary', 'trunk', 'trunk_link', 'primary', 'primary_link', 'motorway', 'motorway_link','tertiary')\n\n ORDER BY priority ASC, length DESC)\n\n AS collected_lines",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
-        "extent": "1324034.75,7457748.50,1463515.12,7548458.00",
+        "extent": "1324034.75,7457748.5,1463515.12,7548458",
         "dbname": "cphbikes",
         "host": "geo.local",
         "user": "cphbikes"
