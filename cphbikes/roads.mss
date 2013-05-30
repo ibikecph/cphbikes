@@ -893,6 +893,21 @@
       line-width: 1.2; 
       line-dasharray: 4, 3; 
     }
+
+    [bridge='yes']
+    {
+      ::outline
+      {
+	line-color: #c5c7c7;
+	line-width: 2.5;
+      }
+
+      ::inline
+      {
+	line-width: 1.5;
+	line-color: #abadad;
+      }
+    }
   }
   
   [zoom>=18]
