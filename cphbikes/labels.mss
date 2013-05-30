@@ -558,6 +558,48 @@
   }
 }
 
+#major-road-labels[ref!='']
+{
+  [zoom<=13]
+  {
+    shield-file: url("images/shield_test4.png");
+    shield-name: '[ref]';
+    shield-face-name: 'Arial Bold';
+    shield-size: 10;
+    shield-fill: #fff;
+    /*
+    shield-halo-radius: 1;
+    shield-halo-fill: @land;
+    */
+    shield-spacing: 200;
+    shield-wrap-width: 30;
+
+    [chars=1]
+    {
+      shield-file: url("images/shield_ncn_15px.png");
+    }
+
+    [chars=2]
+    {
+      shield-file: url("images/shield_ncn_18px.png");
+    }
+
+    [chars=3]
+    {
+      shield-file: url("images/shield_ncn_26px.png");
+    }
+
+    [chars=4]
+    {
+      shield-file: url("images/shield_ncn_30px.png");
+    }
+
+    [chars>=5]
+    {
+      shield-file: url("images/shield_ncn_30px.png");
+    }
+  }
+}
 
 #bike-route-labels
 {
