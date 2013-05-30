@@ -35,19 +35,16 @@
     
     [ncn='yes'] /* national cycle networks */
     {
-      /*line-color: #9463e4;*/
       line-color: #d0b6ff;
     }
  
     [rcn='yes'] /* regional cycle networks */
     {
-      /*line-color: #0083e9;*/
       line-color: #5bd3bd;
     }
 
     [lcn='yes'] /* local cycle networks */
     {
-      /*line-color: #00bf3f;*/
       line-color: #50d37b;
     }
   }
@@ -59,21 +56,51 @@
   
   [zoom>=14]
   {
-    line-width: 2.5;
+    line-width: 1.75;
+    
+    [ncn='yes'] /* national cycle networks */
+    {
+      line-color: #ab83ed;
+    }
+ 
+    [rcn='yes'] /* regional cycle networks */
+    {
+      line-color: #42a3f0;
+    }
+
+    [lcn='yes'] /* local cycle networks */
+    {
+      line-color: #3ace6b;
+    }
   }
 
   [zoom>=15]
   {
-    line-width: 2.75;
+    line-width: 2.25;
+    
+    [ncn='yes'] /* national cycle networks */
+    {
+      line-color: #9463e4;
+    }
+ 
+    [rcn='yes'] /* regional cycle networks */
+    {
+      line-color: #0083e9;
+    }
+
+    [lcn='yes'] /* local cycle networks */
+    {
+      line-color: #00bf3f;
+    }
   }
 
   [zoom>=16]
   {
-    line-width: 3.8;
+    line-width: 3.25;
   }
 
   [zoom>=17]
   {
-    line-width: 7;
+    line-width: 5;
   }
 }

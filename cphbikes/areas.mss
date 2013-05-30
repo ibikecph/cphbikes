@@ -133,7 +133,7 @@
 {
   [zoom>=10]
   {
-    polygon-fill:#dad3cb;
+    polygon-fill:#f1edea;
   }
 }
 
@@ -157,7 +157,7 @@
 {
   [zoom>=14]
   {
-    polygon-fill:#dfd6e2;
+    polygon-fill:#ded0e0;
   }
 }
 
