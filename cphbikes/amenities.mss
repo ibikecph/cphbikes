@@ -98,29 +98,4 @@
   { point-file: url("images/christian_med.png"); }
 }
  
-/* commenting these out, since I don't see so many of them*/
-/*  
-.place_of_worship[religion='muslim']
-{
-  [zoom>=15]
-  {
-    marker-width: 30;
-    marker-fill: #f400f1;
-    marker-line-color: darken(#f400f1, 10%);
 
-    polygon-fill: #ffe507;
-  }
-}
-  
-.place_of_worship[religion='buddhist']
-{
-  [zoom>=15]
-  {
-    marker-width: 30;
-    marker-fill: #ad3b59;
-    marker-line-color: darken(#f400f1, 10%);
-
-    polygon-fill: #ad3b59;
-  }
-}
-*/
