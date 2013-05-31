@@ -218,7 +218,7 @@
 	 [is_link='yes']
     {
       ::outline { line-width: 4.5; }
-	  line-width: 1.75;
+	  line-width: 1.75; line-color: #f9fafa;
     }
   }
 
@@ -236,7 +236,7 @@
     [is_link='yes']
     {
       ::outline { line-width: 5; }
-	  line-width: 2.5;
+	  line-width: 2.5; line-color: #f0f2f2;
     }
   }
 
@@ -253,7 +253,7 @@
     [is_link='yes']
     {
       ::outline { line-width: 6; }
-	  line-width: 3;
+	  line-width: 3; line-color: #d3dbdb;
     }
   }
 
@@ -265,7 +265,7 @@
 	[is_link='yes']
     {
       ::outline { line-width: 6; }
-	  line-width: 3;
+	  line-width: 3; line-color: #cddada;
     }
   }
 
@@ -305,29 +305,6 @@
   {
     line-color: #fff;
   }
-  
-  /*
-  [zoom>=9]
-  {
-    ::outline
-    {
-      line-width: 1;
-    }
-
-    line-width: 0.5;
-  }
-  
-
-  [zoom>=10]
-  {
-    ::outline
-    {
-      line-width: 1.5;
-    }
-
-    line-width: 0.8;
-  }
-  */
 
   [zoom>=11]
   {
@@ -399,6 +376,11 @@
       line-color: #fff;
       line-width: 3.6;
     }
+    
+    [bicycle='no'],
+    {
+      line-color: #f0f2f2;
+    }
   }
 
   [zoom>=15]
@@ -424,7 +406,7 @@
 
     [bicycle='no'],
     {
-      line-color: #cddada;
+      line-color: #d3dbdb;
     }
   }
 
@@ -450,6 +432,11 @@
       line-width: 10;
     }
     
+    [bicycle='no'],
+    {
+      line-color: #cddada;
+    }
+    
   }
 
   [zoom>=17]
@@ -472,6 +459,12 @@
       line-color: #fff;
       line-width: 16;
     }
+    
+    [bicycle='no'],
+    {
+      line-color: #cddada;
+    }
+    
   }
   
   [zoom>=18]
@@ -493,6 +486,11 @@
 
       line-color: #fff;
       line-width: 20;
+    }
+    
+    [bicycle='no'],
+    {
+      line-color: #cddada;
     }
   }
 }
@@ -542,6 +540,8 @@
 	line-width: 7.5;
     line-dasharray: 1, 5.5;
   }
+  
+  
 }
 
 .roads[kind='minor_road']
