@@ -28,12 +28,19 @@
 }
 
 .area[leisure='recreation_ground'],
-.area[natural='wetland'],
-.area[natural='scrub'],
+.area[natural='wetland']
 {
   [zoom>=10]
   {
     polygon-fill: @park;
+  }
+}
+
+.area[natural='scrub']
+{
+  [zoom>=10]
+  {
+    polygon-fill: #000;
   }
 }
 
