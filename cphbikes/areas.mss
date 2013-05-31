@@ -9,7 +9,7 @@
 {
   [zoom>=10]
   {
-    polygon-fill: #ddf100;
+    polygon-fill: #e4f901;
   }
 }
 
@@ -28,7 +28,7 @@
 }
 
 .area[leisure='recreation_ground'],
-.area[natural='wetland']
+.area[natural='scrub']
 {
   [zoom>=10]
   {
@@ -36,11 +36,17 @@
   }
 }
 
-.area[natural='scrub']
+
+.area[natural='wetland']
 {
   [zoom>=10]
   {
-    polygon-fill: #000;
+    polygon-fill: #72e381;
+  }
+  
+  [zoom>=16]
+  {
+    polygon-pattern-file: url("images/wetland.png");
   }
 }
 
