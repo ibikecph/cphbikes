@@ -422,7 +422,7 @@
       line-width: 7;
     }
 
-    [highway='tertiary'][bicycle='no']
+    [bicycle='no'],
     {
       line-color: #cddada;
     }
