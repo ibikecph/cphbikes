@@ -750,8 +750,31 @@
   {
     text-name: '[name]';
     text-face-name: 'Arial Regular';
-    text-size: 12;
+    text-size: 9;
     text-halo-radius: 2;
     text-wrap-width: 32;
+    text-fill: #555;
+    text-halo-fill: #f8f5f2;
+  }
+  
+  [zoom>=16]
+  {
+    text-name: '[name]';
+    text-face-name: 'Arial Regular';
+    text-size: 10;
+  }
+  
+  [zoom>=16]
+  {
+    text-name: '[name]';
+    text-face-name: 'Arial Regular';
+    text-size: 11;
+  }
+  
+  [zoom>=17]
+  {
+    text-name: '[name]';
+    text-face-name: 'Arial Regular';
+    text-size: 12;
   }
 }
