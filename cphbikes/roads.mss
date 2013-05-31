@@ -866,6 +866,21 @@
 
     [bicycle='no']
     { line-dasharray: 1.5, 1.5; line-width: 0.6; }
+    
+    [bridge='yes']
+    {
+      ::outline
+      {
+	    line-color: #e1e5e5;
+	    line-width: 2;
+      }
+
+      ::inline
+      {
+	    line-width: 0.6;
+	    line-color: #c2c4c4;
+      }
+    }
   }
 
   [zoom>=15]
@@ -874,6 +889,20 @@
     
     [bicycle='no'] 
     { line-dasharray: 3, 2; line-width: 0.8; }
+    
+    [bridge='yes']
+    {
+      ::outline
+      {
+	    line-color: #e1e5e5;
+	    line-width: 3;
+      }
+
+      ::inline
+      {
+	    line-width: 0.8;
+      }
+    }
   }
 
   [zoom>=16]
@@ -882,6 +911,21 @@
 
     [bicycle='no']
     { line-width: 1; line-dasharray: 4, 3; line-color: #abadad; }
+    
+    [bridge='yes']
+    {
+      ::outline
+      {
+	    line-color: #e1e5e5;
+	    line-width: 5;
+      }
+
+      ::inline
+      {
+	    line-width: 0.9;
+	    line-color: #abadad;
+      }
+    }
   } 
 
   [zoom>=17]
@@ -898,14 +942,13 @@
     {
       ::outline
       {
-	line-color: #c5c7c7;
-	line-width: 2.5;
+	    line-color: #e1e5e5;
+	    line-width: 6;
       }
 
       ::inline
       {
-	line-width: 1.5;
-	line-color: #abadad;
+	    line-width: 1.2;
       }
     }
   }

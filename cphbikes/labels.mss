@@ -193,6 +193,7 @@
 	text-halo-fill: @major_case;
 	text-spacing: 100;
 	text-placement: line;
+	text-min-distance: 160;
 	
 	text-size: 10;
 }
@@ -236,6 +237,7 @@
 	text-halo-fill: @major_case;
 	text-spacing: 100;
 	text-placement: line;
+	text-min-distance: 200;
 
 	text-size: 12;
 }
@@ -253,6 +255,7 @@
 	text-halo-radius: 2;
 	text-halo-fill: @minor_case;
 	text-spacing: 124;
+	text-min-distance: 200;
 
 	text-size: 9;
 }
@@ -272,6 +275,7 @@
 	text-halo-fill: @major_case;
 	text-spacing: 124;
 	text-placement: line;
+	text-min-distance: 220;
 
 	text-size: 12;
 }
@@ -289,6 +293,7 @@
 	text-halo-radius: 2;
 	text-halo-fill: @minor_case;
 	text-spacing: 124;
+	text-min-distance: 220;
 
 	text-size: 10;
 }
@@ -307,6 +312,7 @@
 	text-halo-fill: @major_case;
 	text-spacing: 180;
 	text-placement: line;
+	text-min-distance: 240;
 
 	text-size: 16;
 }
@@ -326,6 +332,7 @@
 	text-halo-radius: 2;
 	text-halo-fill: @minor_case;
 	text-spacing: 180;
+	text-min-distance: 240;
 
 	text-size: 11;
 }
@@ -344,6 +351,7 @@
 	text-halo-fill: @major_case;
 	text-spacing: 300;
 	text-placement: line;
+	text-min-distance: 240;
 
 	text-size: 16;
 }
@@ -363,6 +371,7 @@
 	text-halo-radius: 2;
 	text-halo-fill: @minor_case;
 	text-spacing: 400;
+	text-min-distance: 240;
 
 	text-size: 12;
 }
@@ -560,43 +569,58 @@
 
 #major-road-labels[ref!='']
 {
-  [zoom<=13]
+  [chars>5][zoom<=13]
   {
-    shield-file: url("images/shield_test4.png");
+    text-name: '[ref]';
+    text-face-name: 'Arial Bold';
+    text-size: 11;
+    text-halo-radius: 2;
+    text-placement: line;
+    text-min-distance: 160;
+    text-character-spacing: -1;
+    
+    text-halo-fill: #fff;
+    text-fill: #046a64;
+  }
+  
+  [chars<=5][zoom<=13]
+  {
+    shield-file: url("images/shield_30px.png");
     shield-name: '[ref]';
     shield-face-name: 'Arial Bold';
     shield-size: 10;
-    shield-fill: #fff;
+    shield-fill: #046a64;
     /*
     shield-halo-radius: 1;
     shield-halo-fill: @land;
     */
-    shield-spacing: 200;
+    shield-spacing: 400;
+    shield-min-distance: 200;
     shield-wrap-width: 30;
 
     [chars=1]
     {
-      shield-file: url("images/shield_ncn_15px.png");
+      shield-file: url("images/shield_15px.png");
     }
 
     [chars=2]
     {
-      shield-file: url("images/shield_ncn_18px.png");
+      shield-file: url("images/shield_18px.png");
     }
 
     [chars=3]
     {
-      shield-file: url("images/shield_ncn_26px.png");
+      shield-file: url("images/shield_26px.png");
     }
 
     [chars=4]
     {
-      shield-file: url("images/shield_ncn_30px.png");
+      shield-file: url("images/shield_30px.png");
     }
 
-    [chars>=5]
+    [chars=5]
     {
-      shield-file: url("images/shield_ncn_30px.png");
+      shield-file: url("images/shield_30px.png");
     }
   }
 }
@@ -610,6 +634,7 @@
     text-size: 13;
     text-halo-radius: 2;
     text-placement: line;
+    text-min-distance: 180;
     
     [ncn='yes'] /* national cycle networks */
     {
@@ -637,6 +662,7 @@
     shield-face-name: 'Arial Bold';
     shield-size: 10;
     shield-fill: #fff;
+    shield-min-distance: 40;
     /*
     shield-halo-radius: 1;
     shield-halo-fill: @land;
