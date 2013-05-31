@@ -275,7 +275,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, name, ST_Area(way) AS area, leisure, landuse FROM planet_osm_polygon WHERE leisure IN ('park', 'water_park', 'marina', 'nature_reserve', 'playground', 'garden', 'common', 'sports_centre', 'golf_course', 'stadium', 'track', 'pitch') OR landuse IN ('cemetery', 'park', 'water_park', 'marina', 'nature_reserve', 'playground', 'garden', 'common', 'forest', 'wood') OR amenity IN ('graveyard') ORDER BY z_order ASC) AS greenlabels",
+        "table": "(SELECT way, name, ST_Area(way) AS area, leisure, landuse FROM planet_osm_polygon WHERE leisure IN ('park', 'water_park', 'nature_reserve', 'playground', 'garden', 'common', 'sports_centre', 'golf_course', 'stadium', 'track', 'pitch') OR landuse IN ('cemetery', 'park', 'water_park',  'nature_reserve', 'playground', 'garden', 'common', 'forest', 'wood') OR amenity IN ('graveyard') ORDER BY z_order ASC) AS greenlabels",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
@@ -300,7 +300,7 @@
       ],
       "Datasource": {
         "type": "postgis",
-        "table": "(SELECT way, name, ST_Area(way) AS area, landuse as type FROM planet_osm_polygon WHERE \"natural\" IN ('water', 'bay') OR waterway IN ('riverbank') OR landuse IN ('reservoir') ORDER BY z_order ASC, way_area DESC) AS water",
+        "table": "(SELECT way, name, ST_Area(way) AS area, landuse as type FROM planet_osm_polygon WHERE \"natural\" IN ('water', 'bay') OR waterway IN ('riverbank') OR landuse IN ('reservoir', 'marina') OR leisure IN ('marina') ORDER BY z_order ASC, way_area DESC) AS water",
         "key_field": "",
         "geometry_field": "",
         "extent_cache": "auto",
