@@ -744,3 +744,14 @@
   }
 }
 
+#area-labels,
+{
+  [zoom>=15]
+  {
+    text-name: '[name]';
+    text-face-name: 'Arial Regular';
+    text-size: 12;
+    text-halo-radius: 2;
+    text-wrap-width: 32;
+  }
+}
