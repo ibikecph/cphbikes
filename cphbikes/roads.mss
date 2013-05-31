@@ -2,6 +2,21 @@
 @bike_friendly: #fbd42c;
 /* @bike_path: #b1b3b3; */
 
+/* Default line styles (to initialize ::outline) */
+.line
+{
+  ::outline
+  {
+    line-width: 0;
+    line-cap: round;
+    line-join: round;
+  }
+
+  line-width: 0;
+  line-cap: butt;
+  line-join: miter;
+}
+
 .line[highway='cycleway']
 {
   [zoom>=13]
@@ -83,6 +98,14 @@
 /** Default styles for all roads */
 .roads
 {
+  ::casing
+  {
+    line-width: 0;
+    line-color: #f0f;
+    line-cap: round;
+    line-join: round;
+  }
+
   ::outline
   {
     line-width: 0;
@@ -516,6 +539,15 @@
     line-width: 4.5;
     line-color: #f0f2f2;
     line-dasharray: 0.5, 5;
+
+    [is_bridge='yes']
+    {
+      ::casing
+      {
+	line-color: darken(#e1e5e5, 20%);
+	line-width: 10;
+      }
+    }
   }
 
   [zoom>=15]
@@ -880,11 +912,8 @@
 	    line-width: 2;
       }
 
-      ::inline
-      {
-	    line-width: 0.6;
-	    line-color: #c2c4c4;
-      }
+      line-width: 0.6;
+      line-color: #c2c4c4;
     }
   }
 
