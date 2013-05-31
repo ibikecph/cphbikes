@@ -26,12 +26,7 @@
     polygon-fill: @park;
   }
 }
-/* TODO
-.area[leisure='recreation_ground'] { polygon-pattern-file: url("images/wetland2.png"); }
-.area[landuse='forest'] { polygon-pattern-file: url("images/forest2.png"); }
-.area[natural='wetland'] { polygon-pattern-file: url("images/wetland_blue.png"); }
-.area[natural='scrub'] { polygon-pattern-file: url("images/scrub.png"); }
-*/
+
 .area[leisure='recreation_ground'],
 .area[natural='wetland'],
 .area[natural='scrub'],
@@ -141,7 +136,7 @@
 {
   [zoom>=10]
   {
-    polygon-fill: #d6e5e7;
+    polygon-fill: #e1eff1;
   }
 }
 
