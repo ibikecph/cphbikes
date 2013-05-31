@@ -544,8 +544,8 @@
     {
       ::casing
       {
-	line-color: darken(#e1e5e5, 20%);
-	line-width: 10;
+	    line-color: (#e1e5e5);
+	    line-width: 4;
       }
     }
   }
@@ -556,6 +556,14 @@
     { line-width: 0.5; }
     line-width: 5;
     line-dasharray: 0.75, 5;
+    
+    [is_bridge='yes']
+    {
+      ::casing
+      {
+	    line-width: 6;
+      }
+    }
   }
 
   [zoom>=16]
@@ -563,6 +571,14 @@
     ::outline
     { line-width: 0.75; }
  	line-width: 7;
+ 	
+ 	[is_bridge='yes']
+    {
+      ::casing
+      {
+	    line-width: 8;
+      }
+    }
   }
 
   [zoom>=17]
@@ -571,6 +587,14 @@
     { line-width: 1.5; }
 	line-width: 7.5;
     line-dasharray: 1, 5.5;
+    
+    [is_bridge='yes']
+    {
+      ::casing
+      {
+	    line-width: 12;
+      }
+    }
   }
   
   
@@ -935,6 +959,7 @@
       ::inline
       {
 	    line-width: 0.8;
+	    line-color: #c2c4c4;
       }
     }
   }
@@ -983,6 +1008,7 @@
       ::inline
       {
 	    line-width: 1.2;
+	    line-color: #abadad;
       }
     }
   }
