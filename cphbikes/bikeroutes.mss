@@ -8,7 +8,7 @@
 {
   line-color: #fff;
   line-width: 0;
-  
+
   [zoom=8]
   {
     line-width: 0.1;
@@ -18,7 +18,7 @@
   {
     line-width: 0.15;
   }
-  
+
   [zoom=10]
   {
     line-width: 0.35;
@@ -32,12 +32,12 @@
   [zoom>=12]
   {
     line-width: 1;
-    
+
     [ncn='yes'] /* national cycle networks */
     {
       line-color: #d0b6ff;
     }
- 
+
     [rcn='yes'] /* regional cycle networks */
     {
       line-color: #5bd3bd;
@@ -53,16 +53,16 @@
   {
     line-width: 1.5;
   }
-  
+
   [zoom>=14]
   {
     line-width: 1.75;
-    
+
     [ncn='yes'] /* national cycle networks */
     {
       line-color: #ab83ed;
     }
- 
+
     [rcn='yes'] /* regional cycle networks */
     {
       line-color: #42a3f0;
@@ -77,12 +77,12 @@
   [zoom>=15]
   {
     line-width: 2.25;
-    
+
     [ncn='yes'] /* national cycle networks */
     {
       line-color: #9463e4;
     }
- 
+
     [rcn='yes'] /* regional cycle networks */
     {
       line-color: #0083e9;

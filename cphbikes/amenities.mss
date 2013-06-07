@@ -9,7 +9,7 @@
   [zoom>=17]
   { point-file: url("images/barrier_large.png"); }
 }
-  
+
 .node[shop='bicycle']
 {
   [zoom>=16]
@@ -27,8 +27,8 @@
   [zoom>=16]
   { point-file: url("images/service_station20px.png"); }
 }
-  
-  
+
+
 .node[amenity='compressed_air']
 {
   [zoom>=14]
@@ -45,7 +45,7 @@
   [zoom>=17]
   { point-file: url("images/bike_pump13.png"); }
 }
-  
+
 .node[highway='traffic_signals']
 {
   [zoom>=15]
@@ -55,7 +55,7 @@
   [zoom>=17]
   { point-file: url("images/traffic_signals.png"); }
 }
-  
+
 .node[amenity='cafe']
 {
   [zoom>=16]
@@ -87,7 +87,7 @@
     text-size: 10;
   }
 }
-  
+
 .place_of_worship[religion='christian']
 {
   [zoom>=14]
@@ -97,5 +97,5 @@
   [zoom>=16]
   { point-file: url("images/christian_med.png"); }
 }
- 
+
 

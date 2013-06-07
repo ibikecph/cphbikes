@@ -16,7 +16,7 @@ Map {
   line-width: 0.5;
   polygon-opacity: 1;
   polygon-fill: #d2d6d6;
-  
+
   [zoom>=11]
   {
     line-color: #d5d9d9;
@@ -24,7 +24,7 @@ Map {
     polygon-opacity: 1;
     polygon-fill: #d5d9d9;
   }
-  
+
   [zoom>=12]
   {
     line-color: #d9dddd;
@@ -32,7 +32,7 @@ Map {
     polygon-opacity: 1;
     polygon-fill: #d9dddd;
   }
-  
+
   [zoom>=13]
   {
     line-color: @land;
@@ -68,7 +68,7 @@ Map {
       polygon-fill: #ededed;
       polygon-opacity: 0.2;
     }
-    
+
     [aeroway='runway']
     { line-width: 4; }
 
@@ -79,14 +79,14 @@ Map {
   [zoom>=14]
   {
     line-color: @runway;
-    
+
     [aeroway='runway']
     { line-width: 10; }
 
     [aeroway='taxiway']
     { line-width: 2.2; }
   }
-  
+
   [zoom>=15]
   {
     line-color: #e7ebeb;
