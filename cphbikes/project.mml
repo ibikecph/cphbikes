@@ -40,9 +40,8 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "1324034.0234952,7457748.31511297,1463517.34545917,7548468.50234669",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
+        "dbname": "osm",
+        "user": "osm"
       },
       "id": "coastline",
       "class": "land",
@@ -65,9 +64,8 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "1324034.6,7457748.64,1463517.07,7548467.7",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
+        "dbname": "osm",
+        "user": "osm"
       },
       "id": "copenhagen_polygon",
       "class": "area",
@@ -91,9 +89,8 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "1324035.08,7457748.8,1463517.27,7548468.12",
-        "host": "geo.local",
-        "user": "cphbikes",
-        "dbname": "cphbikes",
+        "user": "osm",
+        "dbname": "osm",
         "id": "aeroway",
         "project": "copenhagen",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
@@ -120,9 +117,8 @@
         "geometry_field": "way",
         "extent_cache": "custom",
         "extent": "1324034.6,7457748.64,1463517.07,7548467.7",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
+        "dbname": "osm",
+        "user": "osm"
       },
       "id": "rail",
       "class": "roads",
@@ -145,9 +141,8 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "1324034.6,7457748.64,1463517.07,7548467.7",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
+        "dbname": "osm",
+        "user": "osm"
       },
       "id": "buildings",
       "class": "buildings",
@@ -171,9 +166,8 @@
         "geometry_field": "way",
         "extent_cache": "custom",
         "extent": "1324034.6,7457748.64,1463517.07,7548467.7",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
+        "dbname": "osm",
+        "user": "osm"
       },
       "id": "roads",
       "class": "roads",
@@ -197,9 +191,8 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "1324035.08,7457748.8,1463517.27,7548468.12",
-        "host": "geo.local",
-        "user": "cphbikes",
-        "dbname": "cphbikes",
+        "user": "osm",
+        "dbname": "osm",
         "id": "copenhagenline",
         "project": "copenhagen",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
@@ -226,9 +219,8 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "1324035.08,7457748.8,1463517.27,7548468.12",
-        "host": "geo.local",
-        "user": "cphbikes",
-        "dbname": "cphbikes",
+        "user": "osm",
+        "dbname": "osm",
         "id": "copenhagenline",
         "project": "copenhagen",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
@@ -255,9 +247,8 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "1324034.75,7457748.50,1463515.12,7548458.00",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
+        "dbname": "osm",
+        "user": "osm"
       },
       "id": "place_of_worship",
       "class": "place_of_worship",
@@ -280,9 +271,8 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "1324034.75,7457748.50,1463515.12,7548458.00",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
+        "dbname": "osm",
+        "user": "osm"
       },
       "id": "green-areas-labels",
       "class": "green-areas-labels",
@@ -305,9 +295,8 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "1324034.75,7457748.50,1463515.12,7548458.00",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
+        "dbname": "osm",
+        "user": "osm"
       },
       "id": "water-bodies-labels",
       "class": "water-bodies-labels",
@@ -331,9 +320,8 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "858866.1,7232903.78,1488341.19,7963116.8",
-        "host": "geo.local",
-        "dbname": "cphbikes",
-        "user": "cphbikes"
+        "user": "osm",
+        "dbname": "osm"
       },
       "id": "area-labels",
       "class": "",
@@ -356,9 +344,8 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "1324034.6,7457748.64,1463517.07,7548467.7",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
+        "dbname": "osm",
+        "user": "osm"
       },
       "id": "buildings-labels",
       "class": "buildings-labels",
@@ -382,9 +369,8 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "1324034.75,7457748.5,1463515.12,7548458",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
+        "dbname": "osm",
+        "user": "osm"
       },
       "id": "poi-station-labels",
       "class": "poi-station-labels",
@@ -408,9 +394,8 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "1324034.75,7457748.5,1463515.12,7548458",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
+        "dbname": "osm",
+        "user": "osm"
       },
       "id": "major-road-labels",
       "class": "major-road-labels",
@@ -434,9 +419,8 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "1324034.75,7457748.50,1463515.12,7548458.00",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes"
+        "dbname": "osm",
+        "user": "osm"
       },
       "id": "minor-road-labels",
       "class": "minor-road-labels",
@@ -460,9 +444,8 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "858866.1,7232903.78,1488341.19,7963116.8",
-        "host": "geo.local",
-        "dbname": "cphbikes",
-        "user": "cphbikes"
+        "user": "osm",
+        "dbname": "osm"
       },
       "id": "place-labels",
       "class": "",
@@ -486,9 +469,8 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "850772.23,7232903.8,1488341.5,7963116.76",
-        "host": "geo.local",
-        "dbname": "cphbikes",
-        "user": "cphbikes"
+        "user": "osm",
+        "dbname": "osm"
       },
       "id": "bike-route-labels",
       "class": "",
@@ -512,9 +494,8 @@
         "geometry_field": "",
         "extent_cache": "auto",
         "extent": "1324035.14763775,7457748.41232064,1463516.78865799,7548468.22295555",
-        "dbname": "cphbikes",
-        "host": "geo.local",
-        "user": "cphbikes",
+        "dbname": "osm",
+        "user": "osm",
         "id": "copenhagen_point",
         "project": "copenhagen",
         "srs": "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0.0 +k=1.0 +units=m +nadgrids=@null +wktext +no_defs +over"
