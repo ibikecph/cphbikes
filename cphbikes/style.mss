@@ -14,6 +14,7 @@ Map {
   line-width: 0.5;
   polygon-opacity: 1;
   polygon-fill: @land;
+  polygon-pattern-file: url("images/land.png");
 }
 
 /* Airport features */
