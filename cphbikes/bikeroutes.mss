@@ -1,5 +1,6 @@
 /* TODO check if these are used */
 
+/*
 @ncn: hsl( 0, 100%, 50% );
 @rcn: hsl( 30, 100%, 50% );
 @lcn: hsl( 110, 100%, 40% );
@@ -32,7 +33,7 @@
   [zoom>=17] { line-width: 17*@route_width; }
   [zoom>=18] { line-width: 18*@route_width; }
 
-  [ncn='yes'] /* national cycle networks */
+  [ncn='yes'] // national cycle networks 
   {
     line-color: @ncn;
     [zoom>=14]
@@ -41,7 +42,7 @@
     }
   }
 
-  [rcn='yes'] /* regional cycle networks */
+  [rcn='yes'] // regional cycle networks
   {
     line-color: @rcn;
     [zoom<=10]
@@ -54,7 +55,7 @@
     }
   }
 
-  [lcn='yes'] /* local cycle networks */
+  [lcn='yes'] // local cycle networks
   {
     line-color: @lcn;
     [zoom<=12]
@@ -63,3 +64,4 @@
     }
   }
 }
+*/

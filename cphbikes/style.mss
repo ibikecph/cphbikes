@@ -2,48 +2,21 @@
 @land: hsl( 180, 0%, 80% );
 @park: hsl( 83, 94%, 57% );
 @sand: hsl( 50, 80%, 80% );
+@road: white;
+@runway: hsl( 180, 8%, 92% );
 
 Map {
   background-color: @water;
 }
 
 .land {
-
   line-color: @land;
   line-width: 0.5;
   polygon-opacity: 1;
   polygon-fill: @land;
-  
-  [zoom>=11]
-  {
-    line-color: @land;
-    line-width: 0.5;
-    polygon-opacity: 1;
-    polygon-fill: @land;
-  }
-  
-  [zoom>=12]
-  {
-    line-color: @land;
-    line-width: 0.5;
-    polygon-opacity: 1;
-    polygon-fill: @land;
-  }
-  
-  [zoom>=13]
-  {
-    line-color: @land;
-    line-width: 0.5;
-    polygon-opacity: 1;
-    polygon-fill: @land;
-  }
 }
 
-@road: white;
-@runway: hsl( 180, 8%, 92% );
-
 /* Airport features */
-
 #aeroway
 {
   line-width: 0;

@@ -1,12 +1,12 @@
 
 
 /* roads */
-@highway:		#666;
+@highway:		@highway;
 @highway_case:	@land;
-@major:			#000;
-@major_case:	white;
+@major_text:			black;
+@major_text_case:	@major;
 @minor:			#999;
-@minor_2:		#000;
+@minor_2:		black;
 @minor_case:	white;
 @service:		#666;
 @service_case:	@land;
@@ -14,6 +14,8 @@
 @path_case:		#ededed;
 @rail: 			#444;
 @aeroway: 		#eee;
+
+@label_scale: 1.2;
 
 
 /* Parks and water labels */
@@ -41,7 +43,7 @@
 	text-wrap-width: 40;
 	text-halo-radius: 2;
 	text-allow-overlap: false;
-	text-size: 13;
+	text-size: @label_scale * 13;
 	text-spacing: 100;
 	text-line-spacing: -5;
 	text-wrap-width: 70;
@@ -101,7 +103,7 @@
 		[way_area>=20000]
 		{
 			text-face-name: 'Arial Regular';
-			text-size: 10;
+			text-size: @label_scale * 10;
 			text-name: '[name]';
 			text-fill: #000;
 			text-wrap-width: 30;
@@ -116,7 +118,7 @@
 		[way_area>=10000]
 		{
 			text-face-name: 'Arial Bold';
-			text-size: 11;
+			text-size: @label_scale * 11;
 			text-name: '[name]';
 			text-wrap-width: 40;
 		}
@@ -127,7 +129,7 @@
 		[way_area>=5000]
 		{
 			text-face-name: 'Arial Bold';
-			text-size: 12;
+			text-size: @label_scale * 12;
 			text-name: '[name]';
 			text-wrap-width: 40;
 		}
@@ -138,7 +140,7 @@
 		[way_area>=5000]
 		{
 			text-face-name: 'Arial Bold';
-			text-size: 14;
+			text-size: @label_scale * 14;
 			text-name: '[name]';
 			text-wrap-width: 40;
 		}
@@ -161,14 +163,14 @@
 	text-face-name: 'Arial Regular';
 	text-placement: line;
 	text-max-char-angle-delta: 30;
-	text-fill: @major;
+	text-fill: @major_text;
 	text-halo-radius: 2;
-	text-halo-fill: @major_case;
+	text-halo-fill: @major_text_case;
 	text-spacing: 100;
 	text-placement: line;
 
 	/*text-dy: 1;*/
-	text-size: 9;
+	text-size: @label_scale * 9;
 }
 
 /* zoom 13 */
@@ -179,14 +181,14 @@
 	text-face-name: 'Arial Regular';
 	text-placement: line;
 	text-max-char-angle-delta: 30;
-	text-fill: @major;
+	text-fill: @major_text;
 	text-halo-radius: 2;
-	text-halo-fill: @major_case;
+	text-halo-fill: @major_text_case;
 	text-spacing: 100;
 	text-placement: line;
 	text-min-distance: 160;
 	
-	text-size: 10;
+	text-size: @label_scale * 10;
 }
 
 /* zoom 14 */
@@ -199,19 +201,19 @@
 	text-face-name: 'Arial Regular';
 	text-placement: line;
 	text-max-char-angle-delta: 30;
-	text-fill: @major;
+	text-fill: @major_text;
 	text-halo-radius: 2;
-	text-halo-fill: @major_case;
+	text-halo-fill: @major_text_case;
 	text-spacing: 100;
 	text-placement: line;
 
-	text-size: 11;
+	text-size: @label_scale * 11;
 }
 
 #major-road-labels[highway='secondary'][zoom=14],
 #major-road-labels[highway='tertiary'][zoom=14] 
 {
-	text-size: 12;
+	text-size: @label_scale * 12;
 }
 
 /* zoom 15 */
@@ -223,18 +225,18 @@
 	text-face-name: 'Arial Regular';
 	text-placement: line;
 	text-max-char-angle-delta: 30;
-	text-fill: @major;
+	text-fill: @major_text;
 	text-halo-radius: 2;
-	text-halo-fill: @major_case;
+	text-halo-fill: @major_text_case;
 	text-spacing: 100;
 	text-placement: line;
 	text-min-distance: 200;
 
-	text-size: 12;
+	text-size: @label_scale * 12;
 }
 #major-road-labels[highway='secondary'][zoom=15],
 #major-road-labels[highway='tertiary'][zoom=15]  {
-	text-size: 12;
+	text-size: @label_scale * 12;
 }
 
 #minor-road-labels[zoom=15] {
@@ -248,7 +250,7 @@
 	text-spacing: 124;
 	text-min-distance: 200;
 
-	text-size: 9;
+	text-size: @label_scale * 9;
 }
 
 
@@ -261,18 +263,18 @@
 	text-face-name: 'Arial Regular';
 	text-placement: line;
 	text-max-char-angle-delta: 30;
-	text-fill: @major;
+	text-fill: @major_text;
 	text-halo-radius: 2;
-	text-halo-fill: @major_case;
+	text-halo-fill: @major_text_case;
 	text-spacing: 124;
 	text-placement: line;
 	text-min-distance: 220;
 
-	text-size: 12;
+	text-size: @label_scale * 12;
 }
 #major-road-labels[highway='secondary'][zoom=16],
 #major-road-labels[highway='tertiary'][zoom=16] {
-	text-size: 12;
+	text-size: @label_scale * 12;
 }
 
 #minor-road-labels[zoom=16] {
@@ -286,7 +288,7 @@
 	text-spacing: 124;
 	text-min-distance: 220;
 
-	text-size: 10;
+	text-size: @label_scale * 10;
 }
 
 /* zoom 17 */
@@ -298,21 +300,21 @@
 	text-face-name: 'Arial Regular';
 	text-placement: line;
 	text-max-char-angle-delta: 30;
-	text-fill: @major;
+	text-fill: @major_text;
 	text-halo-radius: 2;
-	text-halo-fill: @major_case;
+	text-halo-fill: @major_text_case;
 	text-spacing: 180;
 	text-placement: line;
 	text-min-distance: 240;
 
-	text-size: 16;
+	text-size: @label_scale * 16;
 }
 #major-road-labels[highway='primary'][zoom=17],
 #major-road-labels[highway='secondary'][zoom=17] {
-	text-size: 13;
+	text-size: @label_scale * 13;
 }
 #major-road-labels[highway='tertiary'][zoom=17] {
-	text-size: 12;
+	text-size: @label_scale * 12;
 }
 #minor-road-labels[zoom=17] {
 	text-name: '[name]';
@@ -325,7 +327,7 @@
 	text-spacing: 180;
 	text-min-distance: 240;
 
-	text-size: 11;
+	text-size: @label_scale * 11;
 }
 
 /* zoom 18+ */
@@ -337,21 +339,21 @@
 	text-face-name: 'Arial Bold';
 	text-placement: line;
 	text-max-char-angle-delta: 30;
-	text-fill: @major;
+	text-fill: @major_text;
 	text-halo-radius: 2;
-	text-halo-fill: @major_case;
+	text-halo-fill: @major_text_case;
 	text-spacing: 300;
 	text-placement: line;
 	text-min-distance: 240;
 
-	text-size: 16;
+	text-size: @label_scale * 16;
 }
 #major-road-labels[highway='primary'][zoom>=18],
 #major-road-labels[highway='secondary'][zoom>=18] {
-	text-size: 14;
+	text-size: @label_scale * 14;
 }
 #major-road-labels[highway='tertiary'][zoom>=18] {
-	text-size: 12;
+	text-size: @label_scale * 12;
 }
 #minor-road-labels[zoom>=18] {
 	text-name: '[name]';
@@ -364,7 +366,7 @@
 	text-spacing: 400;
 	text-min-distance: 240;
 
-	text-size: 12;
+	text-size: @label_scale * 12;
 }
 
 /* Subway and rail stations */
@@ -441,7 +443,7 @@
   {
     text-name: '[name]';
     text-face-name: 'Arial Regular';
-    text-size: 9;
+    text-size: @label_scale * 9;
     text-max-char-angle-delta: 30;
     text-fill: #000;
     text-halo-radius: 3;
@@ -461,7 +463,7 @@
   
   [zoom>=17]
   {
-    text-size: 11;
+    text-size: @label_scale * 11;
     text-halo-radius: 2;
   }
 }
@@ -470,7 +472,7 @@
 .node[zoom>=18]['addr:housenumber'!='']
 {
 	text-face-name: 'Arial Bold';
-	text-size: 10;
+	text-size: @label_scale * 10;
 	text-name: '[addr:housenumber]';
 	text-fill: white;
 	text-wrap-width: 80;
@@ -492,7 +494,7 @@
     text-wrap-width: 40;
     text-halo-radius: 2;
     text-allow-overlap: false;
-    text-size: 9;
+    text-size: @label_scale * 9;
     text-spacing: 100;
     text-line-spacing: 2;
     text-wrap-width: 70;
@@ -504,7 +506,7 @@
   	{
       text-name: '[name]';
       text-face-name: 'Arial Regular';
-      text-size: 15;
+      text-size: @label_scale * 15;
       text-halo-radius: 2;
       text-halo-fill: white;
     }
@@ -516,7 +518,7 @@
   	{
       text-name: '[name]';
       text-face-name: 'Arial Regular';
-      text-size: 15;
+      text-size: @label_scale * 15;
     }
   }
   
@@ -526,7 +528,7 @@
   	{
       text-name: '[name]';
       text-face-name: 'Arial Regular';
-      text-size: 16;
+      text-size: @label_scale * 16;
     }
   }
   
@@ -536,7 +538,7 @@
   	{
       text-name: '[name]';
       text-face-name: 'Arial Regular';
-      text-size: 15;
+      text-size: @label_scale * 15;
     }
   }
   
@@ -546,14 +548,14 @@
   	{
       text-name: '[name]';
       text-face-name: 'Arial Regular';
-      text-size: 17;
+      text-size: @label_scale * 17;
     }
     
     [population>=15000]
   	{
       text-name: '[name]';
       text-face-name: 'Arial Regular';
-      text-size: 14;
+      text-size: @label_scale * 14;
     }
   }
 }
@@ -564,7 +566,7 @@
   {
     text-name: '[ref]';
     text-face-name: 'Arial Bold';
-    text-size: 11;
+    text-size: @label_scale * 11;
     text-halo-radius: 2;
     text-placement: line;
     text-min-distance: 160;
@@ -622,7 +624,7 @@
   {
     text-name: '[ref]';
     text-face-name: 'Arial Bold';
-    text-size: 13;
+    text-size: @label_scale * 13;
     text-halo-radius: 2;
     text-placement: line;
     text-min-distance: 180;
@@ -741,7 +743,7 @@
   {
     text-name: '[name]';
     text-face-name: 'Arial Regular';
-    text-size: 9;
+    text-size: @label_scale * 9;
     text-halo-radius: 2;
     text-wrap-width: 32;
     text-fill: #555;
@@ -752,20 +754,20 @@
   {
     text-name: '[name]';
     text-face-name: 'Arial Regular';
-    text-size: 10;
+    text-size: @label_scale * 10;
   }
   
   [zoom>=16]
   {
     text-name: '[name]';
     text-face-name: 'Arial Regular';
-    text-size: 11;
+    text-size: @label_scale * 11;
   }
   
   [zoom>=17]
   {
     text-name: '[name]';
     text-face-name: 'Arial Regular';
-    text-size: 12;
+    text-size: @label_scale * 12;
   }
 }

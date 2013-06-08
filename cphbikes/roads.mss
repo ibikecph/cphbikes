@@ -7,7 +7,22 @@
 @pedestrian: hsl( 37, 44%, 85% );
 @restricted: hsl( 338, 63%, 73% );
 @bridge_outline: hsl( 180, 7%, 89% );
-@railway: darken( @land, 10% );
+@railway: darken( @land, 5% );
+@major: hsl( 50, 100%, 50% );
+@highway: lighten( @land, 5% );
+
+@cobblestone: hsl( 37, 30%, 80% );
+@cobblestone_scale: 1.1;
+
+@width: 1;
+@pedestrian_width: 1.5;
+@path_width: 0.2;
+
+@c1: @width * 15;
+@c2: @width * 10;
+@c3: @width * 5;
+@c4: @width * 2;
+@c5: @width * 0.7;
 
 /* Default line styles (to initialize ::outline) */
 .line
@@ -15,39 +30,109 @@
   ::outline
   {
     line-width: 0;
-    line-cap: round;
+    line-cap: butt;
     line-join: round;
   }
 
   line-width: 0;
-  line-cap: butt;
-  line-join: miter;
+  line-cap: round;
+  line-join: round;
 }
 
-.line[highway='cycleway']
+/* Ferries */
+/* TODO layer under bridges */
+.line[route='ferry']
 {
-  [zoom>=13]
+  line-color: darken( @water, 15% );
+  line-dasharray: 7, 5;
+  line-width: @c4;
+  line-cap: butt;
+}
+
+#rail
+{
+  ::outline
   {
-    line-width: 0.5;
-    line-color: white;
+    line-width: 0;
+    line-color: @railway;
+    line-cap: butt;
+    line-join: miter;
   }
+  line-width: 0;
+  line-cap: butt;
+  line-join: miter;
+
   [zoom>=14]
   {
-    line-width: 1.25;
+    ::outline
+    { line-width: 0.25; }
+
+    line-color: @railway;
+    line-width: 4.5;
+    line-dasharray: 0.5, 10;
+
+    [is_bridge='yes']
+    {
+      ::casing
+      {
+        line-color: hsl( 180, 7%, 89% );
+        line-width: 4;
+      }
+    }
   }
 
   [zoom>=15]
   {
-    line-width: 1.75;
+    ::outline
+    { line-width: 0.5; }
+
+    line-color: @railway;
+    line-width: 5;
+    line-dasharray: 0.75, 10;
+    [is_bridge='yes']
+    {
+      ::casing
+      {
+        line-width: 6;
+      }
+    }
   }
 
   [zoom>=16]
   {
-    line-width: 2;
+    ::outline
+    { line-width: 0.75; }
+
+    line-color: @railway;
+    line-width: 7;
+
+    [is_bridge='yes']
+    {
+      ::casing
+      {
+        line-width: 8;
+      }
+    }
+  }
+
+  [zoom>=17]
+  {
+    ::outline
+    { line-width: 1.5; }
+
+    line-color: @railway;
+    line-width: 7.5;
+    line-dasharray: 1, 10;
+
+    [is_bridge='yes']
+    {
+      ::casing
+      {
+        line-width: 12;
+      }
+    }
   }
 }
-
-
 
 /* One-way for cars, effectively one-way for bikes */
 .line[oneway='yes'][highway!='motorway'][highway!='motorway_link'][cycleway!='opposite'][cycleway!='opposite_lane'][cycleway!='opposite_track'],
@@ -128,933 +213,26 @@
 }
 
 
-.roads[cycleway='lane'],
-.roads[cycleway='opposite_lane'],
-.roads[cycleway='shared_lane'],
-.roads[cycleway='track'],
-.roads[cycleway='opposite_track'],
-{
-  ::outline
-  {
-    line-color: white;
-  }
-
-  line-color: @bike_path;
-}
-
-/* Low-zoom roads */
-
-.line[highway='motorway']
-{
-
-  [zoom=8]
-  {
-    line-width: 1.5;
-    line-color: white;
-  } 
-
-  [zoom=9]
-  {
-    line-width: 2.25;
-    line-color: white;
-  } 
-
-  [zoom=10]
-  {
-    line-width: 2.5;
-    line-color: white;
-  }
-}
-
-
-.line[highway='trunk'],
-.line[highway='primary'],
-.line[highway='secondary']
-{
-
-  [zoom=9]
-  {
-    line-width: 0.25;
-    line-color: hsl( 180, 4%, 95% );
-  } 
-
-  [zoom=9]
-  {
-    line-width: 0.5;
-    line-color: hsl( 180, 4%, 95% );
-  } 
-
-  [zoom=10]
-  {
-    line-width: 0.5;
-    line-color: white;
-  }
-}
-
-
-
-.roads[kind='highway']
-{
-
-  [zoom>=11]
-  {
-    line-width: 4; line-color: hsl( 180, 4%, 95% );
-
-    [cycleway='lane'],
-    [cycleway='opposite_lane'],
-    [cycleway='shared_lane'],
-    [cycleway='track'],
-    [cycleway='opposite_track'],
-    {
-      line-color: @bike_friendly;
-    }
-
-  }
-
-  [zoom>=12]
-  {
-    line-width: 4; line-color: hsl( 0, 0%, 98% );
-
-
-    [cycleway='lane'],
-    [cycleway='opposite_lane'],
-    [cycleway='shared_lane'],
-    [cycleway='track'],
-    [cycleway='opposite_track'],
-    {
-      line-color: @bike_friendly;
-    }
-
-  }
-
-  [zoom>=13]
-  {
-    line-width: 4; line-color: hsl( 180, 9%, 98%);
-
-    [is_link='yes']
-    {
-      ::outline { line-width: 4.5; }
-      line-width: 1.75; line-color: hsl( 180, 9%, 98%);
-    }
-  }
-
-  [zoom>=14]
-  {
-    line-width: 5; line-color: hsl( 180, 7%, 95% );
-
-    [is_tunnel='yes']
-    {
-      ::outline { line-color: hsl( 180, 7%, 89% ); line-opacity: 0.4; }
-      line-color: hsl( 180, 7%, 89% ); line-opacity: 0.4;
-    }
-    [is_link='yes']
-    {
-      ::outline { line-width: 5; }
-      line-width: 2.5; line-color: hsl( 180, 7%, 95% );
-    }
-  }
-
-  [zoom>=15]
-  {
-    line-width: 10; line-color: hsl( 180, 10%, 84%);
-
-    [is_tunnel='yes']
-    {
-      ::outline { line-width: 12; }
-      line-width: 6;
-    }
-    [is_link='yes']
-    {
-      ::outline { line-width: 6; }
-      line-width: 3; line-color: hsl( 180, 10%, 84% );
-    }
-  }
-
-  [zoom>=16]
-  {
-    line-width: 10.5; line-color: hsl( 180, 15%, 83% );
-
-    [is_link='yes']
-    {
-      ::outline { line-width: 6; }
-      line-width: 3; line-color: hsl( 180, 15%, 83% );
-    }
-  }
-
-  [zoom>=17]
-  {
-    line-width: 18;
-
-    [is_link='yes']
-    {
-      ::outline { line-width: 10; }
-      line-width: 5;
-    }
-  }
-
-  [zoom>=18]
-  {
-    line-width: 24;
-
-    [is_link='yes']
-    {
-      ::outline { line-width: 14; }
-      line-width: 7;
-    }
-  }
-}
-
-.roads[kind='major_road']
-{
-
-  [cycleway='lane'],
-  [cycleway='opposite_lane'],
-  [cycleway='shared_lane'],
-  [cycleway='track'],
-  [cycleway='opposite_track'],
-  {
-    line-color: white;
-  }
-
-  [zoom>=11]
-  {
-    line-width: 1.25;
-
-  }
-
-  [zoom>=14]
-  {
-    line-width: 3.6;
-
-    [cycleway='lane'],
-    [cycleway='opposite_lane'],
-    [cycleway='shared_lane'],
-    [cycleway='track'],
-    [cycleway='opposite_track'],
-    {
-      ::outline
-      {
-        line-width: 5;
-        line-color: @bike_friendly;
-      }
-
-      line-color: white;
-      line-width: 3.6;
-    }
-
-    [bicycle='no'],
-    {
-      line-color: hsl( 180, 7%, 95% );
-    }
-  }
-
-  [zoom>=15]
-  {
-    line-width: 6;
-
-    [cycleway='lane'],
-    [cycleway='opposite_lane'],
-    [cycleway='shared_lane'],
-    [cycleway='track'],
-    [cycleway='opposite_track'],
-    {
-      ::outline
-      {
-        line-width: 10;
-        line-color: @bike_friendly;
-      }
-
-      line-color: white;
-      line-width: 7;
-    }
-
-    [bicycle='no'],
-    {
-      line-color: hsl( 180, 10%, 84% );
-    }
-  }
-
-  [zoom>=16]
-  {
-    line-width: 10;
-
-
-    [cycleway='lane'],
-    [cycleway='opposite_lane'],
-    [cycleway='shared_lane'],
-    [cycleway='track'],
-    [cycleway='opposite_track'],
-    {
-      ::outline
-      {
-        line-width: 14;
-        line-color: @bike_friendly;
-      }
-
-      line-color: white;
-      line-width: 10;
-    }
-
-    [bicycle='no'],
-    {
-      line-color: hsl( 180, 15%, 83% );
-    }
-
-  }
-
-  [zoom>=17]
-  {
-    line-width: 16;
-
-    [cycleway='lane'],
-    [cycleway='opposite_lane'],
-    [cycleway='shared_lane'],
-    [cycleway='track'],
-    [cycleway='opposite_track'],
-    {
-      ::outline
-      {
-        line-width: 20;
-        line-color: @bike_friendly;
-      }
-
-      line-color: white;
-      line-width: 16;
-    }
-
-    [bicycle='no'],
-    {
-      line-color: hsl( 180, 15%, 83% );
-    }
-
-  }
-
-  [zoom>=18]
-  {
-    line-width: 20;
-
-    [cycleway='lane'],
-    [cycleway='opposite_lane'],
-    [cycleway='shared_lane'],
-    [cycleway='track'],
-    [cycleway='opposite_track'],
-    {
-      ::outline
-      {
-        line-width: 25;
-        line-color: @bike_friendly;
-      }
-
-      line-color: white;
-      line-width: 20;
-    }
-
-    [bicycle='no'],
-    {
-      line-color: hsl( 180, 15%, 83% );
-    }
-  }
-}
-
-#rail
-{
-
-  ::outline
-  {
-    line-width: 0;
-    line-color: @railway;
-    line-cap: butt;
-    line-join: miter;
-  }
-  line-width: 0;
-  line-cap: butt;
-  line-join: miter;
-
-  [zoom>=14]
-  {
-    ::outline
-    { line-width: 0.25; }
-    
-    line-color: @railway;
-    line-width: 4.5;
-    line-dasharray: 0.5, 10;
-
-    [is_bridge='yes']
-    {
-      ::casing
-      {
-        line-color: hsl( 180, 7%, 89% );
-        line-width: 4;
-      }
-    }
-  }
-
-  [zoom>=15]
-  {
-    ::outline
-    { line-width: 0.5; }
-    
-    line-color: @railway;
-    line-width: 5;
-    line-dasharray: 0.75, 10;
-    [is_bridge='yes']
-    {
-      ::casing
-      {
-        line-width: 6;
-      }
-    }
-  }
-
-  [zoom>=16]
-  {
-    ::outline
-    { line-width: 0.75; }
-    
-    line-color: @railway;
-    line-width: 7;
-
-    [is_bridge='yes']
-    {
-      ::casing
-      {
-        line-width: 8;
-      }
-    }
-  }
-
-  [zoom>=17]
-  {
-    ::outline
-    { line-width: 1.5; }
-  
-    line-color: @railway;
-    line-width: 7.5;
-    line-dasharray: 1, 10;
-  
-    [is_bridge='yes']
-    {
-      ::casing
-      {
-        line-width: 12;
-      }
-    }
-  }
-
-
-}
-
-.roads[kind='minor_road']
-{
-  ::outline
-  {
-    line-width: 0; line-color: @road_outline;
-  }
-
-  line-width: 0; line-color: @road_inline;
-
-
-  [cycleway='lane'],
-  [cycleway='opposite_lane'],
-  [cycleway='shared_lane'],
-  [cycleway='track'],
-  [cycleway='opposite_track'],
-  {
-    line-color: @bike_friendly;
-  }
-
-[zoom>=11]
-{
-  line-width: 0.15;
-
-  [cycleway='lane'],
-  [cycleway='opposite_lane'],
-  [cycleway='shared_lane'],
-  [cycleway='track'],
-  [cycleway='opposite_track'],
-  {
-    line-color: white;
-    line-width:0.15;
-  }
-
-}
-
-[zoom>=12]
-{
-
-  [cycleway='lane'],
-  [cycleway='opposite_lane'],
-  [cycleway='shared_lane'],
-  [cycleway='track'],
-  [cycleway='opposite_track'],
-  {
-    line-color: white;
-    line-width:0.75;
-  }
-}
-
-[zoom>=13]
-{
-  line-width: 0.5;
-}
-
-[zoom>=14]
-{
-  line-width: 2.1;
-
-  [access='private'],
-  [access='restricted'],
-  {
-    ::outline
-    {
-      line-width: 2.1;
-      line-color: white;
-      line-cap: butt;
-      line-join: miter;
-    }
-    line-width: 2.1;
-    line-color: @restricted;
-    line-dasharray: 3, 1;
-    line-cap: butt;
-    line-join: miter;
-  }
-
-  [cycleway='lane'],
-  [cycleway='opposite_lane'],
-  [cycleway='shared_lane'],
-  [cycleway='track'],
-  [cycleway='opposite_track'],
-  {
-    ::outline
-    {
-      line-width: 5.5;
-      line-color: @bike_friendly;
-    }
-
-    line-color: white;
-    line-width: 2.1;
-  }
-}
-
-[zoom>=15]
-{
-  line-width: 3.8;
-
-  [highway='service']
-  {
-    line-width: 1.25;
-  }
-
-  [access='private'],
-  [access='restricted'],
-  {
-    ::outline { line-width: 3.8; line-color: white; }
-    line-width: 3.8;
-    line-color: @restricted;
-    line-dasharray: 3.8, 2;
-  }
-
-  [cycleway='lane'],
-  [cycleway='opposite_lane'],
-  [cycleway='shared_lane'],
-  [cycleway='track'],
-  [cycleway='opposite_track'],
-  {
-    ::outline
-    {
-      line-width: 6;
-      line-color: @bike_friendly;
-    }
-
-    line-color: white;
-    line-width: 3.8;
-  }
-}
-
-[zoom>=16]
-{
-  line-width: 5;
-
-  [highway='service']
-  {
-    line-width: 1.75;
-  }
-
-  [access='private'],
-  [access='restricted'],
-  {
-    ::outline { line-width: 3.5; line-color: white; }
-    line-width: 3.5;
-    line-color: @restricted;
-    line-dasharray: 5, 2;
-
-    [highway='service']
-    {
-      ::outline { line-width: 1.75; line-color: white; }
-      line-width: 1.75;
-    }
-  }
-
-  [cycleway='lane'],
-  [cycleway='opposite_lane'],
-  [cycleway='shared_lane'],
-  [cycleway='track'],
-  [cycleway='opposite_track'],
-  {
-    ::outline
-    {
-      line-width: 8;
-      line-color: @bike_friendly;
-    }
-
-    line-color: white;
-    line-width: 5;
-  }
-}
-
-[zoom>=17]
-{
-  line-width: 9;
-
-  [highway='service']
-  {
-    line-width: 3;
-  }
-
-  [access='private'],
-  [access='restricted'],
-  {
-    ::outline { line-width: 9; line-color: white; }
-    line-width: 9;
-    line-color: @restricted;
-    line-dasharray: 10, 3;
-
-    [highway='service']
-    {
-      ::outline { line-width: 3; line-color: white; }
-      line-width: 3;
-    }
-  }
-
-  [cycleway='lane'],
-  [cycleway='opposite_lane'],
-  [cycleway='shared_lane'],
-  [cycleway='track'],
-  [cycleway='opposite_track'],
-  {
-    ::outline
-    {
-      line-width: 12;
-      line-color: @bike_friendly;
-    }
-
-    line-color: white;
-    line-width: 9;
-  }
-}
-
-[zoom>=18]
-{
-  line-width: 12;
-
-  [highway='service']
-  {
-    line-width: 4;
-  }
-
-  [access='private'],
-  [access='restricted'],
-  {
-    ::outline { line-width: 12; line-color: white; }
-    line-width: 12;
-    line-color: @restricted;
-    line-dasharray: 10, 4;
-
-    [highway='service']
-    {
-      ::outline { line-width: 4; line-color: white; }
-      line-width: 4;
-    }
-  }
-
-  [cycleway='lane'],
-  [cycleway='opposite_lane'],
-  [cycleway='shared_lane'],
-  [cycleway='track'],
-  [cycleway='opposite_track'],
-  {
-    ::outline
-    {
-      line-width: 15;
-      line-color: @bike_friendly;
-    }
-
-    line-color: white;
-    line-width: 12;
-  }
-}
-
-}
-
-
-.roads[surface='cobblestone']
-{	
-  ::interior
-  {
-    [zoom>=14]
-    {
-      line-width: 0.5; line-dasharray: 1, 1; line-color: hsl( 0, 0%, 50% ); line-offset: -1;
-    }
-
-    [zoom>=15]
-    {
-      line-width: 0.75; line-dasharray: 1.5, 1.5; line-offset: -1;
-    }
-
-    [zoom>=16]
-    {
-      line-width: 1.1; line-dasharray: 2, 2; line-offset: -3;
-    }
-
-    [zoom>=17]
-    {
-      line-width: 2; line-dasharray: 3, 3; line-offset: -4;
-    }
-  }
-}
-
-
-
-
-/** Paths **/
-
+/* Paths */
 .line[highway='path'],
-.line[highway='footway']
-{
-  line-color: lighten( @pedestrian, 5% );
-  line-width: 0;
-  
-  [zoom>=13]
-  {
-    line-width: 0.4;
-
-    [bicycle='no']
-    {
-      line-dasharray: 0.5, 1;
-    }
-  }
-
-  [zoom>=14]
-  {
-    line-width: 0.6;
-
-    [bicycle='no']
-    {
-      line-dasharray: 1.5, 1.5;
-      line-width: 0.6;
-    }
-
-    [bridge='yes']
-    {
-      ::outline
-      {
-        line-color: @bridge_outline;
-        line-width: 2;
-      }
-
-      line-width: 0.6;
-      line-color: @pedestrian;
-    }
-  }
-
-  [zoom>=15]
-  {
-    line-width: 0.8;
-
-    [bicycle='no'] 
-    {
-      line-dasharray: 3, 2;
-      line-width: 0.8;
-    }
-
-    [bridge='yes']
-    {
-      ::outline
-      {
-        line-color: @bridge_outline;
-        line-width: 3;
-      }
-
-      ::inline
-      {
-        line-width: 0.8;
-        line-color: @pedestrian;
-      }
-    }
-  }
-
-  [zoom>=16]
-  {
-    line-width: 0.9;
-
-    [bicycle='no']
-    {
-      line-width: 1;
-      line-dasharray: 4, 3;
-    }
-
-    [bridge='yes']
-    {
-      ::outline
-      {
-        line-color: @bridge_outline;
-        line-width: 5;
-      }
-    }
-  } 
-
-  [zoom>=17]
-  {
-    line-width: 1.2;
-
-    [bicycle='no']
-    { 
-      line-width: 1.2; 
-      line-dasharray: 4, 3; 
-    }
-
-    [bridge='yes']
-    {
-      ::outline
-      {
-        line-color: @bridge_outline;
-        line-width: 6;
-      }
-    }
-  }
-
-  [zoom>=18]
-  {
-    line-width: 1.5;
-
-    [bicycle='no']
-    { 
-      line-width: 1.5; 
-      line-dasharray: 4, 3; 
-    }
-  }
-}
-
-
-/** Highway pedestrian **/
-
-.line[highway='pedestrian']
-{
-
-  line-color: @pedestrian;
-  line-width: 0;
-
-  [zoom>=13]
-  {
-    line-width: 0.5;
-  }
-
-  [zoom>=14]
-  {
-    line-width: 0.5;
-  }
-
-  [zoom>=15]
-  {
-    line-width: 1.7;
-  }
-
-  [zoom>=16]
-  {
-    line-width: 1.5;
-  }
-
-  [zoom>=17]
-  {
-    line-width: 4;
-  }
-
-  [zoom>=18]
-  {
-    line-width: 6;
-  }
-}
-
-/** Push your bike **/
-
+.line[highway='footway'],
 .line[bicycle='dismount']
 {
-  [zoom>=14]
+  line-color: lighten( @pedestrian, 5% );
+  line-opacity: 0.8;
+  [zoom<=13] { line-width: 0; }
+  [zoom=14] { line-width: @c5; }
+  [zoom=15] { line-width: @c5; }
+  [zoom=16] { line-width: @c5; }
+  [zoom>=17] { line-width: @c4; }
+  
+  [bicycle='no']
   {
-    line-color: @pedestrian;
-    line-width: 0.6;
-  }
-
-  [zoom>=15]
-  {
-    line-width: 0.8;
-  }
-
-  [zoom>=16]
-  {
-    line-width: 1.75;
-  }
-
-  [zoom>=17]
-  {
-    line-width: 5; 
-  }
-
-  [zoom>=18]
-  {
-    line-width: 7; 
+    line-dasharray: 2, 4;
   }
 }
 
-/** Steps **/
-
-/* TODO what about standalone steps? */
-
-.line[highway='steps']
-{
-  line-color: lighten( @pedestrian, 5% ); 
-
-  ['ramp:bicycle'='yes']
-  {
-    line-color: @bike_friendly;
-  }
-
-  [zoom>=14]
-  { 
-    line-width: 2.5; 
-    line-dasharray: 1, 0.75; 
-  }
-
-  [zoom>=15]
-  { 
-    line-width: 5; 
-    line-dasharray: 1, 1.5; 
-  }
-
-  [zoom>=16]
-  { 
-    line-width: 7; 
-    line-dasharray: 1.25, 1.5; 
-  }
-
-  [zoom>=17]
-  { 
-    line-width: 9; 
-    line-dasharray: 1.5, 1.9; 
-  }
-}
-
-/** Bike lanes **/
+/* TODO: Bike lanes */
 /*
 .line['cycleway:left'='lane'],
 .line['cycleway:right'='lane'],
@@ -1064,27 +242,120 @@
 .line['cycleway:right'='opposite_track'],
 */
 
-/* Ferries */
-/* TODO layer under bridges */
 
-.line[route='ferry']
+/* TODO what about standalone steps? */
+.line[highway='steps']
 {
-  [zoom>=14]
+  line-color: lighten( @pedestrian, 5% ); 
+  line-dasharray: 2, 2; 
+  line-cap: butt;
+  [zoom<=12] { line-width: 0; }
+  [zoom>=13][zoom<=15] { line-width: @c5*4; }
+  [zoom=16] { line-width: @c4*3; }
+  [zoom=17] { line-width: @c4*4; }
+  [zoom>=18] { line-width: @c4*4; }
+  ['ramp:bicycle'='yes']
   {
-    line-width: 1.2;
-    line-color: darken( @water, 12% );
-    line-dasharray: 5, 2;
-  }
-
-  [zoom>=15]
-  {
-    line-width: 1.5;
-  }
-
-  [zoom>=16]
-  {
-    line-width: 2;
+      line-color: @road_inline;
   }
 }
 
+.line[highway='pedestrian']
+{
+  line-color: @pedestrian;
+  [zoom<=12] { line-width: 0; }
+  [zoom=13] { line-width: @c5; }
+  [zoom=14] { line-width: @c4; }
+  [zoom=15] { line-width: @c3; }
+  [zoom=16] { line-width: @c3; }
+  [zoom>=17] { line-width: @c2; }
+}
 
+.line[highway='cycleway']
+{
+  line-color: @road_inline;
+  [zoom<=12] { line-width: 0; }
+  [zoom=13] { line-width: @c5; }
+  [zoom=14] { line-width: @c4; }
+  [zoom=15] { line-width: @c4; }
+  [zoom=16] { line-width: @c3; }
+  [zoom=17] { line-width: @c3; }
+  [zoom=18] { line-width: @c3; }
+  [zoom>=19] { line-width: @c3; }
+}
+
+.roads[kind='minor_road'],
+{
+  [zoom<=12] { line-width: 0; }
+  [zoom=13] { line-width: @c5; }
+  [zoom=14] { line-width: @c4; }
+  [zoom=15] { line-width: @c3; }
+  [zoom=16] { line-width: @c2; }
+  [zoom>=17] { line-width: @c1; }
+  
+  [highway='service']
+  {
+    [zoom<=15] { line-width: 0; }
+    [zoom=16] { line-width: @c4; }
+    [zoom=17] { line-width: @c3; }
+    [zoom=18] { line-width: @c2; }
+    [zoom>=19] { line-width: @c1; }
+  }
+  
+}
+
+
+// cobblestones
+.line[highway='pedestrian'],
+.line[highway='cycleway'],
+.roads[kind='minor_road'],
+.roads[kind='major_road']
+{
+  [surface='cobblestone']
+  {
+    ::left
+    {
+      line-dasharray: 1.5*@cobblestone_scale, 4.7*@cobblestone_scale, 1.5*@cobblestone_scale, 3*@cobblestone_scale, 1.5*@cobblestone_scale, 5.1*@cobblestone_scale;
+      [zoom<=16] { line-offset: @c2 * @cobblestone_scale * 0.2; }
+      [zoom>=17] { line-offset: @c1 * @cobblestone_scale * 0.2; }
+    }
+    ::right
+    {
+      line-dasharray: 1.5*@cobblestone_scale, 3.1*@cobblestone_scale, 1.5*@cobblestone_scale, 5.3*@cobblestone_scale, 1.5*@cobblestone_scale, 4.2*@cobblestone_scale;
+      [zoom<=16] { line-offset: @c2 * @cobblestone_scale * -0.2; }
+      [zoom>=17] { line-offset: @c1 * @cobblestone_scale * -0.2; }
+    }
+    ::left, ::right
+    {
+      line-width: 1.5*@cobblestone_scale;
+      line-color: @cobblestone;
+    }
+  }
+}
+.line[highway='pedestrian'],
+{
+  [surface='cobblestone']
+  {
+    ::left, ::right
+    {
+      line-color: darken( @cobblestone, 20% );
+    }
+  }
+}
+
+.roads[kind='major_road']
+{
+  line-color: @major;
+  [zoom<=11] { line-width: @c4; }
+  [zoom>=12][zoom<=15] { line-width: @c3; }
+  [zoom=16] { line-width: @c2; }
+  [zoom>=17] { line-width: @c1; }
+}
+
+.roads[kind='highway']
+{
+  line-color: @highway;
+  [zoom<=14] { line-width: @c3; }
+  [zoom=15] { line-width: @c2; }
+  [zoom>=16] { line-width: @c1; }
+}
