@@ -24,7 +24,7 @@
 {
   [zoom>=14]
   {
-    polygon-fill: darken( @building, 5% );
+    polygon-fill: darken( @building, 10% );
   }
 }
 
@@ -37,6 +37,6 @@
 {
   [zoom>=13]
   {
-    polygon-fill: darken( @building, 10% );
+    polygon-fill: darken( @building, 20% );
   }
 }
