@@ -62,7 +62,7 @@ Map {
     }
   ::inline{
 		line-width:1;
-  		line-color:#fff;
+  		line-color:white;
   		line-opacity: 1.0;
     }
   
@@ -91,7 +91,7 @@ Map {
 }
 
 #lines[zoom=14][highway='path'] {
-  line-width:.7; line-dasharray: 4, 2; line-color:#fff;
+  line-width:.7; line-dasharray: 4, 2; line-color:white;
 }
 
 #lines[zoom=14][railway='rail'] {
@@ -105,12 +105,12 @@ Map {
 }
 
 #lines[zoom=14][highway='primary'] {
-  ::outline{ line-width:8; line-color:#fff; line-opacity: 1.0; }
+  ::outline{ line-width:8; line-color:white; line-opacity: 1.0; }
   ::inline{ line-width:5; line-color:#534f35; line-opacity: 1.0; }
 }
 
 #z_14[zoom=14][kind='major_road'] {
-  ::outline{ line-width:4.5; line-color:#fff; line-opacity: 1.0; }
+  ::outline{ line-width:4.5; line-color:white; line-opacity: 1.0; }
   ::inline{ line-width:2.5; line-color:#828163; line-opacity: 1.0; }
 }
 
@@ -164,12 +164,12 @@ Map {
 }
 
 #lines[zoom>=15][highway='primary'] {
-  ::outline{ line-width:10; line-color:#fff; line-opacity: 1.0; }
+  ::outline{ line-width:10; line-color:white; line-opacity: 1.0; }
   ::inline{ line-width:6; line-color:#787560; line-opacity: 1.0; }
 }
 
 #z_14[zoom>=15][kind='major_road'] {
-  ::outline{ line-width:14; line-color:#fff; line-opacity: 1.0; }
+  ::outline{ line-width:14; line-color:white; line-opacity: 1.0; }
   ::inline{ line-width:9; line-color:#828163; line-opacity: 1.0; }
 }
 

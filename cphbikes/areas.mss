@@ -2,14 +2,14 @@
 {
   [zoom>=10]
   {
-    polygon-fill: #6bf260;
+    polygon-fill: spin( @park, 5 );
   }
 }
 .area[leisure='playground']
 {
   [zoom>=10]
   {
-    polygon-fill: #e4f901;
+    polygon-fill: hsl( 50, 100%, 50% );
   }
 }
 
@@ -41,7 +41,7 @@
 {
   [zoom>=10]
   {
-    polygon-fill: #72e381;
+    polygon-fill: hsl( 129, 78%, 70% );
   }
   
   [zoom>=16]
@@ -66,7 +66,7 @@
 {
   [zoom>=10]
   {
-    polygon-fill:#81d400;
+    polygon-fill: lighten( @park, 10 );
   }
 }
 
@@ -74,7 +74,7 @@
 {
   [zoom>=10]
   {
-    polygon-fill:#cfcfcf;
+    polygon-fill: darken( @park, 10 );
   }
 }
 
@@ -82,7 +82,7 @@
 {
   [zoom>=10]
   {
-    polygon-fill:#90ea00;
+    polygon-fill: spin( @park, -5 );
   }
 }
 
@@ -90,7 +90,7 @@
 {
   [zoom>=10]
   {
-    polygon-fill:#eaddce;
+    polygon-fill: @sand;
   }
 }
 
@@ -98,7 +98,7 @@
 {
   [zoom>=10]
   {
-    polygon-fill:#eaddce;
+    polygon-fill: @sand;
   }
 }
 
@@ -106,7 +106,7 @@
 {
   [zoom>=10]
   {
-    polygon-fill:#90ec00;
+    polygon-fill: hsl( 50, 70%, 50% );
   }
 }
 
@@ -115,7 +115,7 @@
 {
   [zoom>=10]
   {
-    polygon-fill: #7def92;
+    polygon-fill: darken( @park, 15% );
   }
 }
 
@@ -124,7 +124,7 @@
 {
   [zoom>=10]
   {
-    polygon-fill: #93f200;
+    polygon-fill: darken( @park, 5);
   }
 }
 
@@ -141,7 +141,7 @@
 {
   [zoom>=10]
   {
-    polygon-fill:#f1edea;
+    polygon-fill: @pedestrian;
   }
 }
 
@@ -149,7 +149,7 @@
 {
   [zoom>=10]
   {
-    polygon-fill: #e1eff1;
+    polygon-fill: hsl( 188, 36%, 91% );
   }
 }
 
@@ -157,7 +157,7 @@
 {
   [zoom>=17]
   {
-    polygon-fill:#eff0f0;
+    polygon-fill: hsl( 180, 3%, 94% );
   }
 }
 
@@ -165,7 +165,7 @@
 {
   [zoom>=14]
   {
-    polygon-fill:#ded0e0;
+    polygon-fill: hsl( 293, 21%, 85% );
   }
 }
 

@@ -1,25 +1,16 @@
 
 
-
-@water: #3fcdfd;
-@land: #e1e5e5;
-@park: #abf82d;
-@road_outline: #e1e5e5;
-@road_inline: #fff;
-@bike_outline: #fff;
-@bike_inline: #009734;
-
 /* roads */
 @highway:		#666;
 @highway_case:	@land;
 @major:			#000;
-@major_case:	#fff;
+@major_case:	white;
 @minor:			#999;
 @minor_2:		#000;
-@minor_case:	#fff;
+@minor_case:	white;
 @service:		#666;
 @service_case:	@land;
-@path:			#fff;
+@path:			white;
 @path_case:		#ededed;
 @rail: 			#444;
 @aeroway: 		#eee;
@@ -43,7 +34,7 @@
 #green-areas-labels[zoom>=17] {
 	text-name: '[name]';
 	text-face-name: 'Arial Italic';
-	text-fill: #fff;
+	text-fill: white;
 	text-halo-fill: @water;
 	text-placement: point;
 	text-max-char-angle-delta: 30;
@@ -481,7 +472,7 @@
 	text-face-name: 'Arial Bold';
 	text-size: 10;
 	text-name: '[addr:housenumber]';
-	text-fill: #fff;
+	text-fill: white;
 	text-wrap-width: 80;
 }
 
@@ -496,7 +487,7 @@
     text-name: '[name]';
     text-face-name: 'Arial Regular';
     text-fill: #000;
-    text-halo-fill: #fff;
+    text-halo-fill: white;
     text-max-char-angle-delta: 30;
     text-wrap-width: 40;
     text-halo-radius: 2;
@@ -515,7 +506,7 @@
       text-face-name: 'Arial Regular';
       text-size: 15;
       text-halo-radius: 2;
-      text-halo-fill: #fff;
+      text-halo-fill: white;
     }
   }
   
@@ -579,7 +570,7 @@
     text-min-distance: 160;
     text-character-spacing: -1;
     
-    text-halo-fill: #fff;
+    text-halo-fill: white;
     text-fill: #046a64;
   }
   
@@ -639,19 +630,19 @@
     [ncn='yes'] /* national cycle networks */
     {
       text-halo-fill: #9463e4;
-      text-fill: #fff;
+      text-fill: white;
     }
 
     [rcn='yes'] /* regional cycle networks */
     {
       text-halo-fill: #0083e9;
-      text-fill: #fff;
+      text-fill: white;
     }
 
     [lcn='yes'] /* local cycle networks */
     { 
       text-halo-fill: #00bf3f;
-      text-fill: #fff;
+      text-fill: white;
     }
   }
 
@@ -661,7 +652,7 @@
     shield-name: '[ref]';
     shield-face-name: 'Arial Bold';
     shield-size: 10;
-    shield-fill: #fff;
+    shield-fill: white;
     shield-min-distance: 40;
     /*
     shield-halo-radius: 1;

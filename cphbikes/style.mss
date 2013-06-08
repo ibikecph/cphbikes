@@ -1,10 +1,7 @@
-@water: #3fcdfd;
-@land: #e1e5e5;
-@park: #abf82d;
-@road_outline: #e1e5e5;
-@road_inline: #fff;
-@bike_outline: #fff;
-@bike_inline: #009734;
+@water: hsl( 195, 97%, 62% );
+@land: hsl( 180, 0%, 80% );
+@park: hsl( 83, 94%, 57% );
+@sand: hsl( 50, 80%, 80% );
 
 Map {
   background-color: @water;
@@ -12,27 +9,27 @@ Map {
 
 .land {
 
-  line-color: #d2d6d6;
+  line-color: @land;
   line-width: 0.5;
   polygon-opacity: 1;
-  polygon-fill: #d2d6d6;
-
+  polygon-fill: @land;
+  
   [zoom>=11]
   {
-    line-color: #d5d9d9;
+    line-color: @land;
     line-width: 0.5;
     polygon-opacity: 1;
-    polygon-fill: #d5d9d9;
+    polygon-fill: @land;
   }
-
+  
   [zoom>=12]
   {
-    line-color: #d9dddd;
+    line-color: @land;
     line-width: 0.5;
     polygon-opacity: 1;
-    polygon-fill: #d9dddd;
+    polygon-fill: @land;
   }
-
+  
   [zoom>=13]
   {
     line-color: @land;
@@ -42,8 +39,8 @@ Map {
   }
 }
 
-@road: #fff;
-@runway: #eaeded;
+@road: white;
+@runway: hsl( 180, 8%, 92% );
 
 /* Airport features */
 
@@ -65,10 +62,10 @@ Map {
 
     [aeroway='aerodrome']
     {
-      polygon-fill: #ededed;
+      polygon-fill: hsl( 0, 0%, 93% );
       polygon-opacity: 0.2;
     }
-
+    
     [aeroway='runway']
     { line-width: 4; }
 
@@ -79,17 +76,17 @@ Map {
   [zoom>=14]
   {
     line-color: @runway;
-
+    
     [aeroway='runway']
     { line-width: 10; }
 
     [aeroway='taxiway']
     { line-width: 2.2; }
   }
-
+  
   [zoom>=15]
   {
-    line-color: #e7ebeb;
+    line-color: hsl( 180, 9%, 91%) ;
 
     [aeroway='runway']
     { line-width: 15; }

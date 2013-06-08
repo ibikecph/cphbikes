@@ -70,9 +70,9 @@
     text-face-name: 'Arial Regular';
     text-size: 9;
     text-max-char-angle-delta: 30;
-    text-fill: #000;
+    text-fill: black;
     text-halo-radius: 2;
-    text-halo-fill: @land;
+    text-halo-fill: white;
     text-spacing: 100;
     text-min-distance: 10;
     text-allow-overlap: false;
