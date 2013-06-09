@@ -4,7 +4,7 @@
 {
   [zoom>=10]
   {
-    polygon-fill: spin( @park, 5 );
+    polygon-fill: spin( @park, -10 );
   }
 }
 .area[leisure='playground']
@@ -46,7 +46,7 @@
     polygon-fill: hsl( 129, 78%, 70% );
   }
   
-  [zoom>=16]
+  [zoom>=14]
   {
     polygon-pattern-file: url("images/wetland.png");
   }
@@ -58,7 +58,7 @@
   {
     polygon-fill: @park;
   }
-  [zoom>=15]
+  [zoom>=14]
   {
     polygon-pattern-file: url("images/forest5.png");
   }
@@ -76,7 +76,7 @@
 {
   [zoom>=10]
   {
-    polygon-fill: darken( @park, 10 );
+    polygon-fill: darken( @park, 15 );
   }
 }
 
@@ -117,7 +117,7 @@
 {
   [zoom>=10]
   {
-    polygon-fill: darken( @park, 15% );
+    polygon-fill: darken( @park, 10% );
   }
 }
 
