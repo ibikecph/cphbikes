@@ -9,7 +9,7 @@
 @bridge_outline: hsl( 180, 7%, 89% );
 @railway: darken( @land, 7% );
 @major: hsl( 50, 0%, 100% );
-@highway: lighten( @land, 10% );
+@highway: darken( @land, 0% );
 
 @cobblestone: hsl( 37, 30%, 80% );
 @cobblestone_scale: 1.5;
@@ -247,7 +247,7 @@
 /* TODO what about standalone steps? */
 .line[highway='steps']
 {
-  line-color: lighten( @pedestrian, 5% ); 
+  line-color: darken( @pedestrian, 15% );
   line-dasharray: 2, 2; 
   line-cap: butt;
   [zoom<=12] { line-width: 0; }
