@@ -4,12 +4,12 @@
 @bike_inline: hsl( 141, 100%, 30% );
 @bike_path: hsl( 300, 100%, 50% );
 @bike_friendly: hsl( 49, 0%, 60% );
-@pedestrian: hsl( 37, 44%, 85% );
+@pedestrian: hsl( 37, 44%, 80% );
 @restricted: hsl( 338, 63%, 73% );
 @bridge_outline: hsl( 180, 7%, 89% );
-@railway: darken( @land, 5% );
+@railway: darken( @land, 7% );
 @major: hsl( 50, 0%, 100% );
-@highway: lighten( @land, 5% );
+@highway: lighten( @land, 10% );
 
 @cobblestone: hsl( 37, 30%, 80% );
 @cobblestone_scale: 1.5;
@@ -23,7 +23,7 @@
 @c2: @width * 10;
 @c3: @width * 5;
 @c4: @width * 2;
-@c5: @width * 0.7;
+@c5: @width * 1;
 
 /* Default line styles (to initialize ::outline) */
 .line
@@ -46,7 +46,7 @@
 {
   line-color: darken( @water, 15% );
   line-dasharray: 7, 5;
-  line-width: @c4;
+  line-width: @c4*0.8;
   line-cap: butt;
 }
 
@@ -219,8 +219,8 @@
 .line[highway='footway'],
 .line[bicycle='dismount']
 {
-  line-color: lighten( @pedestrian, 5% );
-  line-opacity: 0.8;
+  line-color: darken( @pedestrian, 15% );
+  line-opacity: 0.6;
   [zoom<=13] { line-width: 0; }
   [zoom=14] { line-width: @c5; }
   [zoom=15] { line-width: @c5; }
@@ -272,7 +272,7 @@
   [zoom>=17] { line-width: @c2; }
 }
 
-.line[highway='cycleway']
+.line[highway='cycleway'],
 {
   line-color: @road_inline;
   [zoom<=12] { line-width: 0; }
@@ -307,23 +307,21 @@
 
 
 // cobblestones
-.line[highway='pedestrian'],
-.line[highway='cycleway'],
-.roads[kind='minor_road'],
-.roads[kind='major_road']
+.line,
+.roads
 {
-  [surface='cobblestone']
+  [surface='cobblestone'][zoom>=16]
   {
     ::left
     {
       line-dasharray: 1.5*@cobblestone_scale, 4.7*@cobblestone_scale, 1.5*@cobblestone_scale, 2.6*@cobblestone_scale, 1.5*@cobblestone_scale, 5.1*@cobblestone_scale;
-      [zoom<=16] { line-offset: @c2 * @cobblestone_scale * @cobblestone_width; }
+      [zoom=16] { line-offset: @c2 * @cobblestone_scale * @cobblestone_width; }
       [zoom>=17] { line-offset: @c1 * @cobblestone_scale * @cobblestone_width; }
     }
     ::right
     {
       line-dasharray: 1.5*@cobblestone_scale, 3.1*@cobblestone_scale, 1.5*@cobblestone_scale, 5.3*@cobblestone_scale, 1.5*@cobblestone_scale, 4.2*@cobblestone_scale;
-      [zoom<=16] { line-offset: @c2 * @cobblestone_scale * @cobblestone_width * -1; }
+      [zoom=16] { line-offset: @c2 * @cobblestone_scale * @cobblestone_width * -1; }
       [zoom>=17] { line-offset: @c1 * @cobblestone_scale * @cobblestone_width * -1; }
     }
     ::left, ::right
@@ -335,7 +333,7 @@
 }
 .line[highway='pedestrian'],
 {
-  [surface='cobblestone']
+  [surface='cobblestone'][zoom>=16]
   {
     ::left, ::right
     {
