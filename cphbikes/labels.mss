@@ -84,6 +84,10 @@
 	text-name: '[name]';
 	text-fill: #0f6e02;
 	text-halo-fill: rgba(171, 248, 45, 0.7);
+	[leisure='playground']
+	{
+  	text-halo-fill: @playground;
+	}
 }
 
 
@@ -105,9 +109,9 @@
 			text-face-name: 'Arial Regular';
 			text-size: @label_scale * 10;
 			text-name: '[name]';
-			text-fill: #000;
+			text-fill: white;
 			text-wrap-width: 30;
-			text-halo-fill: #eceeee;
+			text-halo-fill: #777;
 			text-halo-radius: 2;
 			text-wrap-width: 40;
 		}
@@ -146,8 +150,6 @@
 		}
 	}
 }
-
-
 
 /* Road labels */
 #tunnels[zoom>=15] {

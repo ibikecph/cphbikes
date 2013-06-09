@@ -1,3 +1,5 @@
+@playground: hsl( 50, 100%, 50% );
+
 .area[leisure='golf_course']
 {
   [zoom>=10]
@@ -9,7 +11,7 @@
 {
   [zoom>=10]
   {
-    polygon-fill: hsl( 50, 100%, 50% );
+    polygon-fill: @playground;
   }
 }
 
