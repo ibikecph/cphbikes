@@ -8,11 +8,12 @@
 @restricted: hsl( 338, 63%, 73% );
 @bridge_outline: hsl( 180, 7%, 89% );
 @railway: darken( @land, 5% );
-@major: hsl( 50, 100%, 50% );
+@major: hsl( 50, 0%, 100% );
 @highway: lighten( @land, 5% );
 
 @cobblestone: hsl( 37, 30%, 80% );
-@cobblestone_scale: 1.1;
+@cobblestone_scale: 1.5;
+@cobblestone_width: 0.15;
 
 @width: 1;
 @pedestrian_width: 1.5;
@@ -315,15 +316,15 @@
   {
     ::left
     {
-      line-dasharray: 1.5*@cobblestone_scale, 4.7*@cobblestone_scale, 1.5*@cobblestone_scale, 3*@cobblestone_scale, 1.5*@cobblestone_scale, 5.1*@cobblestone_scale;
-      [zoom<=16] { line-offset: @c2 * @cobblestone_scale * 0.2; }
-      [zoom>=17] { line-offset: @c1 * @cobblestone_scale * 0.2; }
+      line-dasharray: 1.5*@cobblestone_scale, 4.7*@cobblestone_scale, 1.5*@cobblestone_scale, 2.6*@cobblestone_scale, 1.5*@cobblestone_scale, 5.1*@cobblestone_scale;
+      [zoom<=16] { line-offset: @c2 * @cobblestone_scale * @cobblestone_width; }
+      [zoom>=17] { line-offset: @c1 * @cobblestone_scale * @cobblestone_width; }
     }
     ::right
     {
       line-dasharray: 1.5*@cobblestone_scale, 3.1*@cobblestone_scale, 1.5*@cobblestone_scale, 5.3*@cobblestone_scale, 1.5*@cobblestone_scale, 4.2*@cobblestone_scale;
-      [zoom<=16] { line-offset: @c2 * @cobblestone_scale * -0.2; }
-      [zoom>=17] { line-offset: @c1 * @cobblestone_scale * -0.2; }
+      [zoom<=16] { line-offset: @c2 * @cobblestone_scale * @cobblestone_width * -1; }
+      [zoom>=17] { line-offset: @c1 * @cobblestone_scale * @cobblestone_width * -1; }
     }
     ::left, ::right
     {
