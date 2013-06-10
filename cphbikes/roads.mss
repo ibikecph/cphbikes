@@ -19,11 +19,12 @@
 @pedestrian_width: 1.5;
 @path_width: 0.2;
 
+@c0: @width * 25;
 @c1: @width * 15;
 @c2: @width * 10;
 @c3: @width * 5;
 @c4: @width * 2;
-@c5: @width * 1;
+@c5: @width * 1.2;
 
 /* Default line styles (to initialize ::outline) */
 .line
@@ -226,10 +227,12 @@
   [zoom=15] { line-width: @c5; }
   [zoom=16] { line-width: @c5; }
   [zoom>=17] { line-width: @c4; }
+  [zoom>=19] { line-width: @c3; }
   
   [bicycle='no']
   {
-    line-dasharray: 2, 4;
+    line-color: darken( @pedestrian, 25% );
+    line-dasharray: 2, 5;
   }
 }
 
@@ -255,6 +258,7 @@
   [zoom=16] { line-width: @c4*3; }
   [zoom=17] { line-width: @c4*4; }
   [zoom>=18] { line-width: @c4*4; }
+  [zoom>=19] { line-width: @c3*3; }
   ['ramp:bicycle'='yes']
   {
       line-color: @road_inline;
@@ -270,6 +274,7 @@
   [zoom=15] { line-width: @c3; }
   [zoom=16] { line-width: @c3; }
   [zoom>=17] { line-width: @c2; }
+  [zoom>=19] { line-width: @c1; }
 }
 
 .line[highway='cycleway'],
@@ -293,6 +298,7 @@
   [zoom=15] { line-width: @c3; }
   [zoom=16] { line-width: @c2; }
   [zoom>=17] { line-width: @c1; }
+  [zoom>=19] { line-width: @c0; }
   
   [highway='service']
   {
@@ -337,7 +343,7 @@
   {
     ::left, ::right
     {
-      line-color: darken( @cobblestone, 20% );
+      line-color: darken( @cobblestone, 40% );
     }
   }
 }
@@ -349,6 +355,7 @@
   [zoom>=12][zoom<=15] { line-width: @c3; }
   [zoom=16] { line-width: @c2; }
   [zoom>=17] { line-width: @c1; }
+  [zoom>=19] { line-width: @c0; }
 }
 
 .roads[kind='highway']
@@ -357,4 +364,5 @@
   [zoom<=14] { line-width: @c3; }
   [zoom=15] { line-width: @c2; }
   [zoom>=16] { line-width: @c1; }
+  [zoom>=19] { line-width: @c0; }
 }

@@ -332,11 +332,11 @@
 	text-size: @label_scale * 11;
 }
 
-/* zoom 18+ */
-#major-road-labels[highway='trunk'][zoom>=18],
-#major-road-labels[highway='primary'][zoom>=18],
-#major-road-labels[highway='secondary'][zoom>=18],
-#major-road-labels[highway='tertiary'][zoom>=18] {
+/* zoom 18 */
+#major-road-labels[highway='trunk'][zoom=18],
+#major-road-labels[highway='primary'][zoom=18],
+#major-road-labels[highway='secondary'][zoom=18],
+#major-road-labels[highway='tertiary'][zoom=18] {
 	text-name: '[name]';
 	text-face-name: 'Arial Bold';
 	text-placement: line;
@@ -350,14 +350,14 @@
 
 	text-size: @label_scale * 16;
 }
-#major-road-labels[highway='primary'][zoom>=18],
-#major-road-labels[highway='secondary'][zoom>=18] {
+#major-road-labels[highway='primary'][zoom=18],
+#major-road-labels[highway='secondary'][zoom=18] {
 	text-size: @label_scale * 14;
 }
-#major-road-labels[highway='tertiary'][zoom>=18] {
+#major-road-labels[highway='tertiary'][zoom=18] {
 	text-size: @label_scale * 12;
 }
-#minor-road-labels[zoom>=18] {
+#minor-road-labels[zoom=18] {
 	text-name: '[name]';
 	text-face-name: 'Arial Regular';
 	text-placement: line;
@@ -369,6 +369,45 @@
 	text-min-distance: 240;
 
 	text-size: @label_scale * 12;
+}
+
+
+#major-road-labels[highway='trunk'][zoom>=19],
+#major-road-labels[highway='primary'][zoom>=19],
+#major-road-labels[highway='secondary'][zoom>=19],
+#major-road-labels[highway='tertiary'][zoom>=19] {
+	text-name: '[name]';
+	text-face-name: 'Arial Bold';
+	text-placement: line;
+	text-max-char-angle-delta: 30;
+	text-fill: @major_text;
+	text-halo-radius: 2;
+	text-halo-fill: @major_text_case;
+	text-spacing: 300;
+	text-placement: line;
+	text-min-distance: 240;
+
+	text-size: @label_scale * 21;
+}
+#major-road-labels[highway='primary'][zoom>=19],
+#major-road-labels[highway='secondary'][zoom>=19] {
+	text-size: @label_scale * 20;
+}
+#major-road-labels[highway='tertiary'][zoom>=19] {
+	text-size: @label_scale * 18;
+}
+#minor-road-labels[zoom>=19] {
+	text-name: '[name]';
+	text-face-name: 'Arial Regular';
+	text-placement: line;
+	text-max-char-angle-delta: 30;
+	text-fill: @minor_2;
+	text-halo-radius: 2;
+	text-halo-fill: @minor_case;
+	text-spacing: 400;
+	text-min-distance: 240;
+
+	text-size: @label_scale * 18;
 }
 
 /* Subway and rail stations */
