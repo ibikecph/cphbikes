@@ -4,7 +4,7 @@
 @bike_inline: hsl( 141, 100%, 30% );
 @bike_path: hsl( 300, 100%, 50% );
 @bike_friendly: hsl( 49, 0%, 60% );
-@pedestrian: hsl( 37, 44%, 80% );
+@pedestrian: hsl( 37, 44%, 75% );
 @restricted: hsl( 338, 63%, 73% );
 @bridge_outline: hsl( 180, 7%, 89% );
 @railway: darken( @land, 7% );
@@ -231,8 +231,16 @@
   
   [bicycle='no']
   {
-    line-color: darken( @pedestrian, 25% );
-    line-dasharray: 2, 5;
+    [zoom>=15]
+    {
+      line-color: darken( @pedestrian, 25% );
+      line-dasharray: 2, 5;
+    }
+    [zoom<15]
+    {
+      line-color: darken( @pedestrian, 15% );
+      line-dasharray: 1, 3;      
+    }
   }
 }
 
