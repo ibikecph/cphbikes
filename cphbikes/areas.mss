@@ -21,11 +21,18 @@
 .area[leisure='pitch'],
 .area[natural='wood'],
 .area[landuse='greenfield'],
-.area[landuse='farmland'],
 {
   [zoom>=8]
   {
     polygon-fill: @park;
+  }
+}
+
+.area[landuse='farmland'],
+{
+  [zoom>=8]
+  {
+    polygon-fill: @farmland;
   }
 }
 

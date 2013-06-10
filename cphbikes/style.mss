@@ -1,6 +1,7 @@
 @water: hsl( 195, 100%, 60% );
 @land: hsl( 180, 0%, 80% );
 @park: hsl( 75, 100%, 50% );
+@farmland: hsl( 60, 80%, 80% );
 @sand: hsl( 50, 80%, 80% );
 @road: white;
 @runway: hsl( 180, 8%, 92% );
