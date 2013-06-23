@@ -1,4 +1,4 @@
-@building: darken( @land, 10% );
+@building: desaturate( darken( @land, 6% ), 100% );
 
 .buildings[building='yes']
 {
@@ -14,29 +14,30 @@
 
   [zoom>=18]
   {
-      polygon-fill: mix( @land, @building, 0% );
+    polygon-fill: mix( @land, @building, 0% );
   }
 }
 
-.buildings[amenity='place_of_worship'],
-.buildings[amenity='townhall'],
-.buildings[amenity='library'],
+
+.buildings::medium[zoom>=14]
 {
-  [zoom>=14]
+  [amenity='place_of_worship'],
+  [amenity='townhall'],
+  [amenity='library'],
   {
-    polygon-fill: darken( @building, 10% );
+    polygon-fill: darken( @building, 3% );
   }
 }
 
-.buildings[railway='station'],
-.buildings[shop='mall'],
-.buildings[amenity='theatre'],
-.buildings[amenity='university'],
-.buildings[amenity='hospital'],
-.buildings[amenity='public_building'],
+.buildings::large[zoom>=13]
 {
-  [zoom>=13]
+  [railway='station'],
+  [shop='mall'],
+  [amenity='theatre'],
+  [amenity='university'],
+  [amenity='hospital'],
+  [amenity='public_building'],
   {
-    polygon-fill: darken( @building, 20% );
+    polygon-fill: darken( @building, 6% );
   }
 }

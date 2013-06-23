@@ -25,14 +25,14 @@ osm-copenhagen: copenhagen.osm.pbf
 osm-denmark: denmark.osm.pbf
 	osm2pgsql -d ${DB_NAME} -U ${DB_USER} -H ${DB_HOST} -c -C8000 --number-processes=4 -s -S cphbikes.style -j denmark.osm.pbf
 
-coastline-copenhagen: coastline-copenhagen.shp
-	shp2pgsql -d -s 4326:900913 -I coastline-copenhagen.shp copenhagen_coastline | pv | psql -q -h ${DB_HOST} -d ${DB_NAME} -U ${DB_USER}
+coastline: coastline.shp
+	shp2pgsql -d -s 4326:900913 -I coastline.shp copenhagen | pv | psql -q -h ${DB_HOST} -d ${DB_NAME} -U ${DB_USER}
 
 # clip the coastline around Copenhagen
-coastline-copenhagen.shp: coastline.zip
+coastline.shp: coastline.zip
 	unzip -n coastline.zip
 	rm -f coastline-copenhagen.*
-	ogr2ogr -clipsrc ${CPH_BOUNDS} coastline-copenhagen.shp land-polygons-complete-4326/land_polygons.shp
+	ogr2ogr -clipsrc ${CPH_BOUNDS} coastline.shp land-polygons-complete-4326/land_polygons.shp
 	rm -rf land-polygons-complete-4326/
 
 # fetch land polygons from http://openstreetmapdata.com/data/land-polygons

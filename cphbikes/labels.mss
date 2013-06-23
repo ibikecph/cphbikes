@@ -1,10 +1,7 @@
-
-
 /* roads */
-@highway:		@highway;
-@highway_case:	@land;
-@major_text:			black;
-@major_text_case:	@major;
+@highway_case: @land;
+@major_text: black;
+@major_text_case: @major;
 @minor:			#999;
 @minor_2:		black;
 @minor_case:	white;
@@ -15,800 +12,344 @@
 @rail: 			#444;
 @aeroway: 		#eee;
 
+@label: black;
+@label_light: mix( black, @land, 70% );
+
 @label_scale: 1.2;
+@label_halo: 1;
+
+@label_scale_water: 10;
+@label_halo_water: lighten( @water, 20% );
+
+@label_scale_green: 10;
+@label_halo_green: lighten( @land, 20% );
+
+@label_scale_building: 10;
+@label_halo_building: lighten( @land, 20% );
+
+@label_road: @label;
+@label_scale_road: 1.3;
+@label_roads_halo: 2;
+
+
+@char_spacing: 0.3;
+
+@major_label_c0: 22;
+@major_label_c1: 15;
+@major_label_c2: 12;
+@major_label_c3: 10;
+
+@minor_label_c0: 19;
+@minor_label_c1: 13;
+@minor_label_c2: 11;
+@minor_label_c3: 9;
+
+
+@label_halo_place: lighten( @land, 20% );
+
+@place_c0: 22;
+@place_c1: 14;
+@place_c2: 12;
+@place_c3: 11;
+@place_c4: 10;
+@place_c5: 9;
+
 
 
 /* Parks and water labels */
-#water-bodies-labels[zoom=9][area>100000000][type='reservoir'],
-#water-bodies-labels[zoom=10][area>100000000][type='reservoir'],
-#water-bodies-labels[zoom=11][area>25000000],
-#water-bodies-labels[zoom=12][area>5000000][type='reservoir'],
-#green-areas-labels[zoom=12][area>5000000],
-#water-bodies-labels[zoom=13][area>2000000][type='reservoir'],
-#green-areas-labels[zoom=13][area>2000000],
-#water-bodies-labels[zoom=14][area>200000],
-#green-areas-labels[zoom=14][area>200000],
-#water-bodies-labels[zoom=15][area>50000],
-#green-areas-labels[zoom=15][area>50000],
-#water-bodies-labels[zoom=16][area>10000],
-#water-bodies-labels[zoom>=17],
-#green-areas-labels[zoom=16][area>10000],
-#green-areas-labels[zoom>=17] {
-	text-name: '[name]';
-	text-face-name: 'Arial Italic';
-	text-fill: white;
-	text-halo-fill: @water;
-	text-placement: point;
-	text-max-char-angle-delta: 30;
-	text-wrap-width: 40;
-	text-halo-radius: 2;
-	text-allow-overlap: false;
-	text-size: @label_scale * 13;
-	text-spacing: 100;
-	text-line-spacing: -5;
-	text-wrap-width: 70;
-	
-	[zoom>=9][zoom<12] {
-		text-name: '[name]';
-		text-spacing: 200;
-		text-wrap-width: 50;
-	}
-	[zoom=12] {
-		text-name: '[name]';
-		text-spacing: 200;
-	}
-	[zoom=13] {
-		text-name: '[name]';
-	}
-	[zoom=14] {
-		text-name: '[name]';
-	}
-	[zoom=15] {
-		text-name: '[name]';
-		text-wrap-width: 30;
-	}
-	[zoom>=15] {
-		text-name: '[name]';
-		text-wrap-width: 40;
-	}
+#water-bodies-labels
+{
+  ::z9[zoom=9][area>100000000],
+  ::z10[zoom=10][area>100000000],
+  ::z11[zoom=11][area>25000000],
+  ::z12[zoom=12][area>5000000],
+  ::z13[zoom=13][area>2000000],
+  ::z14[zoom=14][area>200000],
+  ::z15[zoom=15][area>50000],
+  ::z16[zoom=16][area>10000],
+  ::z17[zoom>=17]
+  {
+  	text-name: '[name]';
+  	text-face-name: 'Arial Italic';
+  	text-fill: mix( @water, @label, 50% );
+  	text-halo-fill: @water;
+  	text-placement: point;
+  	text-max-char-angle-delta: 30;
+  	text-halo-radius: @label_halo;
+  	text-allow-overlap: false;
+  	text-size: @label_scale * @label_scale_water;
+  	text-spacing: 100;
+  	text-line-spacing: -5;
+  	text-wrap-width: 70;
+		text-character-spacing: @char_spacing;
+  }
 }
 
-#green-areas-labels[zoom=12][area>4000000],
-#green-areas-labels[zoom=13][area>2000000],
-#green-areas-labels[zoom=14][area>200000],
-#green-areas-labels[zoom=15][area>50000],
-#green-areas-labels[zoom=16][area>10000],
-#green-areas-labels[zoom>=17] 
+#green-areas-labels
 {
-	text-face-name: 'Arial Italic';
-	text-name: '[name]';
-	text-fill: #0f6e02;
-	text-halo-fill: rgba(171, 248, 45, 0.7);
-	[leisure='playground']
-	{
-  	text-halo-fill: @playground;
-	}
+  ::z12[zoom=12][area>4000000],
+  ::z13[zoom=13][area>2000000],
+  ::z14[zoom=14][area>200000],
+  ::z15[zoom=15][area>50000],
+  ::z16[zoom=16][area>10000],
+  ::z17[zoom>=17] 
+  {
+  	::playground[leisure='playground']
+  	{
+    	text-name: '[name]';
+    	text-face-name: 'Arial Italic';
+    	text-fill: @label;
+    	text-placement: point;
+    	text-max-char-angle-delta: 30;
+    	text-halo-radius: @label_halo;
+    	text-allow-overlap: false;
+    	text-size: @label_scale * @label_scale_green;
+    	text-spacing: 100;
+    	text-line-spacing: -5;
+    	text-wrap-width: 70;
+    	text-halo-fill: @label_halo_green;
+  		text-character-spacing: @char_spacing;
+    }
+  	text-name: '[name]';
+  	text-face-name: 'Arial Italic';
+  	text-fill: @label;
+  	text-placement: point;
+  	text-max-char-angle-delta: 30;
+  	text-halo-radius: @label_halo;
+  	text-allow-overlap: false;
+  	text-size: @label_scale * @label_scale_green;
+  	text-spacing: 100;
+  	text-line-spacing: -5;
+  	text-wrap-width: 70;
+  	text-halo-fill: @label_halo_green;
+		text-character-spacing: @char_spacing;
+  }
 }
 
-
-
-
-.buildings-labels[shop='mall'],
-.buildings-labels[amenity='theatre'],
-.buildings-labels[amenity='university'],
-.buildings-labels[amenity='hospital'],
-.buildings-labels[amenity='public_building'],
-.buildings-labels[amenity='place_of_worship'],
-.buildings-labels[amenity='townhall'],
-.buildings-labels[amenity='library']
+#buildings-labels
 {
-	[zoom>=14]
-	{
-		[way_area>=20000]
+  [shop='mall'],
+  [amenity='theatre'],
+  [amenity='university'],
+  [amenity='hospital'],
+  [amenity='public_building'],
+  [amenity='place_of_worship'],
+  [amenity='townhall'],
+  [amenity='library']
+  {
+  	::z14[zoom=14][way_area>=20000],
+  	::z15[zoom=15][way_area>=10000],
+  	::z16[zoom=16][way_area>=5000],
+  	::z17[zoom>=17][way_area>=5000]
 		{
-			text-face-name: 'Arial Regular';
-			text-size: @label_scale * 10;
+			text-face-name: @font;
+			text-size: @label_scale * @label_scale_building;
 			text-name: '[name]';
-			text-fill: white;
+			text-fill: @label;
+    	text-allow-overlap: false;
 			text-wrap-width: 30;
-			text-halo-fill: #777;
-			text-halo-radius: 2;
+			text-halo-fill: darken(@land, 0%);
+			text-halo-radius: @label_halo;
 			text-wrap-width: 40;
+  		text-character-spacing: @char_spacing;
 		}
-	}
-	
-	[zoom>=15]
-	{
-		[way_area>=10000]
-		{
-			text-face-name: 'Arial Bold';
-			text-size: @label_scale * 11;
-			text-name: '[name]';
-			text-wrap-width: 40;
-		}
-	}
-	
-	[zoom>=16]
-	{
-		[way_area>=5000]
-		{
-			text-face-name: 'Arial Bold';
-			text-size: @label_scale * 12;
-			text-name: '[name]';
-			text-wrap-width: 40;
-		}
-	}
-	
-	[zoom>=17]
-	{
-		[way_area>=5000]
-		{
-			text-face-name: 'Arial Bold';
-			text-size: @label_scale * 14;
-			text-name: '[name]';
-			text-wrap-width: 40;
-		}
-	}
+  }
 }
 
-/* Road labels */
-#tunnels[zoom>=15] {
-	text-name: '[name]';
-	text-fill: #777;
-	text-halo-fill: @land;
-}
 
-/* zoom 12 */
-#major-road-labels[highway='primary'][zoom=12],
-#major-road-labels[highway='trunk'][zoom=12] {
-	text-name: '[name]';
-	text-face-name: 'Arial Regular';
-	text-placement: line;
-	text-max-char-angle-delta: 30;
-	text-fill: @major_text;
-	text-halo-radius: 2;
-	text-halo-fill: @major_text_case;
-	text-spacing: 100;
-	text-placement: line;
+// road labels
 
-	/*text-dy: 1;*/
-	text-size: @label_scale * 9;
-}
-
-/* zoom 13 */
-#major-road-labels[highway='primary'][zoom=13],
-#major-road-labels[highway='trunk'][zoom=13],
-#major-road-labels[highway='secondary'][zoom=13] {
-	text-name: '[name]';
-	text-face-name: 'Arial Regular';
-	text-placement: line;
-	text-max-char-angle-delta: 30;
-	text-fill: @major_text;
-	text-halo-radius: 2;
-	text-halo-fill: @major_text_case;
-	text-spacing: 100;
-	text-placement: line;
-	text-min-distance: 160;
-	
-	text-size: @label_scale * 10;
-}
-
-/* zoom 14 */
-#major-road-labels[highway='trunk'][zoom=14],
-#major-road-labels[highway='primary'][zoom=14],
-#major-road-labels[highway='secondary'][zoom=14],
-#major-road-labels[highway='tertiary'][zoom=14]
+#major-road-labels[zoom>=11]
 {
-	text-name: '[name]';
-	text-face-name: 'Arial Regular';
+  [zoom<=13] { text-size: @major_label_c3; }
+  [zoom>=14][zoom<=16] { text-size: @major_label_c2; }
+  [zoom>=17][zoom<=18] { text-size: @major_label_c1; }
+  [zoom>=19] { text-size: @major_label_c0; }
+  
+  text-name: '[name]';
+	text-face-name: @font;
 	text-placement: line;
 	text-max-char-angle-delta: 30;
-	text-fill: @major_text;
-	text-halo-radius: 2;
-	text-halo-fill: @major_text_case;
-	text-spacing: 100;
-	text-placement: line;
-
-	text-size: @label_scale * 11;
+	text-fill: @label_road;
+	text-halo-fill: @major;
+	text-halo-radius: @label_roads_halo;
+	text-character-spacing: 0.5;
+	text-spacing: 200;
+	text-avoid-edges: true;
+	text-allow-overlap: false;
+	text-character-spacing: @char_spacing;
 }
 
-#major-road-labels[highway='secondary'][zoom=14],
-#major-road-labels[highway='tertiary'][zoom=14] 
+#minor-road-labels[zoom>=15]
 {
-	text-size: @label_scale * 12;
-}
-
-/* zoom 15 */
-#major-road-labels[highway='trunk'][zoom=15],
-#major-road-labels[highway='primary'][zoom=15],
-#major-road-labels[highway='secondary'][zoom=15],
-#major-road-labels[highway='tertiary'][zoom=15] {
+  [zoom>=15][zoom<=16] { text-size: @minor_label_c2; }
+  [zoom>=17][zoom<=18] { text-size: @minor_label_c1; }
+  [zoom>=19] { text-size: @minor_label_c0; }
+	
 	text-name: '[name]';
-	text-face-name: 'Arial Regular';
+	text-face-name: @font;
 	text-placement: line;
 	text-max-char-angle-delta: 30;
-	text-fill: @major_text;
-	text-halo-radius: 2;
-	text-halo-fill: @major_text_case;
-	text-spacing: 100;
-	text-placement: line;
-	text-min-distance: 200;
-
-	text-size: @label_scale * 12;
-}
-#major-road-labels[highway='secondary'][zoom=15],
-#major-road-labels[highway='tertiary'][zoom=15]  {
-	text-size: @label_scale * 12;
-}
-
-#minor-road-labels[zoom=15] {
-	text-name: '[name]';
-	text-face-name: 'Arial Regular';
-	text-placement: line;
-	text-max-char-angle-delta: 30;
-	text-fill: @minor_2;
-	text-halo-radius: 2;
-	text-halo-fill: @minor_case;
+	text-fill: @label_road;
+	text-halo-radius: @label_roads_halo;
+	text-halo-fill: @minor;
 	text-spacing: 124;
 	text-min-distance: 200;
+	text-character-spacing: 0.5;
+	text-avoid-edges: true;
+	text-allow-overlap: false;
+	text-character-spacing: @char_spacing;
+}
 
+
+// address numbers
+
+#buildings-labels[zoom>=17]['addr:housenumber'!=''],
+#copenhagen_point[zoom>=18]['addr:housenumber'!='']
+{
+	text-face-name: 'Arial Bold';
 	text-size: @label_scale * 9;
-}
-
-
-/* zoom 16 */
-#major-road-labels[highway='trunk'][zoom=16],
-#major-road-labels[highway='primary'][zoom=16],
-#major-road-labels[highway='secondary'][zoom=16],
-#major-road-labels[highway='tertiary'][zoom=16] {
-	text-name: '[name]';
-	text-face-name: 'Arial Regular';
-	text-placement: line;
-	text-max-char-angle-delta: 30;
-	text-fill: @major_text;
-	text-halo-radius: 2;
-	text-halo-fill: @major_text_case;
-	text-spacing: 124;
-	text-placement: line;
-	text-min-distance: 220;
-
-	text-size: @label_scale * 12;
-}
-#major-road-labels[highway='secondary'][zoom=16],
-#major-road-labels[highway='tertiary'][zoom=16] {
-	text-size: @label_scale * 12;
-}
-
-#minor-road-labels[zoom=16] {
-	text-name: '[name]';
-	text-face-name: 'Arial Regular';
-	text-placement: line;
-	text-max-char-angle-delta: 30;
-	text-fill: @minor_2;
-	text-halo-radius: 2;
-	text-halo-fill: @minor_case;
-	text-spacing: 124;
-	text-min-distance: 220;
-
-	text-size: @label_scale * 10;
-}
-
-/* zoom 17 */
-#major-road-labels[highway='trunk'][zoom=17],
-#major-road-labels[highway='primary'][zoom=17],
-#major-road-labels[highway='secondary'][zoom=17],
-#major-road-labels[highway='tertiary'][zoom=17] {
-	text-name: '[name]';
-	text-face-name: 'Arial Regular';
-	text-placement: line;
-	text-max-char-angle-delta: 30;
-	text-fill: @major_text;
-	text-halo-radius: 2;
-	text-halo-fill: @major_text_case;
-	text-spacing: 180;
-	text-placement: line;
-	text-min-distance: 240;
-
-	text-size: @label_scale * 16;
-}
-#major-road-labels[highway='primary'][zoom=17],
-#major-road-labels[highway='secondary'][zoom=17] {
-	text-size: @label_scale * 13;
-}
-#major-road-labels[highway='tertiary'][zoom=17] {
-	text-size: @label_scale * 12;
-}
-#minor-road-labels[zoom=17] {
-	text-name: '[name]';
-	text-face-name: 'Arial Regular';
-	text-placement: line;
-	text-max-char-angle-delta: 30;
-	text-fill: @minor_2;
-	text-halo-radius: 2;
-	text-halo-fill: @minor_case;
-	text-spacing: 180;
-	text-min-distance: 240;
-
-	text-size: @label_scale * 11;
-}
-
-/* zoom 18 */
-#major-road-labels[highway='trunk'][zoom=18],
-#major-road-labels[highway='primary'][zoom=18],
-#major-road-labels[highway='secondary'][zoom=18],
-#major-road-labels[highway='tertiary'][zoom=18] {
-	text-name: '[name]';
-	text-face-name: 'Arial Bold';
-	text-placement: line;
-	text-max-char-angle-delta: 30;
-	text-fill: @major_text;
-	text-halo-radius: 2;
-	text-halo-fill: @major_text_case;
-	text-spacing: 300;
-	text-placement: line;
-	text-min-distance: 240;
-
-	text-size: @label_scale * 16;
-}
-#major-road-labels[highway='primary'][zoom=18],
-#major-road-labels[highway='secondary'][zoom=18] {
-	text-size: @label_scale * 14;
-}
-#major-road-labels[highway='tertiary'][zoom=18] {
-	text-size: @label_scale * 12;
-}
-#minor-road-labels[zoom=18] {
-	text-name: '[name]';
-	text-face-name: 'Arial Regular';
-	text-placement: line;
-	text-max-char-angle-delta: 30;
-	text-fill: @minor_2;
-	text-halo-radius: 2;
-	text-halo-fill: @minor_case;
-	text-spacing: 400;
-	text-min-distance: 240;
-
-	text-size: @label_scale * 12;
-}
-
-
-#major-road-labels[highway='trunk'][zoom>=19],
-#major-road-labels[highway='primary'][zoom>=19],
-#major-road-labels[highway='secondary'][zoom>=19],
-#major-road-labels[highway='tertiary'][zoom>=19] {
-	text-name: '[name]';
-	text-face-name: 'Arial Bold';
-	text-placement: line;
-	text-max-char-angle-delta: 30;
-	text-fill: @major_text;
-	text-halo-radius: 2;
-	text-halo-fill: @major_text_case;
-	text-spacing: 300;
-	text-placement: line;
-	text-min-distance: 240;
-
-	text-size: @label_scale * 21;
-}
-#major-road-labels[highway='primary'][zoom>=19],
-#major-road-labels[highway='secondary'][zoom>=19] {
-	text-size: @label_scale * 20;
-}
-#major-road-labels[highway='tertiary'][zoom>=19] {
-	text-size: @label_scale * 18;
-}
-#minor-road-labels[zoom>=19] {
-	text-name: '[name]';
-	text-face-name: 'Arial Regular';
-	text-placement: line;
-	text-max-char-angle-delta: 30;
-	text-fill: @minor_2;
-	text-halo-radius: 2;
-	text-halo-fill: @minor_case;
-	text-spacing: 400;
-	text-min-distance: 240;
-
-	text-size: @label_scale * 18;
-}
-
-/* Subway and rail stations */
-/*
-#poi-station-labels
-{
-  [railway='station']
-  {
-    point-allow-overlap: false;
-    point-ignore-placement: true;
-    point-placement: interior;
-    [zoom>=14]
-    { point-file: url("images/railway_11px2.png"); }
-    [zoom>=15]
-    { point-file: url("images/railway_16px.png"); }
-    [zoom>=16]
-    { point-file: url("images/railway_16px.png"); }
-
-    /* Use for subway * /
-    [name =~ '.+Metro\)']
-    {
-      [zoom>=14]
-      { point-file: url("images/metro_small4.png"); }
-      [zoom>=15]
-      { point-file: url("images/metro_12px.png"); }
-      [zoom>=16]
-      { point-file: url("images/metro_16px.png"); }
-    }
-  }
-}
-*/
-#poi-station-labels
-{
-  [zoom>=14]
-  {
-    point-allow-overlap: false;
-    point-ignore-placement: true;
-    point-placement: interior;
-    point-file: url("images/railway_11px2.png");
-  }
-
-  [zoom>=15]
-  {
-    point-file: url("images/railway_16px.png");
-  }
-
-  [zoom>=16]
-  {
-    point-file: url("images/railway_16px.png");
-  }
-
-  [is_metro='yes']
-  {
-    [zoom>=14]
-    {
-      point-file: url("images/metro_small4.png");
-    }
-
-    [zoom>=15]
-    {
-      point-file: url("images/metro_12px.png");
-    }
-
-    [zoom>=16]
-    {
-      point-file: url("images/metro_16px.png");
-    }
-  }
-}
-
-#poi-station-labels
-{
-  [zoom>=15]
-  {
-    text-name: '[name]';
-    text-face-name: 'Arial Regular';
-    text-size: @label_scale * 9;
-    text-max-char-angle-delta: 30;
-    text-fill: #000;
-    text-halo-radius: 3;
-    text-halo-fill: @land;
-    text-spacing: 100;
-    text-min-distance: 10;
-    text-allow-overlap: false;
-    text-wrap-width: 30;
-    text-dx: 0;
-    text-dy: 8;
-  }
-  
-  [zoom>=16]
-  {
-    text-halo-radius: 2;
-  }
-  
-  [zoom>=17]
-  {
-    text-size: @label_scale * 11;
-    text-halo-radius: 2;
-  }
-}
-
-.buildings-labels[zoom>=17]['addr:housenumber'!=''],
-.node[zoom>=18]['addr:housenumber'!='']
-{
-	text-face-name: 'Arial Bold';
-	text-size: @label_scale * 10;
 	text-name: '[addr:housenumber]';
-	text-fill: white;
+	text-fill: darken( @building, 20% );
 	text-wrap-width: 80;
+	text-halo-radius: 0.5;
+	text-halo-fill: @land;
+	text-character-spacing: @char_spacing;
 }
+
 
 #place-labels
 {
-  [place='city'][zoom>=8],
-  [place='town'][zoom>=10],
-  [place='village'][zoom>=12],
-  [place='suburb'][zoom>=13],
-  [place='neighborhood']
+  ::capital
   {
-    text-name: '[name]';
-    text-face-name: 'Arial Regular';
-    text-fill: #000;
-    text-halo-fill: white;
-    text-max-char-angle-delta: 30;
-    text-wrap-width: 40;
-    text-halo-radius: 2;
-    text-allow-overlap: false;
-    text-size: @label_scale * 9;
-    text-spacing: 100;
-    text-line-spacing: 2;
-    text-wrap-width: 70;
-  }
-  
-  [zoom>=8]
-  {
-  	[population>=50000]
-  	{
+    [place='city'][population>=300000]
+    {
+      text-size: 0;
       text-name: '[name]';
-      text-face-name: 'Arial Regular';
-      text-size: @label_scale * 15;
-      text-halo-radius: 2;
-      text-halo-fill: white;
+      text-face-name: @font_bold;
+      text-fill: @label;
+      text-halo-fill: @label_halo_place;
+      text-wrap-width: 40;
+      text-halo-radius: @label_halo;
+      text-allow-overlap: false;
+      text-line-spacing: 2;
+      text-wrap-width: 70;
+      text-character-spacing: @char_spacing;
+      
+      [zoom>=8][zoom<=12] { text-size: @label_scale * @place_c1; }
+      [zoom>=13][zoom<=14] { text-size: @label_scale * @place_c0; }
+      [zoom=15] { text-size: @label_scale * @place_c0; text-transform: uppercase; text-face-name: @font_bold; }
     }
   }
-  
-  [zoom>=10]
+
+  ::city
   {
-  	[population>=50000]
-  	{
+    [place='city'][population<300000],
+    {
+      text-size: 0;
       text-name: '[name]';
-      text-face-name: 'Arial Regular';
-      text-size: @label_scale * 15;
+      text-face-name: @font;
+      text-fill: @label;
+      text-halo-fill: @label_halo_place;
+      text-wrap-width: 40;
+      text-halo-radius: @label_halo;
+      text-allow-overlap: false;
+      text-line-spacing: 2;
+      text-wrap-width: 70;
+      text-character-spacing: @char_spacing;
+      
+      [zoom>=8][zoom<=12] { text-size: @label_scale * @place_c2; }
+      [zoom>=13][zoom<=14] { text-size: @label_scale * @place_c1; }
+      [zoom=15] { text-size: @label_scale * @place_c1; text-transform: uppercase; text-face-name: @font_bold; }
     }
   }
   
-  [zoom>=11]
+  ::town_large
   {
-  	[population>=50000]
-  	{
+    [place='town'][population>=10000],
+    [place='suburb']
+    {
+      text-size: 0;
       text-name: '[name]';
-      text-face-name: 'Arial Regular';
-      text-size: @label_scale * 16;
+      text-face-name: @font;
+      text-fill: @label;
+      text-halo-fill: @label_halo_place;
+      text-wrap-width: 40;
+      text-halo-radius: @label_halo;
+      text-allow-overlap: false;
+      text-line-spacing: 2;
+      text-wrap-width: 70;
+      text-character-spacing: @char_spacing;
+
+      [place='suburb'] { text-fill: @label_light; }
+      
+      [zoom>=10][zoom<=14] { text-size: @label_scale * @place_c3; }
+      [zoom>=15][zoom<=16] { text-size: @label_scale * @place_c2; text-transform: uppercase; text-face-name: @font_bold; }
     }
   }
-  
-  [zoom>=12]
+
+  ::town_small
   {
-  	[population>=50000]
-  	{
+    [place='town'][population<10000],
+    [place='neighborhood']
+    {
+      text-size: 0;
       text-name: '[name]';
-      text-face-name: 'Arial Regular';
-      text-size: @label_scale * 15;
+      text-face-name: @font;
+      text-fill: @label;
+      text-halo-fill: @label_halo_place;
+      text-wrap-width: 40;
+      text-halo-radius: @label_halo;
+      text-allow-overlap: false;
+      text-line-spacing: 2;
+      text-wrap-width: 70;
+      text-character-spacing: @char_spacing;
+      
+      [place='neighborhood'] { text-fill: @label_light; }
+      [zoom>=10][zoom<=14] { text-size: @label_scale * @place_c4; }
+      [zoom>=15][zoom<=17] { text-size: @label_scale * @place_c3; text-transform: uppercase; text-face-name: @font_bold; }
     }
   }
-  
-  [zoom>=14][zoom<=15]
+
+  ::village_big
   {
-  	[population>=40000]
-  	{
+    [place='village'][population>=2000]
+    {
+      text-size: 0;
       text-name: '[name]';
-      text-face-name: 'Arial Regular';
-      text-size: @label_scale * 17;
+      text-face-name: @font;
+      text-fill: @label;
+      text-halo-fill: @label_halo_place;
+      text-wrap-width: 40;
+      text-halo-radius: @label_halo;
+      text-allow-overlap: false;
+      text-line-spacing: 2;
+      text-wrap-width: 70;
+      text-character-spacing: @char_spacing;
+
+      [zoom>=10][zoom<=14] { text-size: @label_scale * @place_c5; }
+      [zoom>=15][zoom<=16] { text-size: @label_scale * @place_c4; text-transform: uppercase; text-face-name: @font_bold; }
     }
-    
-    [population>=15000]
-  	{
+  }
+  
+  ::village_small
+  {
+    [place='village'][population<1000]
+    {
+      text-size: 0;
       text-name: '[name]';
-      text-face-name: 'Arial Regular';
-      text-size: @label_scale * 14;
+      text-face-name: @font;
+      text-fill: @label;
+      text-halo-fill: @label_halo_place;
+      text-wrap-width: 40;
+      text-halo-radius: @label_halo;
+      text-allow-overlap: false;
+      text-line-spacing: 2;
+      text-wrap-width: 70;
+      text-character-spacing: @char_spacing;
+
+      [zoom>=12][zoom<=14] { text-size: @label_scale * @place_c5; }
+      [zoom>=15][zoom<=17] { text-size: @label_scale * @place_c4; text-transform: uppercase; text-face-name: @font_bold; }
     }
-  }
-}
-
-#major-road-labels[ref!='']
-{
-  [chars>5][zoom<=13]
-  {
-    text-name: '[ref]';
-    text-face-name: 'Arial Bold';
-    text-size: @label_scale * 11;
-    text-halo-radius: 2;
-    text-placement: line;
-    text-min-distance: 160;
-    text-character-spacing: -1;
-    
-    text-halo-fill: white;
-    text-fill: #046a64;
-  }
-  
-  [chars<=5][zoom<=13]
-  {
-    shield-file: url("images/shield_30px.png");
-    shield-name: '[ref]';
-    shield-face-name: 'Arial Bold';
-    shield-size: 10;
-    shield-fill: #046a64;
-    /*
-    shield-halo-radius: 1;
-    shield-halo-fill: @land;
-    */
-    shield-spacing: 400;
-    shield-min-distance: 200;
-    shield-wrap-width: 30;
-
-    [chars=1]
-    {
-      shield-file: url("images/shield_15px.png");
-    }
-
-    [chars=2]
-    {
-      shield-file: url("images/shield_18px.png");
-    }
-
-    [chars=3]
-    {
-      shield-file: url("images/shield_26px.png");
-    }
-
-    [chars=4]
-    {
-      shield-file: url("images/shield_30px.png");
-    }
-
-    [chars=5]
-    {
-      shield-file: url("images/shield_30px.png");
-    }
-  }
-}
-
-#bike-route-labels
-{
-  [chars>4][zoom>=15]
-  {
-    text-name: '[ref]';
-    text-face-name: 'Arial Bold';
-    text-size: @label_scale * 13;
-    text-halo-radius: 2;
-    text-placement: line;
-    text-min-distance: 180;
-    
-    [ncn='yes'] /* national cycle networks */
-    {
-      text-halo-fill: #9463e4;
-      text-fill: white;
-    }
-
-    [rcn='yes'] /* regional cycle networks */
-    {
-      text-halo-fill: #0083e9;
-      text-fill: white;
-    }
-
-    [lcn='yes'] /* local cycle networks */
-    { 
-      text-halo-fill: #00bf3f;
-      text-fill: white;
-    }
-  }
-
-  [chars<=4][zoom>=15]
-  {
-    shield-file: url("images/shield_test4.png");
-    shield-name: '[ref]';
-    shield-face-name: 'Arial Bold';
-    shield-size: 10;
-    shield-fill: white;
-    shield-min-distance: 40;
-    /*
-    shield-halo-radius: 1;
-    shield-halo-fill: @land;
-    */
-    shield-spacing: 200;
-    shield-wrap-width: 30;
-
-    [chars=1]
-    {
-      [ncn='yes'] /* national cycle networks */
-      {
-        shield-file: url("images/shield_ncn_15px.png");
-      } 
-
-      [rcn='yes'] /* regional cycle networks */
-      {
-        shield-file: url("images/shield_rcn_15px.png");
-      }
-
-      [lcn='yes'] /* local cycle networks */
-      {
-        shield-file: url("images/shield_lcn_15px.png");
-      }
-    }
-
-    [chars=2]
-    {
-      [ncn='yes'] /* national cycle networks */
-      {
-        shield-file: url("images/shield_ncn_18px.png");
-      } 
-
-      [rcn='yes'] /* regional cycle networks */
-      {
-        shield-file: url("images/shield_rcn_18px.png");
-      }
-
-      [lcn='yes'] /* local cycle networks */
-      {
-        shield-file: url("images/shield_lcn_18px.png");
-      }
-    }
-
-    [chars=3]
-    {
-      [ncn='yes'] /* national cycle networks */
-      {
-        shield-file: url("images/shield_ncn_26px.png");
-      } 
-
-      [rcn='yes'] /* regional cycle networks */
-      {
-        shield-file: url("images/shield_rcn_26px.png");
-      }
-
-      [lcn='yes'] /* local cycle networks */
-      {
-        shield-file: url("images/shield_lcn_26px.png");
-      }
-    }
-
-    [chars=4]
-    {
-      [ncn='yes'] /* national cycle networks */
-      {
-        shield-file: url("images/shield_ncn_30px.png");
-      } 
-
-      [rcn='yes'] /* regional cycle networks */
-      {
-        shield-file: url("images/shield_rcn_30px.png");
-      }
-
-      [lcn='yes'] /* local cycle networks */
-      {
-        shield-file: url("images/shield_lcn_30px.png");
-      }
-    }
-  }
-}
-
-#area-labels,
-{
-  [zoom>=15]
-  {
-    text-name: '[name]';
-    text-face-name: 'Arial Regular';
-    text-size: @label_scale * 9;
-    text-halo-radius: 2;
-    text-wrap-width: 32;
-    text-fill: #555;
-    text-halo-fill: #f8f5f2;
-  }
-  
-  [zoom>=16]
-  {
-    text-name: '[name]';
-    text-face-name: 'Arial Regular';
-    text-size: @label_scale * 10;
-  }
-  
-  [zoom>=16]
-  {
-    text-name: '[name]';
-    text-face-name: 'Arial Regular';
-    text-size: @label_scale * 11;
-  }
-  
-  [zoom>=17]
-  {
-    text-name: '[name]';
-    text-face-name: 'Arial Regular';
-    text-size: @label_scale * 12;
   }
 }
