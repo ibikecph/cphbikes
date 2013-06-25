@@ -45,7 +45,7 @@
 	text-face-name: 'Arial Italic';
 	text-fill: #fff;
 	text-halo-fill: @water;
-	text-placement: point;
+	text-placement: interior;
 	text-max-char-angle-delta: 30;
 	text-wrap-width: 40;
 	text-halo-radius: 2;
