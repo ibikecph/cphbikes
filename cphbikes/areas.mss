@@ -1,8 +1,3 @@
-@playground: hsl( 50, 100%, 50% );
-@graveyard: darken( @park, 10% );
-@residential: darken( @land, 3% );
-@industrian: darken( @land, 5% );
-
 #copenhagen_polygon
 {
   ::golf[leisure='golf_course']
@@ -28,6 +23,8 @@
     [leisure='pitch'],
     [natural='wood'],
     [landuse='greenfield'],
+    [landuse='orchard'],
+    [landuse='grass']
     {
       [zoom>=8]
       {
@@ -57,7 +54,7 @@
   
   ::residential[landuse='residential'],
   {
-    [zoom>=8]
+    [zoom>=11]
     {
       polygon-fill: @residential;
     }
@@ -65,7 +62,7 @@
 
   ::residential[landuse='industrial'],
   {
-    [zoom>=8]
+    [zoom>=11]
     {
       polygon-fill: @residential;
     }
@@ -171,8 +168,8 @@
   ::water
   {
     [natural='water'],
-    [landuse='reservoir'],
-    [waterway!='undefined'] {
+    [landuse='reservoir']
+    {
       [zoom>=10]
       {
         polygon-fill: @water;
