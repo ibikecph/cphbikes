@@ -1134,9 +1134,8 @@
 */
 
 /* Ferries */
-/* TODO layer under bridges */
 
-.line[route='ferry']
+#ferries
 {
   [zoom>=14]
   {
