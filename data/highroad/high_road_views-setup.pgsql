@@ -334,10 +334,14 @@ CREATE VIEW planet_osm_line_z15plus AS
          surface,
          bicycle,
          cycleway,
+         "ramp:bicycle",
 
          (CASE WHEN highway IN ('motorway', 'motorway_link') THEN 'highway'
                WHEN highway IN ('trunk', 'trunk_link', 'primary', 'primary_link', 'secondary', 'secondary_link', 'tertiary', 'tertiary_link') THEN 'major_road'
-               WHEN highway IN ('footpath', 'track', 'footway', 'steps', 'pedestrian', 'path', 'cycleway') THEN 'path'
+               WHEN highway IN ('footpath', 'track', 'footway', 'path') THEN 'path'
+               WHEN highway IN ('cycleway') THEN 'cycleway'
+               WHEN highway IN ('steps') THEN 'steps'
+               WHEN highway IN ('pedestrian') THEN 'pedestrian'
                WHEN railway IN ('rail', 'tram', 'light_rail', 'narrow_gauge', 'monorail') THEN 'rail'
                ELSE 'minor_road' END) AS kind,
 
@@ -408,43 +412,43 @@ CREATE VIEW planet_osm_line_z15plus_small AS
 
 
 CREATE OR REPLACE FUNCTION high_road(scaleDenominator numeric, bbox box3d)
-  RETURNS TABLE(way geometry, highway text, railway text, kind text, is_link text, is_tunnel text, is_bridge text, access text, surface text, bicycle text, cycleway text) AS
+  RETURNS TABLE(way geometry, highway text, railway text, kind text, is_link text, is_tunnel text, is_bridge text, access text, surface text, bicycle text, cycleway text, "ramp:bicycle" text) AS
 $$
 BEGIN
   CASE
     -- z10
     WHEN scaleDenominator <= 750000 AND scaleDenominator > 400000 THEN
-      RETURN QUERY SELECT tbl.way, tbl.highway::text, tbl.railway::text, tbl.kind::text, tbl.is_link::text, tbl.is_tunnel::text, tbl.is_bridge::text, tbl.access::text, tbl.surface::text, tbl.bicycle::text, tbl.cycleway::text
+      RETURN QUERY SELECT tbl.way, tbl.highway::text, tbl.railway::text, tbl.kind::text, tbl.is_link::text, tbl.is_tunnel::text, tbl.is_bridge::text, tbl.access::text, tbl.surface::text, tbl.bicycle::text, tbl.cycleway::text, ''::text
       FROM planet_osm_line_z10 as tbl
       WHERE tbl.way && bbox;
 
     -- z11
     WHEN scaleDenominator <= 400000 AND scaleDenominator > 200000 THEN
-      RETURN QUERY SELECT tbl.way, tbl.highway::text, tbl.railway::text, tbl.kind::text, tbl.is_link::text, tbl.is_tunnel::text, tbl.is_bridge::text, tbl.access::text, tbl.surface::text, tbl.bicycle::text, tbl.cycleway::text
+      RETURN QUERY SELECT tbl.way, tbl.highway::text, tbl.railway::text, tbl.kind::text, tbl.is_link::text, tbl.is_tunnel::text, tbl.is_bridge::text, tbl.access::text, tbl.surface::text, tbl.bicycle::text, tbl.cycleway::text, ''::text
       FROM planet_osm_line_z11 as tbl
       WHERE tbl.way && bbox;
 
     -- z12
     WHEN scaleDenominator <= 200000 AND scaleDenominator > 100000 THEN
-      RETURN QUERY SELECT tbl.way, tbl.highway::text, tbl.railway::text, tbl.kind::text, tbl.is_link::text, tbl.is_tunnel::text, tbl.is_bridge::text, tbl.access::text, tbl.surface::text, tbl.bicycle::text, tbl.cycleway::text
+      RETURN QUERY SELECT tbl.way, tbl.highway::text, tbl.railway::text, tbl.kind::text, tbl.is_link::text, tbl.is_tunnel::text, tbl.is_bridge::text, tbl.access::text, tbl.surface::text, tbl.bicycle::text, tbl.cycleway::text, ''::text
       FROM planet_osm_line_z12 as tbl
       WHERE tbl.way && bbox;
 
     -- z13
     WHEN scaleDenominator <= 100000 AND scaleDenominator > 50000 THEN
-      RETURN QUERY SELECT tbl.way, tbl.highway::text, tbl.railway::text, tbl.kind::text, tbl.is_link::text, tbl.is_tunnel::text, tbl.is_bridge::text, tbl.access::text, tbl.surface::text, tbl.bicycle::text, tbl.cycleway::text
+      RETURN QUERY SELECT tbl.way, tbl.highway::text, tbl.railway::text, tbl.kind::text, tbl.is_link::text, tbl.is_tunnel::text, tbl.is_bridge::text, tbl.access::text, tbl.surface::text, tbl.bicycle::text, tbl.cycleway::text, ''::text
       FROM planet_osm_line_z13 as tbl
       WHERE tbl.way && bbox;
 
     -- z14
     WHEN scaleDenominator <= 50000 AND scaleDenominator > 25000 THEN
-      RETURN QUERY SELECT tbl.way, tbl.highway::text, tbl.railway::text, tbl.kind::text, tbl.is_link::text, tbl.is_tunnel::text, tbl.is_bridge::text, tbl.access::text, tbl.surface::text, tbl.bicycle::text, tbl.cycleway::text
+      RETURN QUERY SELECT tbl.way, tbl.highway::text, tbl.railway::text, tbl.kind::text, tbl.is_link::text, tbl.is_tunnel::text, tbl.is_bridge::text, tbl.access::text, tbl.surface::text, tbl.bicycle::text, tbl.cycleway::text, ''::text
       FROM planet_osm_line_z14 as tbl
       WHERE tbl.way && bbox;
 
     -- z15+
     WHEN scaleDenominator <= 25000 THEN
-      RETURN QUERY SELECT tbl.way, tbl.highway::text, tbl.railway::text, tbl.kind::text, tbl.is_link::text, tbl.is_tunnel::text, tbl.is_bridge::text, tbl.access::text, tbl.surface::text, tbl.bicycle::text, tbl.cycleway::text
+      RETURN QUERY SELECT tbl.way, tbl.highway::text, tbl.railway::text, tbl.kind::text, tbl.is_link::text, tbl.is_tunnel::text, tbl.is_bridge::text, tbl.access::text, tbl.surface::text, tbl.bicycle::text, tbl.cycleway::text, tbl."ramp:bicycle"::text
       FROM planet_osm_line_z15plus as tbl
       WHERE tbl.way && bbox;
 
